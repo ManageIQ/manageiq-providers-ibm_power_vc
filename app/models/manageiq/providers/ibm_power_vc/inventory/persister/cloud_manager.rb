@@ -1,2 +1,2 @@
-class ManageIQ::Providers::IbmPowerVc::Inventory::Persister::CloudManager < ManageIQ::Providers::IbmPowerVc::Inventory::Persister
+class ManageIQ::Providers::IbmPowerVc::Inventory::Persister::CloudManager < ManageIQ::Providers::Openstack::Inventory::Persister::CloudManager
 end

@@ -1,2 +1,2 @@
-class ManageIQ::Providers::IbmPowerVc::CloudManager::RefreshWorker::Runner < ManageIQ::Providers::BaseManager::RefreshWorker::Runner
+class ManageIQ::Providers::IbmPowerVc::CloudManager::RefreshWorker::Runner < ManageIQ::Providers::Openstack::CloudManager::RefreshWorker::Runner
 end

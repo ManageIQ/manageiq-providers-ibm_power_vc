@@ -1,3 +1,3 @@
-class ManageIQ::Providers::IbmPowerVc::Inventory::Parser < ManageIQ::Providers::Inventory::Parser
+class ManageIQ::Providers::IbmPowerVc::Inventory::Parser < ManageIQ::Providers::Openstack::Inventory::Parser
   require_nested :CloudManager
 end

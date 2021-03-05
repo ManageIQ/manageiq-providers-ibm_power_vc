@@ -1,2 +1,2 @@
-class ManageIQ::Providers::IbmPowerVc::Inventory::Parser::CloudManager < ManageIQ::Providers::IbmPowerVc::Inventory::Parser
+class ManageIQ::Providers::IbmPowerVc::Inventory::Parser::CloudManager < ManageIQ::Providers::Openstack::Inventory::Parser::CloudManager
 end

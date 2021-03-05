@@ -1,9 +1,3 @@
 module ManageIQ::Providers::IbmPowerVc::Inventory::Persister::Definitions::CloudCollections
-  extend ActiveSupport::Concern
-
-  def initialize_cloud_inventory_collections
-    %i(vms).each do |name|
-      add_collection(cloud, name)
-    end
-  end
+  include ManageIQ::Providers::Openstack::Inventory::Persister::Definitions::CloudCollections
 end

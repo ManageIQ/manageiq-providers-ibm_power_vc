@@ -1,2 +1,2 @@
-class ManageIQ::Providers::IbmPowerVc::CloudManager::MetricsCollectorWorker::Runner < ManageIQ::Providers::BaseManager::MetricsCollectorWorker::Runner
+class ManageIQ::Providers::IbmPowerVc::CloudManager::MetricsCollectorWorker::Runner < ManageIQ::Providers::Openstack::CloudManager::MetricsCollectorWorker::Runner
 end

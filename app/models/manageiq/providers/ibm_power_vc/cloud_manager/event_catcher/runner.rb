@@ -1,3 +1,2 @@
-class ManageIQ::Providers::IbmPowerVc::CloudManager::EventCatcher::Runner < ManageIQ::Providers::BaseManager::EventCatcher::Runner
-  include ManageIQ::Providers::Openstack::EventCatcherMixin
+class ManageIQ::Providers::IbmPowerVc::CloudManager::EventCatcher::Runner < ManageIQ::Providers::Openstack::CloudManager::EventCatcher::Runner
 end

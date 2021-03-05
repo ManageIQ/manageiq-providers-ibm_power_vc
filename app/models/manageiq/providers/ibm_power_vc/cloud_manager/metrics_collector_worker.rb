@@ -1,4 +1,4 @@
-class ManageIQ::Providers::IbmPowerVc::CloudManager::MetricsCollectorWorker < ManageIQ::Providers::BaseManager::MetricsCollectorWorker
+class ManageIQ::Providers::IbmPowerVc::CloudManager::MetricsCollectorWorker < ManageIQ::Providers::Openstack::CloudManager::MetricsCollectorWorker
   require_nested :Runner
 
   self.default_queue_name = "ibm_power_vc"

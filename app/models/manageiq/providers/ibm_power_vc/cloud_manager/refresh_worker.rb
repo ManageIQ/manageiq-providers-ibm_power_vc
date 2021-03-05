@@ -1,4 +1,4 @@
-class ManageIQ::Providers::IbmPowerVc::CloudManager::RefreshWorker < MiqEmsRefreshWorker
+class ManageIQ::Providers::IbmPowerVc::CloudManager::RefreshWorker < ManageIQ::Providers::Openstack::CloudManager::RefreshWorker
   require_nested :Runner
 
   def self.settings_name
