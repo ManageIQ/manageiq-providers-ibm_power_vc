@@ -1,0 +1,17 @@
+/.bundle/
+/.yardoc
+/Gemfile.lock
+/_yardoc/
+/coverage/
+/doc/
+/pkg/
+/spec/reports/
+/tmp/
+
+.rubocop-*
+/bundler.d/*
+!/bundler.d/.keep
+/config/settings.local.yml
+/config/settings/*.local.yml
+/config/environments/*.local.yml
+/spec/manageiq
