@@ -43,9 +43,25 @@ class ManageIQ::Providers::IbmPowerVc::CloudManager < ManageIQ::Providers::Opens
     authentications.detect { |e| e.authtype == "node" }
   end
 
+  def get_image_info(uid_ems)
+    image = MiqTemplate.find_by(:uid_ems => uid_ems)
+    os = OperatingSystem.find_by(:vm_or_template => image.id)
+
+    # XXX: do we need verification here?
+    if(os.distribution == 'rhel')
+      os.distribution = 'redhat'
+    end
+
+    {:name => image.name, :os => os.distribution}
+  end
+
   def connect(options = {})
     super(options)
     # TODO: here allow getting saved creds
+  end
+
+  def image_name
+    "ibm"
   end
 
   def self.ems_type
