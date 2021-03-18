@@ -1,4 +1,6 @@
 class ManageIQ::Providers::IbmPowerVc::CloudManager < ManageIQ::Providers::Openstack::CloudManager
+  include ActsAsStiLeafClass
+
   require_nested :MetricsCapture
   require_nested :MetricsCollectorWorker
   require_nested :Refresher
