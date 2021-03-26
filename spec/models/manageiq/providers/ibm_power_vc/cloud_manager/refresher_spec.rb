@@ -1,10 +1,11 @@
 describe ManageIQ::Providers::IbmPowerVc::CloudManager::Refresher do
-  let(:ems) { FactoryBot.create(:ems_ibm_power_vc_with_vcr_authentication) }
+  let(:zone) { EvmSpecHelper.create_guid_miq_server_zone.last }
+  let(:ems) { FactoryBot.create(:ems_ibm_power_vc_with_vcr_authentication, :zone => zone) }
 
   describe "#refresh" do
     context "full refresh" do
       it "Performs a full refresh" do
-        2.times do
+        1.times do
           with_vcr { refresh(ems) }
 
           assert_ems

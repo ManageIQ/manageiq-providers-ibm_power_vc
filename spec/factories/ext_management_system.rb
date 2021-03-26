@@ -3,6 +3,10 @@ FactoryBot.define do
 
   factory :ems_ibm_power_vc_with_vcr_authentication, :parent => :ems_ibm_power_vc do
     hostname { Rails.application.secrets.ibm_power_vc[:hostname] }
+    port { 5000 }
+    api_version { "v3" }
+    keystone_v3_domain_id { "default" }
+    security_protocol { "ssl-no-validation" }
 
     after(:create) do |ems|
       user_id  = Rails.application.secrets.ibm_power_vc[:user_id]

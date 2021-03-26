@@ -1,0 +1,2906 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://powervc.local:5000/v3/auth/tokens
+    body:
+      encoding: UTF-8
+      string: '{"auth":{"identity":{"methods":["password"],"password":{"user":{"name":"user","domain":{"id":"default"},"password":"password"}}},"scope":{"project":{"name":"admin","domain":{"id":"default"}}}}}'
+    headers:
+      User-Agent:
+      - fog-core/2.1.0
+      Content-Type:
+      - application/json
+  response:
+    status:
+      code: 401
+      message: UNAUTHORIZED
+    headers:
+      Date:
+      - Tue, 13 Apr 2021 19:51:51 GMT
+      Server:
+      - Apache
+      Vary:
+      - X-Auth-Token,User-Agent
+      X-Openstack-Request-Id:
+      - req-46e21532-e3ac-4857-82f0-754ea7181ffa
+      Www-Authenticate:
+      - Keystone uri="https://powervc.local:5000/v3"
+      Content-Length:
+      - '109'
+      Content-Type:
+      - application/json
+    body:
+      encoding: ASCII-8BIT
+      string: '{"error":{"code":401,"message":"The request you have made requires
+        authentication.","title":"Unauthorized"}}
+
+        '
+    http_version:
+  recorded_at: Tue, 13 Apr 2021 19:51:51 GMT
+- request:
+    method: post
+    uri: https://powervc.local:5000/v3/auth/tokens
+    body:
+      encoding: UTF-8
+      string: '{"auth":{"identity":{"methods":["password"],"password":{"user":{"name":"user","domain":{"id":"default"},"password":"password"}}}}}'
+    headers:
+      User-Agent:
+      - fog-core/2.1.0
+      Content-Type:
+      - application/json
+  response:
+    status:
+      code: 201
+      message: CREATED
+    headers:
+      Date:
+      - Tue, 13 Apr 2021 19:51:52 GMT
+      Server:
+      - Apache
+      X-Subject-Token:
+      - gAAAAABgdfZxoDE8rBJWCZ4_L9XfDLBHMNnRXSd_cxlsNUlzCGnH1y8DGUvNTJRlK7bgM_kBvASb9q5i0p5WhHVXwZnzDzoRooaR0bfepnpKd_4PK0fn6IyHi8ZoQUmWFVxwHbcqRpVBr-x9s9mSeYAR6PngZTWyJsAHEALPmqqKr0El-21XzX5vy0gLfa664K_V5XGIqi54BQTHLPnVGW0jpsvdLohhLQ
+      Vary:
+      - X-Auth-Token,User-Agent
+      X-Openstack-Request-Id:
+      - req-28b381c5-e40b-4d48-b6f3-d1a37d001ddb
+      Content-Length:
+      - '343'
+      Content-Type:
+      - application/json
+    body:
+      encoding: ASCII-8BIT
+      string: '{"token": {"issued_at": "2021-04-13T19:52:17.000000Z", "audit_ids":
+        ["OxhQByxEQw2HCOrYM8n0pg"], "methods": ["password"], "expires_at": "2021-04-14T01:52:17.000000Z",
+        "user": {"password_expires_at": null, "domain": {"id": "default", "name":
+        "Default"}, "id": "0688b01e6439ca32d698d20789d52169126fb41fb1a4ddafcebb97d854e836c9",
+        "name": "user"}}}'
+    http_version:
+  recorded_at: Tue, 13 Apr 2021 19:52:17 GMT
+- request:
+    method: get
+    uri: https://powervc.local:5000/v3/users/0688b01e6439ca32d698d20789d52169126fb41fb1a4ddafcebb97d854e836c9/projects?domain_id=default
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - fog-core/2.1.0
+      Content-Type:
+      - application/json
+      Accept:
+      - application/json
+      X-Auth-Token:
+      - gAAAAABgdfZxoDE8rBJWCZ4_L9XfDLBHMNnRXSd_cxlsNUlzCGnH1y8DGUvNTJRlK7bgM_kBvASb9q5i0p5WhHVXwZnzDzoRooaR0bfepnpKd_4PK0fn6IyHi8ZoQUmWFVxwHbcqRpVBr-x9s9mSeYAR6PngZTWyJsAHEALPmqqKr0El-21XzX5vy0gLfa664K_V5XGIqi54BQTHLPnVGW0jpsvdLohhLQ
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Tue, 13 Apr 2021 19:52:17 GMT
+      Server:
+      - Apache
+      Vary:
+      - X-Auth-Token,Accept-Encoding,User-Agent
+      X-Openstack-Request-Id:
+      - req-35c76cb0-5620-478a-9396-d99811e3360e
+      Content-Length:
+      - '530'
+      Content-Type:
+      - application/json
+    body:
+      encoding: ASCII-8BIT
+      string: '{"links": {"self": "https://powervc.local:5000/v3/users/0688b01e6439ca32d698d20789d52169126fb41fb1a4ddafcebb97d854e836c9/projects?domain_id=default",
+        "previous": null, "next": null}, "projects": [{"is_domain": false, "description":
+        "IBM Default Tenant", "links": {"self": "https://powervc.local:5000/v3/projects/676b8977322946c0ab4700d7b908db5b"},
+        "tags": [], "enabled": true, "id": "676b8977322946c0ab4700d7b908db5b", "parent_id":
+        "default", "domain_id": "default", "name": "ibm-default"}]}
+
+        '
+    http_version:
+  recorded_at: Tue, 13 Apr 2021 19:52:17 GMT
+- request:
+    method: post
+    uri: https://powervc.local:5000/v3/auth/tokens
+    body:
+      encoding: UTF-8
+      string: '{"auth":{"identity":{"methods":["password"],"password":{"user":{"name":"user","domain":{"id":"default"},"password":"password"}}},"scope":{"project":{"name":"ibm-default","domain":{"id":"default"}}}}}'
+    headers:
+      User-Agent:
+      - fog-core/2.1.0
+      Content-Type:
+      - application/json
+  response:
+    status:
+      code: 201
+      message: CREATED
+    headers:
+      Date:
+      - Tue, 13 Apr 2021 19:52:18 GMT
+      Server:
+      - Apache
+      X-Subject-Token:
+      - gAAAAABgdfaL-VQ3iBSN-uTH4NpK4sNQVYJYDuvUyHVzuD0W5UAtYLRObfTbw6dCxQuCGciCa72_WkPip6xigmcfSaRDPeE1qI9U1yQ7X0pLtTw40GhlDFddZiEya9vjgRUzgMUt8tUxh0F0CoMt_VN_D1cZvBXn--vD8z1e8irHYS-A6IIPlPRt_gReO8al3zhiLwv_-QeqeESFKakWNy55s--QPeqSIhVHUlsdfGKuTKZyXmkFucQ
+      Vary:
+      - X-Auth-Token,User-Agent
+      X-Openstack-Request-Id:
+      - req-33df294d-e9ff-4c1e-b3bb-037dc8001fc0
+      Content-Length:
+      - '8539'
+      Content-Type:
+      - application/json
+    body:
+      encoding: ASCII-8BIT
+      string: '{"token": {"is_domain": false, "methods": ["password"], "roles": [{"id":
+        "379eb0a8ca554c208f2e2bc03254f239", "name": "admin"}], "expires_at": "2021-04-14T01:52:43.000000Z",
+        "project": {"domain": {"id": "default", "name": "Default"}, "id": "676b8977322946c0ab4700d7b908db5b",
+        "name": "ibm-default"}, "catalog": [{"endpoints": [{"region_id": "RegionOne",
+        "url": "https://powervc.local:9292", "region": "RegionOne", "interface": "admin",
+        "id": "9df13c8adc3b4698a02b6f891af66441"}, {"region_id": "RegionOne", "url":
+        "https://powervc.local:9292", "region": "RegionOne", "interface": "internal",
+        "id": "d118e424ac72472ea36b3ca1bb265f64"}, {"region_id": "RegionOne", "url":
+        "https://powervc.local:9292", "region": "RegionOne", "interface": "public",
+        "id": "f95a690760524c3fba935216c4a5d04e"}], "type": "image", "id": "15982d6dc71141ffbcdec2cca5ed80b4",
+        "name": "glance"}, {"endpoints": [{"region_id": "RegionOne", "url": "https://powervc.local:8428",
+        "region": "RegionOne", "interface": "admin", "id": "33ac582041024eb3a100d4c22e725387"},
+        {"region_id": "RegionOne", "url": "https://powervc.local:8428", "region":
+        "RegionOne", "interface": "internal", "id": "b3b402bec07f4ed6ae2f2fbb53fed5ce"},
+        {"region_id": "RegionOne", "url": "https://powervc.local:8428", "region":
+        "RegionOne", "interface": "public", "id": "e00871da16454284b919b2d4cae6e4d5"}],
+        "type": "ttv", "id": "30c155f1186a4478a58d0fb484df87ef", "name": "validator"},
+        {"endpoints": [{"region_id": "RegionOne", "url": "https://powervc.local:5000/v3",
+        "region": "RegionOne", "interface": "public", "id": "0d202a117585429ab662ce22884c7c98"},
+        {"region_id": "RegionOne", "url": "https://powervc.local:5000/v3", "region":
+        "RegionOne", "interface": "internal", "id": "6a2693c0567845e7b7acc61f8484ed60"},
+        {"region_id": "RegionOne", "url": "https://powervc.local:5000/v3", "region":
+        "RegionOne", "interface": "admin", "id": "a8df8f1432474ecc85bc07f2fa555b76"}],
+        "type": "identity", "id": "702de05ce707422192705789e35d84d1", "name": "keystone"},
+        {"endpoints": [{"region_id": "RegionOne", "url": "https://powervc.local:9000/v2/676b8977322946c0ab4700d7b908db5b",
+        "region": "RegionOne", "interface": "internal", "id": "a7670e388aa645e38c87d68a45a4193a"},
+        {"region_id": "RegionOne", "url": "https://powervc.local:9000/v2/676b8977322946c0ab4700d7b908db5b",
+        "region": "RegionOne", "interface": "public", "id": "e215e0495a5748718228b8e9c4450ffa"},
+        {"region_id": "RegionOne", "url": "https://powervc.local:9000/v2/676b8977322946c0ab4700d7b908db5b",
+        "region": "RegionOne", "interface": "admin", "id": "eb93823b398c4d3aaefa01f9017833cd"}],
+        "type": "volume", "id": "7c5bbbf6929a4481983d33f4c577ece8", "name": "cinder"},
+        {"endpoints": [{"region_id": "RegionOne", "url": "https://powervc.local:8778",
+        "region": "RegionOne", "interface": "admin", "id": "89a67d62454a47b295e35fd886f9bdf3"},
+        {"region_id": "RegionOne", "url": "https://powervc.local:8778", "region":
+        "RegionOne", "interface": "public", "id": "8f5f237d6ab54d62b049729a1e497bce"},
+        {"region_id": "RegionOne", "url": "https://powervc.local:8778", "region":
+        "RegionOne", "interface": "internal", "id": "9e4863dc21d446e9a26ff125f2a251b3"}],
+        "type": "event", "id": "80d1967bf27d4b478c83fb043bababb5", "name": "panko"},
+        {"endpoints": [{"region_id": "RegionOne", "url": "https://powervc.local:9696",
+        "region": "RegionOne", "interface": "public", "id": "1d217a828d0648b9a75c0535bd6b75c1"},
+        {"region_id": "RegionOne", "url": "https://powervc.local:9696", "region":
+        "RegionOne", "interface": "admin", "id": "591befadd43f49269ec11e2a2c2a683a"},
+        {"region_id": "RegionOne", "url": "https://powervc.local:9696", "region":
+        "RegionOne", "interface": "internal", "id": "a149251ece864342877bcb8e9b0f8776"}],
+        "type": "network", "id": "97a3e84732df47ad8627cf52567bfe26", "name": "neutron"},
+        {"endpoints": [{"region_id": "RegionOne", "url": "https://powervc.local:9000/v3/676b8977322946c0ab4700d7b908db5b",
+        "region": "RegionOne", "interface": "internal", "id": "67296992f3a348c6be611ced4edef1b3"},
+        {"region_id": "RegionOne", "url": "https://powervc.local:9000/v3/676b8977322946c0ab4700d7b908db5b",
+        "region": "RegionOne", "interface": "admin", "id": "e024241807044e92aa37f6b3d6deee07"},
+        {"region_id": "RegionOne", "url": "https://powervc.local:9000/v3/676b8977322946c0ab4700d7b908db5b",
+        "region": "RegionOne", "interface": "public", "id": "ea589e63d4f64197b7ede86c3cfecfb4"}],
+        "type": "volumev3", "id": "d1101d2c53664032a7c439962caeb9f8", "name": "cinderv3"},
+        {"endpoints": [{"region_id": "RegionOne", "url": "https://powervc.local:5470",
+        "region": "RegionOne", "interface": "public", "id": "60ba607b26a8434d906dfea8d92154c4"},
+        {"region_id": "RegionOne", "url": "https://powervc.local:5470", "region":
+        "RegionOne", "interface": "admin", "id": "96bc8751f67c4f70be3eb290654752d4"},
+        {"region_id": "RegionOne", "url": "https://powervc.local:5470", "region":
+        "RegionOne", "interface": "internal", "id": "b32eeb5c399440c4a0d487d59636e330"}],
+        "type": "notification", "id": "d7d45118e95a41399388c32bc88aaf73", "name":
+        "bumblebee"}, {"endpoints": [{"region_id": "RegionOne", "url": "https://powervc.local:8080/v1/AUTH_676b8977322946c0ab4700d7b908db5b",
+        "region": "RegionOne", "interface": "internal", "id": "0c2b8e2400e1423e971a012f83751f6b"},
+        {"region_id": "RegionOne", "url": "https://powervc.local:8080/v1/AUTH_676b8977322946c0ab4700d7b908db5b",
+        "region": "RegionOne", "interface": "admin", "id": "19e3b7a7ff524fd2baff1241ed362b62"},
+        {"region_id": "RegionOne", "url": "https://powervc.local:8080/v1/AUTH_676b8977322946c0ab4700d7b908db5b",
+        "region": "RegionOne", "interface": "public", "id": "706260d9ce594701997da9e2e46eaae0"}],
+        "type": "object-store", "id": "d7fb93ac906d4264ac75b6bdaffef338", "name":
+        "swift"}, {"endpoints": [{"region_id": "RegionOne", "url": "https://powervc.local:8774/v2.1/676b8977322946c0ab4700d7b908db5b",
+        "region": "RegionOne", "interface": "admin", "id": "7d87db0d316d46139ca62d188a308008"},
+        {"region_id": "RegionOne", "url": "https://powervc.local:8774/v2.1/676b8977322946c0ab4700d7b908db5b",
+        "region": "RegionOne", "interface": "internal", "id": "98e2cee0e0d24bd5a967ac6a93c23ad8"},
+        {"region_id": "RegionOne", "url": "https://powervc.local:8774/v2.1/676b8977322946c0ab4700d7b908db5b",
+        "region": "RegionOne", "interface": "public", "id": "f0db46f90d9f4f96894a2fba7aa85f5b"}],
+        "type": "compute", "id": "ea5836130fa34bb18a8fd14161a0d200", "name": "nova"},
+        {"endpoints": [{"region_id": "RegionOne", "url": "https://powervc.local:8041",
+        "region": "RegionOne", "interface": "public", "id": "44f2521c8cab44ccb719dd228fd09533"},
+        {"region_id": "RegionOne", "url": "https://powervc.local:8041", "region":
+        "RegionOne", "interface": "admin", "id": "b0c8b6f45ab746e0a0e39184820d5435"},
+        {"region_id": "RegionOne", "url": "https://powervc.local:8041", "region":
+        "RegionOne", "interface": "internal", "id": "d00ac5b2174d47679c705c189beaa9e1"}],
+        "type": "metric", "id": "fc224425288748a5864b159639eb92eb", "name": "gnocchi"},
+        {"endpoints": [{"region_id": "RegionOne", "url": "https://powervc.local:9000/v2/676b8977322946c0ab4700d7b908db5b",
+        "region": "RegionOne", "interface": "admin", "id": "0ddae59bac8c4853a8ab7252bde249bc"},
+        {"region_id": "RegionOne", "url": "https://powervc.local:9000/v2/676b8977322946c0ab4700d7b908db5b",
+        "region": "RegionOne", "interface": "internal", "id": "9083374a8cff42ac8c728478264edd65"},
+        {"region_id": "RegionOne", "url": "https://powervc.local:9000/v2/676b8977322946c0ab4700d7b908db5b",
+        "region": "RegionOne", "interface": "public", "id": "f1c77ca2f98240a7a6603713a0d70c5a"}],
+        "type": "volumev2", "id": "fdca7ddb2c2d447fa9f3023fced7b621", "name": "cinderv2"}],
+        "user": {"password_expires_at": null, "domain": {"id": "default", "name":
+        "Default"}, "id": "0688b01e6439ca32d698d20789d52169126fb41fb1a4ddafcebb97d854e836c9",
+        "name": "user"}, "audit_ids": ["yMP9BQj2T6u_bNv6hkKzqQ"], "issued_at": "2021-04-13T19:52:43.000000Z",
+        "is_admin_project": true}}'
+    http_version:
+  recorded_at: Tue, 13 Apr 2021 19:52:43 GMT
+- request:
+    method: get
+    uri: https://powervc.local:8774/
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - fog-core/2.1.0
+      Content-Type:
+      - application/json
+      Accept:
+      - application/json
+      X-Auth-Token:
+      - gAAAAABgdfaL-VQ3iBSN-uTH4NpK4sNQVYJYDuvUyHVzuD0W5UAtYLRObfTbw6dCxQuCGciCa72_WkPip6xigmcfSaRDPeE1qI9U1yQ7X0pLtTw40GhlDFddZiEya9vjgRUzgMUt8tUxh0F0CoMt_VN_D1cZvBXn--vD8z1e8irHYS-A6IIPlPRt_gReO8al3zhiLwv_-QeqeESFKakWNy55s--QPeqSIhVHUlsdfGKuTKZyXmkFucQ
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Tue, 13 Apr 2021 19:52:44 GMT
+      Server:
+      - Apache
+      Content-Length:
+      - '415'
+      Content-Type:
+      - application/json
+      Vary:
+      - Accept-Encoding,User-Agent
+    body:
+      encoding: ASCII-8BIT
+      string: '{"versions": [{"status": "SUPPORTED", "updated": "2011-01-21T11:33:21Z",
+        "links": [{"href": "https://powervc.local:8774/v2/", "rel": "self"}], "min_version":
+        "", "version": "", "id": "v2.0"}, {"status": "CURRENT", "updated": "2013-07-23T11:33:21Z",
+        "links": [{"href": "https://powervc.local:8774/v2.1/", "rel": "self"}], "min_version":
+        "2.1", "version": "2.72", "id": "v2.1"}]}'
+    http_version:
+  recorded_at: Tue, 13 Apr 2021 19:52:44 GMT
+- request:
+    method: get
+    uri: https://powervc.local:8774/v2.1/676b8977322946c0ab4700d7b908db5b/os-availability-zone
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - fog-core/2.1.0
+      Content-Type:
+      - application/json
+      Accept:
+      - application/json
+      X-Auth-Token:
+      - gAAAAABgdfaL-VQ3iBSN-uTH4NpK4sNQVYJYDuvUyHVzuD0W5UAtYLRObfTbw6dCxQuCGciCa72_WkPip6xigmcfSaRDPeE1qI9U1yQ7X0pLtTw40GhlDFddZiEya9vjgRUzgMUt8tUxh0F0CoMt_VN_D1cZvBXn--vD8z1e8irHYS-A6IIPlPRt_gReO8al3zhiLwv_-QeqeESFKakWNy55s--QPeqSIhVHUlsdfGKuTKZyXmkFucQ
+      X-Openstack-Nova-Api-Version:
+      - '2.15'
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Tue, 13 Apr 2021 19:52:44 GMT
+      Server:
+      - Apache
+      Content-Length:
+      - '106'
+      Content-Type:
+      - application/json
+      Openstack-Api-Version:
+      - compute 2.15
+      X-Openstack-Nova-Api-Version:
+      - '2.15'
+      Vary:
+      - OpenStack-API-Version,Accept-Encoding,User-Agent,X-OpenStack-Nova-API-Version
+      X-Openstack-Request-Id:
+      - req-2c9bfc5c-8522-4e0a-ba28-d3d4bd6bfc82
+      X-Compute-Request-Id:
+      - req-2c9bfc5c-8522-4e0a-ba28-d3d4bd6bfc82
+    body:
+      encoding: ASCII-8BIT
+      string: '{"availabilityZoneInfo": [{"zoneState": {"available": true}, "hosts":
+        null, "zoneName": "Default Group"}]}'
+    http_version:
+  recorded_at: Tue, 13 Apr 2021 19:52:44 GMT
+- request:
+    method: post
+    uri: https://powervc.local:5000/v3/auth/tokens
+    body:
+      encoding: UTF-8
+      string: '{"auth":{"identity":{"methods":["password"],"password":{"user":{"name":"user","domain":{"id":"default"},"password":"password"}}},"scope":{"project":{"name":"ibm-default","domain":{"id":"default"}}}}}'
+    headers:
+      User-Agent:
+      - fog-core/2.1.0
+      Content-Type:
+      - application/json
+  response:
+    status:
+      code: 201
+      message: CREATED
+    headers:
+      Date:
+      - Tue, 13 Apr 2021 19:52:44 GMT
+      Server:
+      - Apache
+      X-Subject-Token:
+      - gAAAAABgdfamG-xWspBYKZcQvWrxRf4FTDkUtZefy1EOM-nu9DpJb-oN4X3F_4qbgDoLSIx0F8frGTH1Okx0w_c48W2m4NUQHeVe21Viy9x7OSmMadCChgnqnUDuIVTsu3nN5CvvIAg1v7Y1U4YPPYnsKk102CgTMIURJPhtlat_Szfvo1OFJ-PBDrYiDNZbcKg7hk5n766cCOsCalx29xGsBD_lOQ7p9UtRulZHDuPFJiqMO27V1Jo
+      Vary:
+      - X-Auth-Token,User-Agent
+      X-Openstack-Request-Id:
+      - req-b446c399-daf1-4a61-8e59-78096ff6aae5
+      Content-Length:
+      - '8539'
+      Content-Type:
+      - application/json
+    body:
+      encoding: ASCII-8BIT
+      string: '{"token": {"is_domain": false, "methods": ["password"], "roles": [{"id":
+        "379eb0a8ca554c208f2e2bc03254f239", "name": "admin"}], "expires_at": "2021-04-14T01:53:10.000000Z",
+        "project": {"domain": {"id": "default", "name": "Default"}, "id": "676b8977322946c0ab4700d7b908db5b",
+        "name": "ibm-default"}, "catalog": [{"endpoints": [{"url": "https://powervc.local:9292",
+        "interface": "admin", "region": "RegionOne", "region_id": "RegionOne", "id":
+        "9df13c8adc3b4698a02b6f891af66441"}, {"url": "https://powervc.local:9292",
+        "interface": "internal", "region": "RegionOne", "region_id": "RegionOne",
+        "id": "d118e424ac72472ea36b3ca1bb265f64"}, {"url": "https://powervc.local:9292",
+        "interface": "public", "region": "RegionOne", "region_id": "RegionOne", "id":
+        "f95a690760524c3fba935216c4a5d04e"}], "type": "image", "id": "15982d6dc71141ffbcdec2cca5ed80b4",
+        "name": "glance"}, {"endpoints": [{"url": "https://powervc.local:8428", "interface":
+        "admin", "region": "RegionOne", "region_id": "RegionOne", "id": "33ac582041024eb3a100d4c22e725387"},
+        {"url": "https://powervc.local:8428", "interface": "internal", "region": "RegionOne",
+        "region_id": "RegionOne", "id": "b3b402bec07f4ed6ae2f2fbb53fed5ce"}, {"url":
+        "https://powervc.local:8428", "interface": "public", "region": "RegionOne",
+        "region_id": "RegionOne", "id": "e00871da16454284b919b2d4cae6e4d5"}], "type":
+        "ttv", "id": "30c155f1186a4478a58d0fb484df87ef", "name": "validator"}, {"endpoints":
+        [{"url": "https://powervc.local:5000/v3", "interface": "public", "region":
+        "RegionOne", "region_id": "RegionOne", "id": "0d202a117585429ab662ce22884c7c98"},
+        {"url": "https://powervc.local:5000/v3", "interface": "internal", "region":
+        "RegionOne", "region_id": "RegionOne", "id": "6a2693c0567845e7b7acc61f8484ed60"},
+        {"url": "https://powervc.local:5000/v3", "interface": "admin", "region": "RegionOne",
+        "region_id": "RegionOne", "id": "a8df8f1432474ecc85bc07f2fa555b76"}], "type":
+        "identity", "id": "702de05ce707422192705789e35d84d1", "name": "keystone"},
+        {"endpoints": [{"url": "https://powervc.local:9000/v2/676b8977322946c0ab4700d7b908db5b",
+        "interface": "internal", "region": "RegionOne", "region_id": "RegionOne",
+        "id": "a7670e388aa645e38c87d68a45a4193a"}, {"url": "https://powervc.local:9000/v2/676b8977322946c0ab4700d7b908db5b",
+        "interface": "public", "region": "RegionOne", "region_id": "RegionOne", "id":
+        "e215e0495a5748718228b8e9c4450ffa"}, {"url": "https://powervc.local:9000/v2/676b8977322946c0ab4700d7b908db5b",
+        "interface": "admin", "region": "RegionOne", "region_id": "RegionOne", "id":
+        "eb93823b398c4d3aaefa01f9017833cd"}], "type": "volume", "id": "7c5bbbf6929a4481983d33f4c577ece8",
+        "name": "cinder"}, {"endpoints": [{"url": "https://powervc.local:8778", "interface":
+        "admin", "region": "RegionOne", "region_id": "RegionOne", "id": "89a67d62454a47b295e35fd886f9bdf3"},
+        {"url": "https://powervc.local:8778", "interface": "public", "region": "RegionOne",
+        "region_id": "RegionOne", "id": "8f5f237d6ab54d62b049729a1e497bce"}, {"url":
+        "https://powervc.local:8778", "interface": "internal", "region": "RegionOne",
+        "region_id": "RegionOne", "id": "9e4863dc21d446e9a26ff125f2a251b3"}], "type":
+        "event", "id": "80d1967bf27d4b478c83fb043bababb5", "name": "panko"}, {"endpoints":
+        [{"url": "https://powervc.local:9696", "interface": "public", "region": "RegionOne",
+        "region_id": "RegionOne", "id": "1d217a828d0648b9a75c0535bd6b75c1"}, {"url":
+        "https://powervc.local:9696", "interface": "admin", "region": "RegionOne",
+        "region_id": "RegionOne", "id": "591befadd43f49269ec11e2a2c2a683a"}, {"url":
+        "https://powervc.local:9696", "interface": "internal", "region": "RegionOne",
+        "region_id": "RegionOne", "id": "a149251ece864342877bcb8e9b0f8776"}], "type":
+        "network", "id": "97a3e84732df47ad8627cf52567bfe26", "name": "neutron"}, {"endpoints":
+        [{"url": "https://powervc.local:9000/v3/676b8977322946c0ab4700d7b908db5b",
+        "interface": "internal", "region": "RegionOne", "region_id": "RegionOne",
+        "id": "67296992f3a348c6be611ced4edef1b3"}, {"url": "https://powervc.local:9000/v3/676b8977322946c0ab4700d7b908db5b",
+        "interface": "admin", "region": "RegionOne", "region_id": "RegionOne", "id":
+        "e024241807044e92aa37f6b3d6deee07"}, {"url": "https://powervc.local:9000/v3/676b8977322946c0ab4700d7b908db5b",
+        "interface": "public", "region": "RegionOne", "region_id": "RegionOne", "id":
+        "ea589e63d4f64197b7ede86c3cfecfb4"}], "type": "volumev3", "id": "d1101d2c53664032a7c439962caeb9f8",
+        "name": "cinderv3"}, {"endpoints": [{"url": "https://powervc.local:5470",
+        "interface": "public", "region": "RegionOne", "region_id": "RegionOne", "id":
+        "60ba607b26a8434d906dfea8d92154c4"}, {"url": "https://powervc.local:5470",
+        "interface": "admin", "region": "RegionOne", "region_id": "RegionOne", "id":
+        "96bc8751f67c4f70be3eb290654752d4"}, {"url": "https://powervc.local:5470",
+        "interface": "internal", "region": "RegionOne", "region_id": "RegionOne",
+        "id": "b32eeb5c399440c4a0d487d59636e330"}], "type": "notification", "id":
+        "d7d45118e95a41399388c32bc88aaf73", "name": "bumblebee"}, {"endpoints": [{"url":
+        "https://powervc.local:8080/v1/AUTH_676b8977322946c0ab4700d7b908db5b", "interface":
+        "internal", "region": "RegionOne", "region_id": "RegionOne", "id": "0c2b8e2400e1423e971a012f83751f6b"},
+        {"url": "https://powervc.local:8080/v1/AUTH_676b8977322946c0ab4700d7b908db5b",
+        "interface": "admin", "region": "RegionOne", "region_id": "RegionOne", "id":
+        "19e3b7a7ff524fd2baff1241ed362b62"}, {"url": "https://powervc.local:8080/v1/AUTH_676b8977322946c0ab4700d7b908db5b",
+        "interface": "public", "region": "RegionOne", "region_id": "RegionOne", "id":
+        "706260d9ce594701997da9e2e46eaae0"}], "type": "object-store", "id": "d7fb93ac906d4264ac75b6bdaffef338",
+        "name": "swift"}, {"endpoints": [{"url": "https://powervc.local:8774/v2.1/676b8977322946c0ab4700d7b908db5b",
+        "interface": "admin", "region": "RegionOne", "region_id": "RegionOne", "id":
+        "7d87db0d316d46139ca62d188a308008"}, {"url": "https://powervc.local:8774/v2.1/676b8977322946c0ab4700d7b908db5b",
+        "interface": "internal", "region": "RegionOne", "region_id": "RegionOne",
+        "id": "98e2cee0e0d24bd5a967ac6a93c23ad8"}, {"url": "https://powervc.local:8774/v2.1/676b8977322946c0ab4700d7b908db5b",
+        "interface": "public", "region": "RegionOne", "region_id": "RegionOne", "id":
+        "f0db46f90d9f4f96894a2fba7aa85f5b"}], "type": "compute", "id": "ea5836130fa34bb18a8fd14161a0d200",
+        "name": "nova"}, {"endpoints": [{"url": "https://powervc.local:8041", "interface":
+        "public", "region": "RegionOne", "region_id": "RegionOne", "id": "44f2521c8cab44ccb719dd228fd09533"},
+        {"url": "https://powervc.local:8041", "interface": "admin", "region": "RegionOne",
+        "region_id": "RegionOne", "id": "b0c8b6f45ab746e0a0e39184820d5435"}, {"url":
+        "https://powervc.local:8041", "interface": "internal", "region": "RegionOne",
+        "region_id": "RegionOne", "id": "d00ac5b2174d47679c705c189beaa9e1"}], "type":
+        "metric", "id": "fc224425288748a5864b159639eb92eb", "name": "gnocchi"}, {"endpoints":
+        [{"url": "https://powervc.local:9000/v2/676b8977322946c0ab4700d7b908db5b",
+        "interface": "admin", "region": "RegionOne", "region_id": "RegionOne", "id":
+        "0ddae59bac8c4853a8ab7252bde249bc"}, {"url": "https://powervc.local:9000/v2/676b8977322946c0ab4700d7b908db5b",
+        "interface": "internal", "region": "RegionOne", "region_id": "RegionOne",
+        "id": "9083374a8cff42ac8c728478264edd65"}, {"url": "https://powervc.local:9000/v2/676b8977322946c0ab4700d7b908db5b",
+        "interface": "public", "region": "RegionOne", "region_id": "RegionOne", "id":
+        "f1c77ca2f98240a7a6603713a0d70c5a"}], "type": "volumev2", "id": "fdca7ddb2c2d447fa9f3023fced7b621",
+        "name": "cinderv2"}], "user": {"password_expires_at": null, "domain": {"id":
+        "default", "name": "Default"}, "id": "0688b01e6439ca32d698d20789d52169126fb41fb1a4ddafcebb97d854e836c9",
+        "name": "user"}, "audit_ids": ["Vs3ic4asSy2e5Fd4UccCNw"], "issued_at": "2021-04-13T19:53:10.000000Z",
+        "is_admin_project": true}}'
+    http_version:
+  recorded_at: Tue, 13 Apr 2021 19:53:10 GMT
+- request:
+    method: get
+    uri: https://powervc.local:9000/v2/676b8977322946c0ab4700d7b908db5b/os-availability-zone.json
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - fog-core/2.1.0
+      Content-Type:
+      - application/json
+      Accept:
+      - application/json
+      X-Auth-Token:
+      - gAAAAABgdfamG-xWspBYKZcQvWrxRf4FTDkUtZefy1EOM-nu9DpJb-oN4X3F_4qbgDoLSIx0F8frGTH1Okx0w_c48W2m4NUQHeVe21Viy9x7OSmMadCChgnqnUDuIVTsu3nN5CvvIAg1v7Y1U4YPPYnsKk102CgTMIURJPhtlat_Szfvo1OFJ-PBDrYiDNZbcKg7hk5n766cCOsCalx29xGsBD_lOQ7p9UtRulZHDuPFJiqMO27V1Jo
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Tue, 13 Apr 2021 19:53:10 GMT
+      Server:
+      - Apache
+      X-Compute-Request-Id:
+      - req-31b8331f-4c4b-44ed-a0b0-db7fda0d0eac
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '82'
+      X-Openstack-Request-Id:
+      - req-31b8331f-4c4b-44ed-a0b0-db7fda0d0eac
+      Vary:
+      - Accept-Encoding,User-Agent
+    body:
+      encoding: ASCII-8BIT
+      string: '{"availabilityZoneInfo": [{"zoneState": {"available": true}, "zoneName":
+        "nova"}]}'
+    http_version:
+  recorded_at: Tue, 13 Apr 2021 19:53:10 GMT
+- request:
+    method: get
+    uri: https://powervc.local:8774/v2.1/676b8977322946c0ab4700d7b908db5b/os-services?limit=1000
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - fog-core/2.1.0
+      Content-Type:
+      - application/json
+      Accept:
+      - application/json
+      X-Auth-Token:
+      - gAAAAABgdfaL-VQ3iBSN-uTH4NpK4sNQVYJYDuvUyHVzuD0W5UAtYLRObfTbw6dCxQuCGciCa72_WkPip6xigmcfSaRDPeE1qI9U1yQ7X0pLtTw40GhlDFddZiEya9vjgRUzgMUt8tUxh0F0CoMt_VN_D1cZvBXn--vD8z1e8irHYS-A6IIPlPRt_gReO8al3zhiLwv_-QeqeESFKakWNy55s--QPeqSIhVHUlsdfGKuTKZyXmkFucQ
+      X-Openstack-Nova-Api-Version:
+      - '2.15'
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Tue, 13 Apr 2021 19:53:10 GMT
+      Server:
+      - Apache
+      Content-Length:
+      - '2310'
+      Content-Type:
+      - application/json
+      Openstack-Api-Version:
+      - compute 2.15
+      X-Openstack-Nova-Api-Version:
+      - '2.15'
+      Vary:
+      - OpenStack-API-Version,Accept-Encoding,User-Agent,X-OpenStack-Nova-API-Version
+      X-Openstack-Request-Id:
+      - req-e6622bc3-23b8-42eb-90b0-c13974f23352
+      X-Compute-Request-Id:
+      - req-e6622bc3-23b8-42eb-90b0-c13974f23352
+    body:
+      encoding: ASCII-8BIT
+      string: '{"services": [{"status": "enabled", "binary": "nova-ibm-notification",
+        "host": "powervc.local", "zone": "internal", "state": "up", "forced_down":
+        false, "disabled_reason": null, "id": 1, "updated_at": "2021-04-13T19:52:43.000000"},
+        {"status": "enabled", "binary": "nova-consoleauth", "host": "powervc.local",
+        "zone": "internal", "state": "up", "forced_down": false, "disabled_reason":
+        null, "id": 2, "updated_at": "2021-04-13T19:53:08.000000"}, {"status": "enabled",
+        "binary": "nova-conductor", "host": "powervc.local", "zone": "internal", "state":
+        "up", "forced_down": false, "disabled_reason": null, "id": 3, "updated_at":
+        "2021-04-13T19:52:57.000000"}, {"status": "enabled", "binary": "nova-ibm-ego-resource-optimization",
+        "host": "powervc.local", "zone": "internal", "state": "up", "forced_down":
+        false, "disabled_reason": null, "id": 4, "updated_at": "2021-04-13T19:52:58.000000"},
+        {"status": "enabled", "binary": "nova-ibm-ego-ha-service", "host": "powervc.local",
+        "zone": "internal", "state": "up", "forced_down": false, "disabled_reason":
+        null, "id": 5, "updated_at": "2021-04-13T19:53:04.000000"}, {"status": "enabled",
+        "binary": "nova-scheduler", "host": "powervc.local", "zone": "internal", "state":
+        "up", "forced_down": false, "disabled_reason": null, "id": 6, "updated_at":
+        "2021-04-13T19:52:44.000000"}, {"status": "enabled", "binary": "nova-health",
+        "host": "powervc.local", "zone": "internal", "state": "up", "forced_down":
+        false, "disabled_reason": null, "id": 9, "updated_at": "2021-04-13T19:52:46.000000"},
+        {"status": "enabled", "binary": "nova-compute", "host": "828422A_215E28V",
+        "zone": "Default Group", "state": "up", "forced_down": false, "disabled_reason":
+        null, "id": 10, "updated_at": "2021-04-13T19:52:42.000000"}, {"status": "enabled",
+        "binary": "nova-compute", "host": "828422A_215E31V", "zone": "Default Group",
+        "state": "up", "forced_down": false, "disabled_reason": null, "id": 11, "updated_at":
+        "2021-04-13T19:52:45.000000"}, {"status": "enabled", "binary": "nova-compute",
+        "host": "900942A_213275W", "zone": "Default Group", "state": "up", "forced_down":
+        false, "disabled_reason": null, "id": 12, "updated_at": "2021-04-13T19:52:42.000000"}]}'
+    http_version:
+  recorded_at: Tue, 13 Apr 2021 19:53:10 GMT
+- request:
+    method: get
+    uri: https://powervc.local:8774/v2.1/676b8977322946c0ab4700d7b908db5b/os-services?limit=1000&marker=12
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - fog-core/2.1.0
+      Content-Type:
+      - application/json
+      Accept:
+      - application/json
+      X-Auth-Token:
+      - gAAAAABgdfaL-VQ3iBSN-uTH4NpK4sNQVYJYDuvUyHVzuD0W5UAtYLRObfTbw6dCxQuCGciCa72_WkPip6xigmcfSaRDPeE1qI9U1yQ7X0pLtTw40GhlDFddZiEya9vjgRUzgMUt8tUxh0F0CoMt_VN_D1cZvBXn--vD8z1e8irHYS-A6IIPlPRt_gReO8al3zhiLwv_-QeqeESFKakWNy55s--QPeqSIhVHUlsdfGKuTKZyXmkFucQ
+      X-Openstack-Nova-Api-Version:
+      - '2.15'
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Tue, 13 Apr 2021 19:53:10 GMT
+      Server:
+      - Apache
+      Content-Length:
+      - '2310'
+      Content-Type:
+      - application/json
+      Openstack-Api-Version:
+      - compute 2.15
+      X-Openstack-Nova-Api-Version:
+      - '2.15'
+      Vary:
+      - OpenStack-API-Version,Accept-Encoding,User-Agent,X-OpenStack-Nova-API-Version
+      X-Openstack-Request-Id:
+      - req-b7b36b4f-f68a-4880-82b8-19327d9d9051
+      X-Compute-Request-Id:
+      - req-b7b36b4f-f68a-4880-82b8-19327d9d9051
+    body:
+      encoding: ASCII-8BIT
+      string: '{"services": [{"status": "enabled", "binary": "nova-ibm-notification",
+        "host": "powervc.local", "zone": "internal", "state": "up", "forced_down":
+        false, "disabled_reason": null, "id": 1, "updated_at": "2021-04-13T19:52:43.000000"},
+        {"status": "enabled", "binary": "nova-consoleauth", "host": "powervc.local",
+        "zone": "internal", "state": "up", "forced_down": false, "disabled_reason":
+        null, "id": 2, "updated_at": "2021-04-13T19:53:08.000000"}, {"status": "enabled",
+        "binary": "nova-conductor", "host": "powervc.local", "zone": "internal", "state":
+        "up", "forced_down": false, "disabled_reason": null, "id": 3, "updated_at":
+        "2021-04-13T19:52:57.000000"}, {"status": "enabled", "binary": "nova-ibm-ego-resource-optimization",
+        "host": "powervc.local", "zone": "internal", "state": "up", "forced_down":
+        false, "disabled_reason": null, "id": 4, "updated_at": "2021-04-13T19:52:58.000000"},
+        {"status": "enabled", "binary": "nova-ibm-ego-ha-service", "host": "powervc.local",
+        "zone": "internal", "state": "up", "forced_down": false, "disabled_reason":
+        null, "id": 5, "updated_at": "2021-04-13T19:53:04.000000"}, {"status": "enabled",
+        "binary": "nova-scheduler", "host": "powervc.local", "zone": "internal", "state":
+        "up", "forced_down": false, "disabled_reason": null, "id": 6, "updated_at":
+        "2021-04-13T19:52:44.000000"}, {"status": "enabled", "binary": "nova-health",
+        "host": "powervc.local", "zone": "internal", "state": "up", "forced_down":
+        false, "disabled_reason": null, "id": 9, "updated_at": "2021-04-13T19:52:46.000000"},
+        {"status": "enabled", "binary": "nova-compute", "host": "828422A_215E28V",
+        "zone": "Default Group", "state": "up", "forced_down": false, "disabled_reason":
+        null, "id": 10, "updated_at": "2021-04-13T19:52:42.000000"}, {"status": "enabled",
+        "binary": "nova-compute", "host": "828422A_215E31V", "zone": "Default Group",
+        "state": "up", "forced_down": false, "disabled_reason": null, "id": 11, "updated_at":
+        "2021-04-13T19:52:45.000000"}, {"status": "enabled", "binary": "nova-compute",
+        "host": "900942A_213275W", "zone": "Default Group", "state": "up", "forced_down":
+        false, "disabled_reason": null, "id": 12, "updated_at": "2021-04-13T19:52:42.000000"}]}'
+    http_version:
+  recorded_at: Tue, 13 Apr 2021 19:53:10 GMT
+- request:
+    method: get
+    uri: https://powervc.local:8774/v2.1/676b8977322946c0ab4700d7b908db5b/flavors/detail?all_tenants=True&is_public=None&limit=1000
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - fog-core/2.1.0
+      Content-Type:
+      - application/json
+      Accept:
+      - application/json
+      X-Auth-Token:
+      - gAAAAABgdfaL-VQ3iBSN-uTH4NpK4sNQVYJYDuvUyHVzuD0W5UAtYLRObfTbw6dCxQuCGciCa72_WkPip6xigmcfSaRDPeE1qI9U1yQ7X0pLtTw40GhlDFddZiEya9vjgRUzgMUt8tUxh0F0CoMt_VN_D1cZvBXn--vD8z1e8irHYS-A6IIPlPRt_gReO8al3zhiLwv_-QeqeESFKakWNy55s--QPeqSIhVHUlsdfGKuTKZyXmkFucQ
+      X-Openstack-Nova-Api-Version:
+      - '2.15'
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Tue, 13 Apr 2021 19:53:11 GMT
+      Server:
+      - Apache
+      Content-Length:
+      - '6843'
+      Content-Type:
+      - application/json
+      Openstack-Api-Version:
+      - compute 2.15
+      X-Openstack-Nova-Api-Version:
+      - '2.15'
+      Vary:
+      - OpenStack-API-Version,Accept-Encoding,User-Agent,X-OpenStack-Nova-API-Version
+      X-Openstack-Request-Id:
+      - req-e6c4ee5e-144f-4530-b8f8-a4a4e5bc6788
+      X-Compute-Request-Id:
+      - req-e6c4ee5e-144f-4530-b8f8-a4a4e5bc6788
+    body:
+      encoding: ASCII-8BIT
+      string: '{"flavors": [{"links": [{"href": "https://powervc.local:8774/v2.1/676b8977322946c0ab4700d7b908db5b/flavors/0d28b2cd-be6f-4951-9b9b-007c624d1056",
+        "rel": "self"}, {"href": "https://powervc.local:8774/676b8977322946c0ab4700d7b908db5b/flavors/0d28b2cd-be6f-4951-9b9b-007c624d1056",
+        "rel": "bookmark"}], "ram": 131072, "OS-FLV-DISABLED:disabled": false, "os-flavor-access:is_public":
+        true, "rxtx_factor": 1.0, "disk": 0, "id": "0d28b2cd-be6f-4951-9b9b-007c624d1056",
+        "name": "xxlarge", "vcpus": 32, "swap": "", "OS-FLV-EXT-DATA:ephemeral": 0},
+        {"links": [{"href": "https://powervc.local:8774/v2.1/676b8977322946c0ab4700d7b908db5b/flavors/1b5b17af-4603-421d-a779-7cf75eb8a99a",
+        "rel": "self"}, {"href": "https://powervc.local:8774/676b8977322946c0ab4700d7b908db5b/flavors/1b5b17af-4603-421d-a779-7cf75eb8a99a",
+        "rel": "bookmark"}], "ram": 32768, "OS-FLV-DISABLED:disabled": false, "os-flavor-access:is_public":
+        true, "rxtx_factor": 1.0, "disk": 0, "id": "1b5b17af-4603-421d-a779-7cf75eb8a99a",
+        "name": "large", "vcpus": 8, "swap": "", "OS-FLV-EXT-DATA:ephemeral": 0},
+        {"links": [{"href": "https://powervc.local:8774/v2.1/676b8977322946c0ab4700d7b908db5b/flavors/1f5d7ca92cb39704b1946590204f49b9",
+        "rel": "self"}, {"href": "https://powervc.local:8774/676b8977322946c0ab4700d7b908db5b/flavors/1f5d7ca92cb39704b1946590204f49b9",
+        "rel": "bookmark"}], "ram": 4096, "OS-FLV-DISABLED:disabled": false, "os-flavor-access:is_public":
+        false, "rxtx_factor": 1.0, "disk": 11, "id": "1f5d7ca92cb39704b1946590204f49b9",
+        "name": "1f5d7ca92cb39704b1946590204f49b9", "vcpus": 1, "swap": "", "OS-FLV-EXT-DATA:ephemeral":
+        0}, {"links": [{"href": "https://powervc.local:8774/v2.1/676b8977322946c0ab4700d7b908db5b/flavors/30f5d401-96e5-44a4-a513-774dc9b61060",
+        "rel": "self"}, {"href": "https://powervc.local:8774/676b8977322946c0ab4700d7b908db5b/flavors/30f5d401-96e5-44a4-a513-774dc9b61060",
+        "rel": "bookmark"}], "ram": 4096, "OS-FLV-DISABLED:disabled": false, "os-flavor-access:is_public":
+        true, "rxtx_factor": 1.0, "disk": 0, "id": "30f5d401-96e5-44a4-a513-774dc9b61060",
+        "name": "tiny", "vcpus": 1, "swap": "", "OS-FLV-EXT-DATA:ephemeral": 0}, {"links":
+        [{"href": "https://powervc.local:8774/v2.1/676b8977322946c0ab4700d7b908db5b/flavors/3d67d2ec-bf60-4a56-a363-fff8b8210bda",
+        "rel": "self"}, {"href": "https://powervc.local:8774/676b8977322946c0ab4700d7b908db5b/flavors/3d67d2ec-bf60-4a56-a363-fff8b8210bda",
+        "rel": "bookmark"}], "ram": 8192, "OS-FLV-DISABLED:disabled": false, "os-flavor-access:is_public":
+        true, "rxtx_factor": 1.0, "disk": 0, "id": "3d67d2ec-bf60-4a56-a363-fff8b8210bda",
+        "name": "small", "vcpus": 2, "swap": "", "OS-FLV-EXT-DATA:ephemeral": 0},
+        {"links": [{"href": "https://powervc.local:8774/v2.1/676b8977322946c0ab4700d7b908db5b/flavors/4c7b250adb349d84f638aec9c76f6eba",
+        "rel": "self"}, {"href": "https://powervc.local:8774/676b8977322946c0ab4700d7b908db5b/flavors/4c7b250adb349d84f638aec9c76f6eba",
+        "rel": "bookmark"}], "ram": 4096, "OS-FLV-DISABLED:disabled": false, "os-flavor-access:is_public":
+        false, "rxtx_factor": 1.0, "disk": 100, "id": "4c7b250adb349d84f638aec9c76f6eba",
+        "name": "4c7b250adb349d84f638aec9c76f6eba", "vcpus": 1, "swap": "", "OS-FLV-EXT-DATA:ephemeral":
+        0}, {"links": [{"href": "https://powervc.local:8774/v2.1/676b8977322946c0ab4700d7b908db5b/flavors/60c9b27df0db13deeb1126458da04d14",
+        "rel": "self"}, {"href": "https://powervc.local:8774/676b8977322946c0ab4700d7b908db5b/flavors/60c9b27df0db13deeb1126458da04d14",
+        "rel": "bookmark"}], "ram": 2048, "OS-FLV-DISABLED:disabled": false, "os-flavor-access:is_public":
+        false, "rxtx_factor": 1.0, "disk": 0, "id": "60c9b27df0db13deeb1126458da04d14",
+        "name": "60c9b27df0db13deeb1126458da04d14", "vcpus": 1, "swap": "", "OS-FLV-EXT-DATA:ephemeral":
+        0}, {"links": [{"href": "https://powervc.local:8774/v2.1/676b8977322946c0ab4700d7b908db5b/flavors/956d1c757bb993909da5489f3f91fe7e",
+        "rel": "self"}, {"href": "https://powervc.local:8774/676b8977322946c0ab4700d7b908db5b/flavors/956d1c757bb993909da5489f3f91fe7e",
+        "rel": "bookmark"}], "ram": 6144, "OS-FLV-DISABLED:disabled": false, "os-flavor-access:is_public":
+        false, "rxtx_factor": 1.0, "disk": 0, "id": "956d1c757bb993909da5489f3f91fe7e",
+        "name": "956d1c757bb993909da5489f3f91fe7e", "vcpus": 1, "swap": "", "OS-FLV-EXT-DATA:ephemeral":
+        0}, {"links": [{"href": "https://powervc.local:8774/v2.1/676b8977322946c0ab4700d7b908db5b/flavors/ad598189224b97c2b56f5591200fbe66",
+        "rel": "self"}, {"href": "https://powervc.local:8774/676b8977322946c0ab4700d7b908db5b/flavors/ad598189224b97c2b56f5591200fbe66",
+        "rel": "bookmark"}], "ram": 2048, "OS-FLV-DISABLED:disabled": false, "os-flavor-access:is_public":
+        false, "rxtx_factor": 1.0, "disk": 0, "id": "ad598189224b97c2b56f5591200fbe66",
+        "name": "ad598189224b97c2b56f5591200fbe66", "vcpus": 1, "swap": "", "OS-FLV-EXT-DATA:ephemeral":
+        0}, {"links": [{"href": "https://powervc.local:8774/v2.1/676b8977322946c0ab4700d7b908db5b/flavors/afbf51ad-813c-4c09-bc90-aa682aef2e37",
+        "rel": "self"}, {"href": "https://powervc.local:8774/676b8977322946c0ab4700d7b908db5b/flavors/afbf51ad-813c-4c09-bc90-aa682aef2e37",
+        "rel": "bookmark"}], "ram": 16384, "OS-FLV-DISABLED:disabled": false, "os-flavor-access:is_public":
+        true, "rxtx_factor": 1.0, "disk": 0, "id": "afbf51ad-813c-4c09-bc90-aa682aef2e37",
+        "name": "medium", "vcpus": 4, "swap": "", "OS-FLV-EXT-DATA:ephemeral": 0},
+        {"links": [{"href": "https://powervc.local:8774/v2.1/676b8977322946c0ab4700d7b908db5b/flavors/dc2fcb64bb13ba5c44780154789a6bd3",
+        "rel": "self"}, {"href": "https://powervc.local:8774/676b8977322946c0ab4700d7b908db5b/flavors/dc2fcb64bb13ba5c44780154789a6bd3",
+        "rel": "bookmark"}], "ram": 4096, "OS-FLV-DISABLED:disabled": false, "os-flavor-access:is_public":
+        false, "rxtx_factor": 1.0, "disk": 20, "id": "dc2fcb64bb13ba5c44780154789a6bd3",
+        "name": "dc2fcb64bb13ba5c44780154789a6bd3", "vcpus": 1, "swap": "", "OS-FLV-EXT-DATA:ephemeral":
+        0}, {"links": [{"href": "https://powervc.local:8774/v2.1/676b8977322946c0ab4700d7b908db5b/flavors/e6385637-f186-4970-ac22-c239d57f9e13",
+        "rel": "self"}, {"href": "https://powervc.local:8774/676b8977322946c0ab4700d7b908db5b/flavors/e6385637-f186-4970-ac22-c239d57f9e13",
+        "rel": "bookmark"}], "ram": 65536, "OS-FLV-DISABLED:disabled": false, "os-flavor-access:is_public":
+        true, "rxtx_factor": 1.0, "disk": 0, "id": "e6385637-f186-4970-ac22-c239d57f9e13",
+        "name": "xlarge", "vcpus": 16, "swap": "", "OS-FLV-EXT-DATA:ephemeral": 0}]}'
+    http_version:
+  recorded_at: Tue, 13 Apr 2021 19:53:11 GMT
+- request:
+    method: get
+    uri: https://powervc.local:8774/v2.1/676b8977322946c0ab4700d7b908db5b/flavors/detail?all_tenants=True&is_public=None&limit=1000&marker=e6385637-f186-4970-ac22-c239d57f9e13
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - fog-core/2.1.0
+      Content-Type:
+      - application/json
+      Accept:
+      - application/json
+      X-Auth-Token:
+      - gAAAAABgdfaL-VQ3iBSN-uTH4NpK4sNQVYJYDuvUyHVzuD0W5UAtYLRObfTbw6dCxQuCGciCa72_WkPip6xigmcfSaRDPeE1qI9U1yQ7X0pLtTw40GhlDFddZiEya9vjgRUzgMUt8tUxh0F0CoMt_VN_D1cZvBXn--vD8z1e8irHYS-A6IIPlPRt_gReO8al3zhiLwv_-QeqeESFKakWNy55s--QPeqSIhVHUlsdfGKuTKZyXmkFucQ
+      X-Openstack-Nova-Api-Version:
+      - '2.15'
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Tue, 13 Apr 2021 19:53:11 GMT
+      Server:
+      - Apache
+      Content-Length:
+      - '15'
+      Content-Type:
+      - application/json
+      Openstack-Api-Version:
+      - compute 2.15
+      X-Openstack-Nova-Api-Version:
+      - '2.15'
+      Vary:
+      - OpenStack-API-Version,User-Agent,X-OpenStack-Nova-API-Version
+      X-Openstack-Request-Id:
+      - req-8732b07b-1ddf-4706-9dd2-1fb6f89a4fd0
+      X-Compute-Request-Id:
+      - req-8732b07b-1ddf-4706-9dd2-1fb6f89a4fd0
+    body:
+      encoding: ASCII-8BIT
+      string: '{"flavors": []}'
+    http_version:
+  recorded_at: Tue, 13 Apr 2021 19:53:11 GMT
+- request:
+    method: get
+    uri: https://powervc.local:8774/v2.1/676b8977322946c0ab4700d7b908db5b/flavors/1f5d7ca92cb39704b1946590204f49b9/os-flavor-access
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - fog-core/2.1.0
+      Content-Type:
+      - application/json
+      Accept:
+      - application/json
+      X-Auth-Token:
+      - gAAAAABgdfaL-VQ3iBSN-uTH4NpK4sNQVYJYDuvUyHVzuD0W5UAtYLRObfTbw6dCxQuCGciCa72_WkPip6xigmcfSaRDPeE1qI9U1yQ7X0pLtTw40GhlDFddZiEya9vjgRUzgMUt8tUxh0F0CoMt_VN_D1cZvBXn--vD8z1e8irHYS-A6IIPlPRt_gReO8al3zhiLwv_-QeqeESFKakWNy55s--QPeqSIhVHUlsdfGKuTKZyXmkFucQ
+      X-Openstack-Nova-Api-Version:
+      - '2.15'
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Tue, 13 Apr 2021 19:53:11 GMT
+      Server:
+      - Apache
+      Content-Length:
+      - '119'
+      Content-Type:
+      - application/json
+      Openstack-Api-Version:
+      - compute 2.15
+      X-Openstack-Nova-Api-Version:
+      - '2.15'
+      Vary:
+      - OpenStack-API-Version,Accept-Encoding,User-Agent,X-OpenStack-Nova-API-Version
+      X-Openstack-Request-Id:
+      - req-4a369af0-2cda-4a53-8c83-60ad4dd40219
+      X-Compute-Request-Id:
+      - req-4a369af0-2cda-4a53-8c83-60ad4dd40219
+    body:
+      encoding: ASCII-8BIT
+      string: '{"flavor_access": [{"tenant_id": "676b8977322946c0ab4700d7b908db5b",
+        "flavor_id": "1f5d7ca92cb39704b1946590204f49b9"}]}'
+    http_version:
+  recorded_at: Tue, 13 Apr 2021 19:53:11 GMT
+- request:
+    method: get
+    uri: https://powervc.local:8774/v2.1/676b8977322946c0ab4700d7b908db5b/flavors/4c7b250adb349d84f638aec9c76f6eba/os-flavor-access
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - fog-core/2.1.0
+      Content-Type:
+      - application/json
+      Accept:
+      - application/json
+      X-Auth-Token:
+      - gAAAAABgdfaL-VQ3iBSN-uTH4NpK4sNQVYJYDuvUyHVzuD0W5UAtYLRObfTbw6dCxQuCGciCa72_WkPip6xigmcfSaRDPeE1qI9U1yQ7X0pLtTw40GhlDFddZiEya9vjgRUzgMUt8tUxh0F0CoMt_VN_D1cZvBXn--vD8z1e8irHYS-A6IIPlPRt_gReO8al3zhiLwv_-QeqeESFKakWNy55s--QPeqSIhVHUlsdfGKuTKZyXmkFucQ
+      X-Openstack-Nova-Api-Version:
+      - '2.15'
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Tue, 13 Apr 2021 19:53:11 GMT
+      Server:
+      - Apache
+      Content-Length:
+      - '119'
+      Content-Type:
+      - application/json
+      Openstack-Api-Version:
+      - compute 2.15
+      X-Openstack-Nova-Api-Version:
+      - '2.15'
+      Vary:
+      - OpenStack-API-Version,Accept-Encoding,User-Agent,X-OpenStack-Nova-API-Version
+      X-Openstack-Request-Id:
+      - req-7583d405-aa3f-4338-9023-36fcc6e80a60
+      X-Compute-Request-Id:
+      - req-7583d405-aa3f-4338-9023-36fcc6e80a60
+    body:
+      encoding: ASCII-8BIT
+      string: '{"flavor_access": [{"tenant_id": "676b8977322946c0ab4700d7b908db5b",
+        "flavor_id": "4c7b250adb349d84f638aec9c76f6eba"}]}'
+    http_version:
+  recorded_at: Tue, 13 Apr 2021 19:53:11 GMT
+- request:
+    method: get
+    uri: https://powervc.local:8774/v2.1/676b8977322946c0ab4700d7b908db5b/flavors/60c9b27df0db13deeb1126458da04d14/os-flavor-access
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - fog-core/2.1.0
+      Content-Type:
+      - application/json
+      Accept:
+      - application/json
+      X-Auth-Token:
+      - gAAAAABgdfaL-VQ3iBSN-uTH4NpK4sNQVYJYDuvUyHVzuD0W5UAtYLRObfTbw6dCxQuCGciCa72_WkPip6xigmcfSaRDPeE1qI9U1yQ7X0pLtTw40GhlDFddZiEya9vjgRUzgMUt8tUxh0F0CoMt_VN_D1cZvBXn--vD8z1e8irHYS-A6IIPlPRt_gReO8al3zhiLwv_-QeqeESFKakWNy55s--QPeqSIhVHUlsdfGKuTKZyXmkFucQ
+      X-Openstack-Nova-Api-Version:
+      - '2.15'
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Tue, 13 Apr 2021 19:53:12 GMT
+      Server:
+      - Apache
+      Content-Length:
+      - '119'
+      Content-Type:
+      - application/json
+      Openstack-Api-Version:
+      - compute 2.15
+      X-Openstack-Nova-Api-Version:
+      - '2.15'
+      Vary:
+      - OpenStack-API-Version,Accept-Encoding,User-Agent,X-OpenStack-Nova-API-Version
+      X-Openstack-Request-Id:
+      - req-754822e4-d9d2-4cfd-a156-c0125510f307
+      X-Compute-Request-Id:
+      - req-754822e4-d9d2-4cfd-a156-c0125510f307
+    body:
+      encoding: ASCII-8BIT
+      string: '{"flavor_access": [{"tenant_id": "676b8977322946c0ab4700d7b908db5b",
+        "flavor_id": "60c9b27df0db13deeb1126458da04d14"}]}'
+    http_version:
+  recorded_at: Tue, 13 Apr 2021 19:53:12 GMT
+- request:
+    method: get
+    uri: https://powervc.local:8774/v2.1/676b8977322946c0ab4700d7b908db5b/flavors/956d1c757bb993909da5489f3f91fe7e/os-flavor-access
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - fog-core/2.1.0
+      Content-Type:
+      - application/json
+      Accept:
+      - application/json
+      X-Auth-Token:
+      - gAAAAABgdfaL-VQ3iBSN-uTH4NpK4sNQVYJYDuvUyHVzuD0W5UAtYLRObfTbw6dCxQuCGciCa72_WkPip6xigmcfSaRDPeE1qI9U1yQ7X0pLtTw40GhlDFddZiEya9vjgRUzgMUt8tUxh0F0CoMt_VN_D1cZvBXn--vD8z1e8irHYS-A6IIPlPRt_gReO8al3zhiLwv_-QeqeESFKakWNy55s--QPeqSIhVHUlsdfGKuTKZyXmkFucQ
+      X-Openstack-Nova-Api-Version:
+      - '2.15'
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Tue, 13 Apr 2021 19:53:12 GMT
+      Server:
+      - Apache
+      Content-Length:
+      - '119'
+      Content-Type:
+      - application/json
+      Openstack-Api-Version:
+      - compute 2.15
+      X-Openstack-Nova-Api-Version:
+      - '2.15'
+      Vary:
+      - OpenStack-API-Version,Accept-Encoding,User-Agent,X-OpenStack-Nova-API-Version
+      X-Openstack-Request-Id:
+      - req-6d35de37-3498-49e7-b6aa-f9e2e0507cf4
+      X-Compute-Request-Id:
+      - req-6d35de37-3498-49e7-b6aa-f9e2e0507cf4
+    body:
+      encoding: ASCII-8BIT
+      string: '{"flavor_access": [{"tenant_id": "676b8977322946c0ab4700d7b908db5b",
+        "flavor_id": "956d1c757bb993909da5489f3f91fe7e"}]}'
+    http_version:
+  recorded_at: Tue, 13 Apr 2021 19:53:12 GMT
+- request:
+    method: get
+    uri: https://powervc.local:8774/v2.1/676b8977322946c0ab4700d7b908db5b/flavors/ad598189224b97c2b56f5591200fbe66/os-flavor-access
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - fog-core/2.1.0
+      Content-Type:
+      - application/json
+      Accept:
+      - application/json
+      X-Auth-Token:
+      - gAAAAABgdfaL-VQ3iBSN-uTH4NpK4sNQVYJYDuvUyHVzuD0W5UAtYLRObfTbw6dCxQuCGciCa72_WkPip6xigmcfSaRDPeE1qI9U1yQ7X0pLtTw40GhlDFddZiEya9vjgRUzgMUt8tUxh0F0CoMt_VN_D1cZvBXn--vD8z1e8irHYS-A6IIPlPRt_gReO8al3zhiLwv_-QeqeESFKakWNy55s--QPeqSIhVHUlsdfGKuTKZyXmkFucQ
+      X-Openstack-Nova-Api-Version:
+      - '2.15'
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Tue, 13 Apr 2021 19:53:12 GMT
+      Server:
+      - Apache
+      Content-Length:
+      - '119'
+      Content-Type:
+      - application/json
+      Openstack-Api-Version:
+      - compute 2.15
+      X-Openstack-Nova-Api-Version:
+      - '2.15'
+      Vary:
+      - OpenStack-API-Version,Accept-Encoding,User-Agent,X-OpenStack-Nova-API-Version
+      X-Openstack-Request-Id:
+      - req-5facee4b-e676-49e4-8fba-4eba49758f0e
+      X-Compute-Request-Id:
+      - req-5facee4b-e676-49e4-8fba-4eba49758f0e
+    body:
+      encoding: ASCII-8BIT
+      string: '{"flavor_access": [{"tenant_id": "676b8977322946c0ab4700d7b908db5b",
+        "flavor_id": "ad598189224b97c2b56f5591200fbe66"}]}'
+    http_version:
+  recorded_at: Tue, 13 Apr 2021 19:53:12 GMT
+- request:
+    method: get
+    uri: https://powervc.local:8774/v2.1/676b8977322946c0ab4700d7b908db5b/flavors/dc2fcb64bb13ba5c44780154789a6bd3/os-flavor-access
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - fog-core/2.1.0
+      Content-Type:
+      - application/json
+      Accept:
+      - application/json
+      X-Auth-Token:
+      - gAAAAABgdfaL-VQ3iBSN-uTH4NpK4sNQVYJYDuvUyHVzuD0W5UAtYLRObfTbw6dCxQuCGciCa72_WkPip6xigmcfSaRDPeE1qI9U1yQ7X0pLtTw40GhlDFddZiEya9vjgRUzgMUt8tUxh0F0CoMt_VN_D1cZvBXn--vD8z1e8irHYS-A6IIPlPRt_gReO8al3zhiLwv_-QeqeESFKakWNy55s--QPeqSIhVHUlsdfGKuTKZyXmkFucQ
+      X-Openstack-Nova-Api-Version:
+      - '2.15'
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Tue, 13 Apr 2021 19:53:12 GMT
+      Server:
+      - Apache
+      Content-Length:
+      - '119'
+      Content-Type:
+      - application/json
+      Openstack-Api-Version:
+      - compute 2.15
+      X-Openstack-Nova-Api-Version:
+      - '2.15'
+      Vary:
+      - OpenStack-API-Version,Accept-Encoding,User-Agent,X-OpenStack-Nova-API-Version
+      X-Openstack-Request-Id:
+      - req-5346966b-8390-4c29-9642-a4dd1bccbf3b
+      X-Compute-Request-Id:
+      - req-5346966b-8390-4c29-9642-a4dd1bccbf3b
+    body:
+      encoding: ASCII-8BIT
+      string: '{"flavor_access": [{"tenant_id": "676b8977322946c0ab4700d7b908db5b",
+        "flavor_id": "dc2fcb64bb13ba5c44780154789a6bd3"}]}'
+    http_version:
+  recorded_at: Tue, 13 Apr 2021 19:53:12 GMT
+- request:
+    method: post
+    uri: https://powervc.local:5000/v3/auth/tokens
+    body:
+      encoding: UTF-8
+      string: '{"auth":{"identity":{"methods":["password"],"password":{"user":{"name":"user","domain":{"id":"default"},"password":"password"}}},"scope":{"project":{"name":"ibm-default","domain":{"id":"default"}}}}}'
+    headers:
+      User-Agent:
+      - fog-core/2.1.0
+      Content-Type:
+      - application/json
+  response:
+    status:
+      code: 201
+      message: CREATED
+    headers:
+      Date:
+      - Tue, 13 Apr 2021 19:53:13 GMT
+      Server:
+      - Apache
+      X-Subject-Token:
+      - gAAAAABgdfbCWIOxU_AV8pOLxmcWACejtVROk6OhlEpf3FN1yY9gw6AXs7Vpm83WG9f7LFrovwZshfrhAf17H-xhdqBnO6QqoR6ORyJF59VUNwfKtuHaBPEv6BJGkJONzaGYVWdJuU9qhpCVXys71Mijt3QO7wj4UtMxX1sH0GPZNzUOVtB3--9aJFrOTxv5yPSLu-pPITiFQbMZNjoorONH5ukyiixt_ZF9f-EWOGgk-v6NMFtYmzE
+      Vary:
+      - X-Auth-Token,User-Agent
+      X-Openstack-Request-Id:
+      - req-9863bc27-544a-42ce-854c-db895af1f86d
+      Content-Length:
+      - '8539'
+      Content-Type:
+      - application/json
+    body:
+      encoding: ASCII-8BIT
+      string: '{"token": {"is_domain": false, "methods": ["password"], "roles": [{"id":
+        "379eb0a8ca554c208f2e2bc03254f239", "name": "admin"}], "expires_at": "2021-04-14T01:53:38.000000Z",
+        "project": {"domain": {"id": "default", "name": "Default"}, "id": "676b8977322946c0ab4700d7b908db5b",
+        "name": "ibm-default"}, "catalog": [{"endpoints": [{"url": "https://powervc.local:9292",
+        "interface": "admin", "region": "RegionOne", "region_id": "RegionOne", "id":
+        "9df13c8adc3b4698a02b6f891af66441"}, {"url": "https://powervc.local:9292",
+        "interface": "internal", "region": "RegionOne", "region_id": "RegionOne",
+        "id": "d118e424ac72472ea36b3ca1bb265f64"}, {"url": "https://powervc.local:9292",
+        "interface": "public", "region": "RegionOne", "region_id": "RegionOne", "id":
+        "f95a690760524c3fba935216c4a5d04e"}], "type": "image", "id": "15982d6dc71141ffbcdec2cca5ed80b4",
+        "name": "glance"}, {"endpoints": [{"url": "https://powervc.local:8428", "interface":
+        "admin", "region": "RegionOne", "region_id": "RegionOne", "id": "33ac582041024eb3a100d4c22e725387"},
+        {"url": "https://powervc.local:8428", "interface": "internal", "region": "RegionOne",
+        "region_id": "RegionOne", "id": "b3b402bec07f4ed6ae2f2fbb53fed5ce"}, {"url":
+        "https://powervc.local:8428", "interface": "public", "region": "RegionOne",
+        "region_id": "RegionOne", "id": "e00871da16454284b919b2d4cae6e4d5"}], "type":
+        "ttv", "id": "30c155f1186a4478a58d0fb484df87ef", "name": "validator"}, {"endpoints":
+        [{"url": "https://powervc.local:5000/v3", "interface": "public", "region":
+        "RegionOne", "region_id": "RegionOne", "id": "0d202a117585429ab662ce22884c7c98"},
+        {"url": "https://powervc.local:5000/v3", "interface": "internal", "region":
+        "RegionOne", "region_id": "RegionOne", "id": "6a2693c0567845e7b7acc61f8484ed60"},
+        {"url": "https://powervc.local:5000/v3", "interface": "admin", "region": "RegionOne",
+        "region_id": "RegionOne", "id": "a8df8f1432474ecc85bc07f2fa555b76"}], "type":
+        "identity", "id": "702de05ce707422192705789e35d84d1", "name": "keystone"},
+        {"endpoints": [{"url": "https://powervc.local:9000/v2/676b8977322946c0ab4700d7b908db5b",
+        "interface": "internal", "region": "RegionOne", "region_id": "RegionOne",
+        "id": "a7670e388aa645e38c87d68a45a4193a"}, {"url": "https://powervc.local:9000/v2/676b8977322946c0ab4700d7b908db5b",
+        "interface": "public", "region": "RegionOne", "region_id": "RegionOne", "id":
+        "e215e0495a5748718228b8e9c4450ffa"}, {"url": "https://powervc.local:9000/v2/676b8977322946c0ab4700d7b908db5b",
+        "interface": "admin", "region": "RegionOne", "region_id": "RegionOne", "id":
+        "eb93823b398c4d3aaefa01f9017833cd"}], "type": "volume", "id": "7c5bbbf6929a4481983d33f4c577ece8",
+        "name": "cinder"}, {"endpoints": [{"url": "https://powervc.local:8778", "interface":
+        "admin", "region": "RegionOne", "region_id": "RegionOne", "id": "89a67d62454a47b295e35fd886f9bdf3"},
+        {"url": "https://powervc.local:8778", "interface": "public", "region": "RegionOne",
+        "region_id": "RegionOne", "id": "8f5f237d6ab54d62b049729a1e497bce"}, {"url":
+        "https://powervc.local:8778", "interface": "internal", "region": "RegionOne",
+        "region_id": "RegionOne", "id": "9e4863dc21d446e9a26ff125f2a251b3"}], "type":
+        "event", "id": "80d1967bf27d4b478c83fb043bababb5", "name": "panko"}, {"endpoints":
+        [{"url": "https://powervc.local:9696", "interface": "public", "region": "RegionOne",
+        "region_id": "RegionOne", "id": "1d217a828d0648b9a75c0535bd6b75c1"}, {"url":
+        "https://powervc.local:9696", "interface": "admin", "region": "RegionOne",
+        "region_id": "RegionOne", "id": "591befadd43f49269ec11e2a2c2a683a"}, {"url":
+        "https://powervc.local:9696", "interface": "internal", "region": "RegionOne",
+        "region_id": "RegionOne", "id": "a149251ece864342877bcb8e9b0f8776"}], "type":
+        "network", "id": "97a3e84732df47ad8627cf52567bfe26", "name": "neutron"}, {"endpoints":
+        [{"url": "https://powervc.local:9000/v3/676b8977322946c0ab4700d7b908db5b",
+        "interface": "internal", "region": "RegionOne", "region_id": "RegionOne",
+        "id": "67296992f3a348c6be611ced4edef1b3"}, {"url": "https://powervc.local:9000/v3/676b8977322946c0ab4700d7b908db5b",
+        "interface": "admin", "region": "RegionOne", "region_id": "RegionOne", "id":
+        "e024241807044e92aa37f6b3d6deee07"}, {"url": "https://powervc.local:9000/v3/676b8977322946c0ab4700d7b908db5b",
+        "interface": "public", "region": "RegionOne", "region_id": "RegionOne", "id":
+        "ea589e63d4f64197b7ede86c3cfecfb4"}], "type": "volumev3", "id": "d1101d2c53664032a7c439962caeb9f8",
+        "name": "cinderv3"}, {"endpoints": [{"url": "https://powervc.local:5470",
+        "interface": "public", "region": "RegionOne", "region_id": "RegionOne", "id":
+        "60ba607b26a8434d906dfea8d92154c4"}, {"url": "https://powervc.local:5470",
+        "interface": "admin", "region": "RegionOne", "region_id": "RegionOne", "id":
+        "96bc8751f67c4f70be3eb290654752d4"}, {"url": "https://powervc.local:5470",
+        "interface": "internal", "region": "RegionOne", "region_id": "RegionOne",
+        "id": "b32eeb5c399440c4a0d487d59636e330"}], "type": "notification", "id":
+        "d7d45118e95a41399388c32bc88aaf73", "name": "bumblebee"}, {"endpoints": [{"url":
+        "https://powervc.local:8080/v1/AUTH_676b8977322946c0ab4700d7b908db5b", "interface":
+        "internal", "region": "RegionOne", "region_id": "RegionOne", "id": "0c2b8e2400e1423e971a012f83751f6b"},
+        {"url": "https://powervc.local:8080/v1/AUTH_676b8977322946c0ab4700d7b908db5b",
+        "interface": "admin", "region": "RegionOne", "region_id": "RegionOne", "id":
+        "19e3b7a7ff524fd2baff1241ed362b62"}, {"url": "https://powervc.local:8080/v1/AUTH_676b8977322946c0ab4700d7b908db5b",
+        "interface": "public", "region": "RegionOne", "region_id": "RegionOne", "id":
+        "706260d9ce594701997da9e2e46eaae0"}], "type": "object-store", "id": "d7fb93ac906d4264ac75b6bdaffef338",
+        "name": "swift"}, {"endpoints": [{"url": "https://powervc.local:8774/v2.1/676b8977322946c0ab4700d7b908db5b",
+        "interface": "admin", "region": "RegionOne", "region_id": "RegionOne", "id":
+        "7d87db0d316d46139ca62d188a308008"}, {"url": "https://powervc.local:8774/v2.1/676b8977322946c0ab4700d7b908db5b",
+        "interface": "internal", "region": "RegionOne", "region_id": "RegionOne",
+        "id": "98e2cee0e0d24bd5a967ac6a93c23ad8"}, {"url": "https://powervc.local:8774/v2.1/676b8977322946c0ab4700d7b908db5b",
+        "interface": "public", "region": "RegionOne", "region_id": "RegionOne", "id":
+        "f0db46f90d9f4f96894a2fba7aa85f5b"}], "type": "compute", "id": "ea5836130fa34bb18a8fd14161a0d200",
+        "name": "nova"}, {"endpoints": [{"url": "https://powervc.local:8041", "interface":
+        "public", "region": "RegionOne", "region_id": "RegionOne", "id": "44f2521c8cab44ccb719dd228fd09533"},
+        {"url": "https://powervc.local:8041", "interface": "admin", "region": "RegionOne",
+        "region_id": "RegionOne", "id": "b0c8b6f45ab746e0a0e39184820d5435"}, {"url":
+        "https://powervc.local:8041", "interface": "internal", "region": "RegionOne",
+        "region_id": "RegionOne", "id": "d00ac5b2174d47679c705c189beaa9e1"}], "type":
+        "metric", "id": "fc224425288748a5864b159639eb92eb", "name": "gnocchi"}, {"endpoints":
+        [{"url": "https://powervc.local:9000/v2/676b8977322946c0ab4700d7b908db5b",
+        "interface": "admin", "region": "RegionOne", "region_id": "RegionOne", "id":
+        "0ddae59bac8c4853a8ab7252bde249bc"}, {"url": "https://powervc.local:9000/v2/676b8977322946c0ab4700d7b908db5b",
+        "interface": "internal", "region": "RegionOne", "region_id": "RegionOne",
+        "id": "9083374a8cff42ac8c728478264edd65"}, {"url": "https://powervc.local:9000/v2/676b8977322946c0ab4700d7b908db5b",
+        "interface": "public", "region": "RegionOne", "region_id": "RegionOne", "id":
+        "f1c77ca2f98240a7a6603713a0d70c5a"}], "type": "volumev2", "id": "fdca7ddb2c2d447fa9f3023fced7b621",
+        "name": "cinderv2"}], "user": {"password_expires_at": null, "domain": {"id":
+        "default", "name": "Default"}, "id": "0688b01e6439ca32d698d20789d52169126fb41fb1a4ddafcebb97d854e836c9",
+        "name": "user"}, "audit_ids": ["OE740tGjScqr7bmkBSq9zw"], "issued_at": "2021-04-13T19:53:38.000000Z",
+        "is_admin_project": true}}'
+    http_version:
+  recorded_at: Tue, 13 Apr 2021 19:53:38 GMT
+- request:
+    method: get
+    uri: https://powervc.local:9292/v2/images?limit=1000
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - fog-core/2.1.0
+      Content-Type:
+      - application/json
+      Accept:
+      - application/json
+      X-Auth-Token:
+      - gAAAAABgdfbCWIOxU_AV8pOLxmcWACejtVROk6OhlEpf3FN1yY9gw6AXs7Vpm83WG9f7LFrovwZshfrhAf17H-xhdqBnO6QqoR6ORyJF59VUNwfKtuHaBPEv6BJGkJONzaGYVWdJuU9qhpCVXys71Mijt3QO7wj4UtMxX1sH0GPZNzUOVtB3--9aJFrOTxv5yPSLu-pPITiFQbMZNjoorONH5ukyiixt_ZF9f-EWOGgk-v6NMFtYmzE
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Tue, 13 Apr 2021 19:53:39 GMT
+      Server:
+      - Apache
+      Content-Length:
+      - '6416'
+      Content-Type:
+      - application/json
+      X-Openstack-Request-Id:
+      - req-b9bb3a85-a113-4d03-a149-2da22c43c926
+      Vary:
+      - Accept-Encoding,User-Agent
+    body:
+      encoding: ASCII-8BIT
+      string: '{"images": [{"container_format": "bare", "min_ram": 0, "updated_at":
+        "2021-02-25T10:52:24Z", "file": "/v2/images/2798216a-3926-4223-b168-3d493c7d1dd7/file",
+        "owner": "676b8977322946c0ab4700d7b908db5b", "id": "2798216a-3926-4223-b168-3d493c7d1dd7",
+        "size": 0, "os_distro": "sles", "user_device_name": "/dev/sda", "self": "/v2/images/2798216a-3926-4223-b168-3d493c7d1dd7",
+        "tags": [], "disk_format": "raw", "os_hash_algo": "sha512", "bdm_v2": "true",
+        "endianness": "big-endian", "schema": "/v2/schemas/image", "status": "active",
+        "block_device_mapping": "[{\"guest_format\":null,\"boot_index\":0,\"no_device\":null,\"image_id\":null,\"volume_id\":\"d52dd831-0ff5-41d7-a479-4684918046d0\",\"disk_bus\":null,\"volume_size\":null,\"source_type\":\"volume\",\"device_type\":\"disk\",\"snapshot_id\":null,\"destination_type\":\"volume\",\"delete_on_termination\":true}]",
+        "visibility": "private", "min_disk": 1, "virtual_size": null, "name": "SLES11_SP4",
+        "hypervisor_type": "phyp", "created_at": "2021-02-25T10:52:23Z", "os_hidden":
+        false, "protected": false, "architecture": "ppc64", "os_hash_value": "cf83e1357eefb8bdf1542850d66d8007d620e4050b5715dc83f4a921d36ce9ce47d0d13c5d85f2b0ff8318d2877eec2f63b931bd47417a81a538327af927da3e",
+        "checksum": "d41d8cd98f00b204e9800998ecf8427e"}, {"container_format": "bare",
+        "min_ram": 0, "updated_at": "2021-01-28T18:08:06Z", "file": "/v2/images/fd343d6e-cbdf-4b07-9eb3-c0d0315fe770/file",
+        "owner": "676b8977322946c0ab4700d7b908db5b", "id": "fd343d6e-cbdf-4b07-9eb3-c0d0315fe770",
+        "size": 0, "os_distro": "sles", "self": "/v2/images/fd343d6e-cbdf-4b07-9eb3-c0d0315fe770",
+        "tags": [], "disk_format": "raw", "os_hash_algo": "sha512", "bdm_v2": "true",
+        "endianness": "big-endian", "schema": "/v2/schemas/image", "status": "active",
+        "block_device_mapping": "[{\"guest_format\":null,\"boot_index\":0,\"no_device\":null,\"image_id\":null,\"volume_id\":\"b7e3c64e-b3b1-40f7-b423-9b683baad268\",\"disk_bus\":null,\"volume_size\":null,\"source_type\":\"volume\",\"device_type\":\"disk\",\"snapshot_id\":null,\"destination_type\":\"volume\",\"delete_on_termination\":true}]",
+        "visibility": "private", "min_disk": 1, "virtual_size": null, "architecture":
+        "ppc64", "name": "SLES15SP2-CI19.1-COLO", "hypervisor_type": "phyp", "created_at":
+        "2021-01-28T18:08:03Z", "os_hidden": false, "protected": false, "user_device_name":
+        "/dev/sda", "os_hash_value": "cf83e1357eefb8bdf1542850d66d8007d620e4050b5715dc83f4a921d36ce9ce47d0d13c5d85f2b0ff8318d2877eec2f63b931bd47417a81a538327af927da3e",
+        "checksum": "d41d8cd98f00b204e9800998ecf8427e"}, {"container_format": "bare",
+        "min_ram": 0, "updated_at": "2021-01-28T16:50:45Z", "file": "/v2/images/23ad84eb-c131-4b4a-8a49-63a21de0d1b8/file",
+        "owner": "676b8977322946c0ab4700d7b908db5b", "id": "23ad84eb-c131-4b4a-8a49-63a21de0d1b8",
+        "size": 0, "os_distro": "sles", "user_device_name": "/dev/sda", "self": "/v2/images/23ad84eb-c131-4b4a-8a49-63a21de0d1b8",
+        "tags": [], "disk_format": "raw", "os_hash_algo": "sha512", "bdm_v2": "true",
+        "endianness": "big-endian", "schema": "/v2/schemas/image", "status": "active",
+        "block_device_mapping": "[{\"guest_format\":null,\"boot_index\":0,\"no_device\":null,\"image_id\":null,\"volume_id\":\"9d6c7fd8-5eb4-40ec-90ae-cae6416ec64f\",\"disk_bus\":null,\"volume_size\":null,\"source_type\":\"volume\",\"device_type\":\"disk\",\"snapshot_id\":null,\"destination_type\":\"volume\",\"delete_on_termination\":true}]",
+        "visibility": "private", "min_disk": 1, "virtual_size": null, "name": "SLES15SP2_COLO",
+        "hypervisor_type": "phyp", "created_at": "2021-01-28T16:50:43Z", "os_hidden":
+        false, "protected": false, "architecture": "ppc64", "os_hash_value": "cf83e1357eefb8bdf1542850d66d8007d620e4050b5715dc83f4a921d36ce9ce47d0d13c5d85f2b0ff8318d2877eec2f63b931bd47417a81a538327af927da3e",
+        "checksum": "d41d8cd98f00b204e9800998ecf8427e"}, {"container_format": "bare",
+        "min_ram": 0, "updated_at": "2020-12-11T18:37:31Z", "file": "/v2/images/f852e1a3-9177-4d49-8e35-2acb731dc334/file",
+        "owner": "676b8977322946c0ab4700d7b908db5b", "id": "f852e1a3-9177-4d49-8e35-2acb731dc334",
+        "size": 0, "os_distro": "rhel", "self": "/v2/images/f852e1a3-9177-4d49-8e35-2acb731dc334",
+        "tags": [], "disk_format": "raw", "os_hash_algo": "sha512", "bdm_v2": "true",
+        "endianness": "big-endian", "schema": "/v2/schemas/image", "status": "active",
+        "block_device_mapping": "[{\"guest_format\":null,\"boot_index\":0,\"no_device\":null,\"image_id\":null,\"volume_id\":\"5ea83a92-fb6e-4c45-9146-352b733f5233\",\"disk_bus\":null,\"volume_size\":null,\"source_type\":\"volume\",\"device_type\":\"disk\",\"snapshot_id\":null,\"destination_type\":\"volume\",\"delete_on_termination\":true}]",
+        "visibility": "private", "min_disk": 1, "virtual_size": null, "architecture":
+        "ppc64", "name": "RHEL82_100GB", "hypervisor_type": "phyp", "created_at":
+        "2020-12-11T18:37:29Z", "os_hidden": false, "protected": false, "user_device_name":
+        "/dev/sda", "os_hash_value": "cf83e1357eefb8bdf1542850d66d8007d620e4050b5715dc83f4a921d36ce9ce47d0d13c5d85f2b0ff8318d2877eec2f63b931bd47417a81a538327af927da3e",
+        "checksum": "d41d8cd98f00b204e9800998ecf8427e"}, {"container_format": "bare",
+        "min_ram": 0, "updated_at": "2020-12-10T18:31:11Z", "file": "/v2/images/6dee68a4-9924-4489-968c-41269c55bb98/file",
+        "owner": "676b8977322946c0ab4700d7b908db5b", "id": "6dee68a4-9924-4489-968c-41269c55bb98",
+        "size": 0, "os_distro": "rhel", "user_device_name": "/dev/sda", "self": "/v2/images/6dee68a4-9924-4489-968c-41269c55bb98",
+        "tags": [], "disk_format": "raw", "os_hash_algo": "sha512", "bdm_v2": "true",
+        "endianness": "big-endian", "schema": "/v2/schemas/image", "status": "active",
+        "block_device_mapping": "[{\"guest_format\":null,\"boot_index\":0,\"no_device\":null,\"image_id\":null,\"volume_id\":\"b119a27c-04c3-463d-9514-8dee90c5591f\",\"disk_bus\":null,\"volume_size\":null,\"source_type\":\"volume\",\"device_type\":\"disk\",\"snapshot_id\":null,\"destination_type\":\"volume\",\"delete_on_termination\":true}]",
+        "visibility": "private", "min_disk": 1, "virtual_size": null, "name": "RHEL83",
+        "hypervisor_type": "phyp", "created_at": "2020-12-10T18:31:10Z", "os_hidden":
+        false, "protected": false, "architecture": "ppc64", "os_hash_value": "cf83e1357eefb8bdf1542850d66d8007d620e4050b5715dc83f4a921d36ce9ce47d0d13c5d85f2b0ff8318d2877eec2f63b931bd47417a81a538327af927da3e",
+        "checksum": "d41d8cd98f00b204e9800998ecf8427e"}], "schema": "/v2/schemas/images",
+        "first": "/v2/images?limit=1000"}'
+    http_version:
+  recorded_at: Tue, 13 Apr 2021 19:53:39 GMT
+- request:
+    method: get
+    uri: https://powervc.local:9292/v2/images?limit=1000&marker=6dee68a4-9924-4489-968c-41269c55bb98
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - fog-core/2.1.0
+      Content-Type:
+      - application/json
+      Accept:
+      - application/json
+      X-Auth-Token:
+      - gAAAAABgdfbCWIOxU_AV8pOLxmcWACejtVROk6OhlEpf3FN1yY9gw6AXs7Vpm83WG9f7LFrovwZshfrhAf17H-xhdqBnO6QqoR6ORyJF59VUNwfKtuHaBPEv6BJGkJONzaGYVWdJuU9qhpCVXys71Mijt3QO7wj4UtMxX1sH0GPZNzUOVtB3--9aJFrOTxv5yPSLu-pPITiFQbMZNjoorONH5ukyiixt_ZF9f-EWOGgk-v6NMFtYmzE
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Tue, 13 Apr 2021 19:53:39 GMT
+      Server:
+      - Apache
+      Content-Length:
+      - '80'
+      Content-Type:
+      - application/json
+      X-Openstack-Request-Id:
+      - req-622388e3-fdce-4fb5-b2a6-eab4f2ffd237
+      Vary:
+      - Accept-Encoding,User-Agent
+    body:
+      encoding: ASCII-8BIT
+      string: '{"images": [], "schema": "/v2/schemas/images", "first": "/v2/images?limit=1000"}'
+    http_version:
+  recorded_at: Tue, 13 Apr 2021 19:53:39 GMT
+- request:
+    method: get
+    uri: https://powervc.local:8774/v2.1/676b8977322946c0ab4700d7b908db5b/os-keypairs?limit=1000
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - fog-core/2.1.0
+      Content-Type:
+      - application/json
+      Accept:
+      - application/json
+      X-Auth-Token:
+      - gAAAAABgdfaL-VQ3iBSN-uTH4NpK4sNQVYJYDuvUyHVzuD0W5UAtYLRObfTbw6dCxQuCGciCa72_WkPip6xigmcfSaRDPeE1qI9U1yQ7X0pLtTw40GhlDFddZiEya9vjgRUzgMUt8tUxh0F0CoMt_VN_D1cZvBXn--vD8z1e8irHYS-A6IIPlPRt_gReO8al3zhiLwv_-QeqeESFKakWNy55s--QPeqSIhVHUlsdfGKuTKZyXmkFucQ
+      X-Openstack-Nova-Api-Version:
+      - '2.15'
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Tue, 13 Apr 2021 19:53:39 GMT
+      Server:
+      - Apache
+      Content-Length:
+      - '16'
+      Content-Type:
+      - application/json
+      Openstack-Api-Version:
+      - compute 2.15
+      X-Openstack-Nova-Api-Version:
+      - '2.15'
+      Vary:
+      - OpenStack-API-Version,User-Agent,X-OpenStack-Nova-API-Version
+      X-Openstack-Request-Id:
+      - req-69b65f62-1f73-4593-a900-5ea80478fee4
+      X-Compute-Request-Id:
+      - req-69b65f62-1f73-4593-a900-5ea80478fee4
+    body:
+      encoding: ASCII-8BIT
+      string: '{"keypairs": []}'
+    http_version:
+  recorded_at: Tue, 13 Apr 2021 19:53:39 GMT
+- request:
+    method: post
+    uri: https://powervc.local:5000/v3/auth/tokens
+    body:
+      encoding: UTF-8
+      string: '{"auth":{"identity":{"methods":["password"],"password":{"user":{"name":"user","domain":{"id":"default"},"password":"password"}}},"scope":{"project":{"name":"ibm-default","domain":{"id":"default"}}}}}'
+    headers:
+      User-Agent:
+      - fog-core/2.1.0
+      Content-Type:
+      - application/json
+  response:
+    status:
+      code: 201
+      message: CREATED
+    headers:
+      Date:
+      - Tue, 13 Apr 2021 19:53:40 GMT
+      Server:
+      - Apache
+      X-Subject-Token:
+      - gAAAAABgdfbd-WvX8LyHoiXG2BBbjjwvJaYxTMSgf1J-JAMRPVR7QcBK1OXogfHqCHpAIuwQTBkWD-TRHSl1hhiiEN5rAm2MJRFKVtUR9Dhkyzmvs1H5OsXeyPsb9ASEtkeym8YaXnl0uC-ix39iStuFGaQyfwgoPftAKnTJF_u_96iRJRFS7QOpiwBF09IvSFHDYTsCzT2SVPAesiWMiJZZ0wLimippyrpDJ6jJwo1FOjEEBXhi-yc
+      Vary:
+      - X-Auth-Token,User-Agent
+      X-Openstack-Request-Id:
+      - req-7cd5683e-04b6-4d61-96d9-16e8073f1184
+      Content-Length:
+      - '8539'
+      Content-Type:
+      - application/json
+    body:
+      encoding: ASCII-8BIT
+      string: '{"token": {"is_domain": false, "methods": ["password"], "roles": [{"id":
+        "379eb0a8ca554c208f2e2bc03254f239", "name": "admin"}], "expires_at": "2021-04-14T01:54:05.000000Z",
+        "project": {"domain": {"id": "default", "name": "Default"}, "id": "676b8977322946c0ab4700d7b908db5b",
+        "name": "ibm-default"}, "catalog": [{"endpoints": [{"url": "https://powervc.local:9292",
+        "interface": "admin", "region": "RegionOne", "region_id": "RegionOne", "id":
+        "9df13c8adc3b4698a02b6f891af66441"}, {"url": "https://powervc.local:9292",
+        "interface": "internal", "region": "RegionOne", "region_id": "RegionOne",
+        "id": "d118e424ac72472ea36b3ca1bb265f64"}, {"url": "https://powervc.local:9292",
+        "interface": "public", "region": "RegionOne", "region_id": "RegionOne", "id":
+        "f95a690760524c3fba935216c4a5d04e"}], "type": "image", "id": "15982d6dc71141ffbcdec2cca5ed80b4",
+        "name": "glance"}, {"endpoints": [{"url": "https://powervc.local:8428", "interface":
+        "admin", "region": "RegionOne", "region_id": "RegionOne", "id": "33ac582041024eb3a100d4c22e725387"},
+        {"url": "https://powervc.local:8428", "interface": "internal", "region": "RegionOne",
+        "region_id": "RegionOne", "id": "b3b402bec07f4ed6ae2f2fbb53fed5ce"}, {"url":
+        "https://powervc.local:8428", "interface": "public", "region": "RegionOne",
+        "region_id": "RegionOne", "id": "e00871da16454284b919b2d4cae6e4d5"}], "type":
+        "ttv", "id": "30c155f1186a4478a58d0fb484df87ef", "name": "validator"}, {"endpoints":
+        [{"url": "https://powervc.local:5000/v3", "interface": "public", "region":
+        "RegionOne", "region_id": "RegionOne", "id": "0d202a117585429ab662ce22884c7c98"},
+        {"url": "https://powervc.local:5000/v3", "interface": "internal", "region":
+        "RegionOne", "region_id": "RegionOne", "id": "6a2693c0567845e7b7acc61f8484ed60"},
+        {"url": "https://powervc.local:5000/v3", "interface": "admin", "region": "RegionOne",
+        "region_id": "RegionOne", "id": "a8df8f1432474ecc85bc07f2fa555b76"}], "type":
+        "identity", "id": "702de05ce707422192705789e35d84d1", "name": "keystone"},
+        {"endpoints": [{"url": "https://powervc.local:9000/v2/676b8977322946c0ab4700d7b908db5b",
+        "interface": "internal", "region": "RegionOne", "region_id": "RegionOne",
+        "id": "a7670e388aa645e38c87d68a45a4193a"}, {"url": "https://powervc.local:9000/v2/676b8977322946c0ab4700d7b908db5b",
+        "interface": "public", "region": "RegionOne", "region_id": "RegionOne", "id":
+        "e215e0495a5748718228b8e9c4450ffa"}, {"url": "https://powervc.local:9000/v2/676b8977322946c0ab4700d7b908db5b",
+        "interface": "admin", "region": "RegionOne", "region_id": "RegionOne", "id":
+        "eb93823b398c4d3aaefa01f9017833cd"}], "type": "volume", "id": "7c5bbbf6929a4481983d33f4c577ece8",
+        "name": "cinder"}, {"endpoints": [{"url": "https://powervc.local:8778", "interface":
+        "admin", "region": "RegionOne", "region_id": "RegionOne", "id": "89a67d62454a47b295e35fd886f9bdf3"},
+        {"url": "https://powervc.local:8778", "interface": "public", "region": "RegionOne",
+        "region_id": "RegionOne", "id": "8f5f237d6ab54d62b049729a1e497bce"}, {"url":
+        "https://powervc.local:8778", "interface": "internal", "region": "RegionOne",
+        "region_id": "RegionOne", "id": "9e4863dc21d446e9a26ff125f2a251b3"}], "type":
+        "event", "id": "80d1967bf27d4b478c83fb043bababb5", "name": "panko"}, {"endpoints":
+        [{"url": "https://powervc.local:9696", "interface": "public", "region": "RegionOne",
+        "region_id": "RegionOne", "id": "1d217a828d0648b9a75c0535bd6b75c1"}, {"url":
+        "https://powervc.local:9696", "interface": "admin", "region": "RegionOne",
+        "region_id": "RegionOne", "id": "591befadd43f49269ec11e2a2c2a683a"}, {"url":
+        "https://powervc.local:9696", "interface": "internal", "region": "RegionOne",
+        "region_id": "RegionOne", "id": "a149251ece864342877bcb8e9b0f8776"}], "type":
+        "network", "id": "97a3e84732df47ad8627cf52567bfe26", "name": "neutron"}, {"endpoints":
+        [{"url": "https://powervc.local:9000/v3/676b8977322946c0ab4700d7b908db5b",
+        "interface": "internal", "region": "RegionOne", "region_id": "RegionOne",
+        "id": "67296992f3a348c6be611ced4edef1b3"}, {"url": "https://powervc.local:9000/v3/676b8977322946c0ab4700d7b908db5b",
+        "interface": "admin", "region": "RegionOne", "region_id": "RegionOne", "id":
+        "e024241807044e92aa37f6b3d6deee07"}, {"url": "https://powervc.local:9000/v3/676b8977322946c0ab4700d7b908db5b",
+        "interface": "public", "region": "RegionOne", "region_id": "RegionOne", "id":
+        "ea589e63d4f64197b7ede86c3cfecfb4"}], "type": "volumev3", "id": "d1101d2c53664032a7c439962caeb9f8",
+        "name": "cinderv3"}, {"endpoints": [{"url": "https://powervc.local:5470",
+        "interface": "public", "region": "RegionOne", "region_id": "RegionOne", "id":
+        "60ba607b26a8434d906dfea8d92154c4"}, {"url": "https://powervc.local:5470",
+        "interface": "admin", "region": "RegionOne", "region_id": "RegionOne", "id":
+        "96bc8751f67c4f70be3eb290654752d4"}, {"url": "https://powervc.local:5470",
+        "interface": "internal", "region": "RegionOne", "region_id": "RegionOne",
+        "id": "b32eeb5c399440c4a0d487d59636e330"}], "type": "notification", "id":
+        "d7d45118e95a41399388c32bc88aaf73", "name": "bumblebee"}, {"endpoints": [{"url":
+        "https://powervc.local:8080/v1/AUTH_676b8977322946c0ab4700d7b908db5b", "interface":
+        "internal", "region": "RegionOne", "region_id": "RegionOne", "id": "0c2b8e2400e1423e971a012f83751f6b"},
+        {"url": "https://powervc.local:8080/v1/AUTH_676b8977322946c0ab4700d7b908db5b",
+        "interface": "admin", "region": "RegionOne", "region_id": "RegionOne", "id":
+        "19e3b7a7ff524fd2baff1241ed362b62"}, {"url": "https://powervc.local:8080/v1/AUTH_676b8977322946c0ab4700d7b908db5b",
+        "interface": "public", "region": "RegionOne", "region_id": "RegionOne", "id":
+        "706260d9ce594701997da9e2e46eaae0"}], "type": "object-store", "id": "d7fb93ac906d4264ac75b6bdaffef338",
+        "name": "swift"}, {"endpoints": [{"url": "https://powervc.local:8774/v2.1/676b8977322946c0ab4700d7b908db5b",
+        "interface": "admin", "region": "RegionOne", "region_id": "RegionOne", "id":
+        "7d87db0d316d46139ca62d188a308008"}, {"url": "https://powervc.local:8774/v2.1/676b8977322946c0ab4700d7b908db5b",
+        "interface": "internal", "region": "RegionOne", "region_id": "RegionOne",
+        "id": "98e2cee0e0d24bd5a967ac6a93c23ad8"}, {"url": "https://powervc.local:8774/v2.1/676b8977322946c0ab4700d7b908db5b",
+        "interface": "public", "region": "RegionOne", "region_id": "RegionOne", "id":
+        "f0db46f90d9f4f96894a2fba7aa85f5b"}], "type": "compute", "id": "ea5836130fa34bb18a8fd14161a0d200",
+        "name": "nova"}, {"endpoints": [{"url": "https://powervc.local:8041", "interface":
+        "public", "region": "RegionOne", "region_id": "RegionOne", "id": "44f2521c8cab44ccb719dd228fd09533"},
+        {"url": "https://powervc.local:8041", "interface": "admin", "region": "RegionOne",
+        "region_id": "RegionOne", "id": "b0c8b6f45ab746e0a0e39184820d5435"}, {"url":
+        "https://powervc.local:8041", "interface": "internal", "region": "RegionOne",
+        "region_id": "RegionOne", "id": "d00ac5b2174d47679c705c189beaa9e1"}], "type":
+        "metric", "id": "fc224425288748a5864b159639eb92eb", "name": "gnocchi"}, {"endpoints":
+        [{"url": "https://powervc.local:9000/v2/676b8977322946c0ab4700d7b908db5b",
+        "interface": "admin", "region": "RegionOne", "region_id": "RegionOne", "id":
+        "0ddae59bac8c4853a8ab7252bde249bc"}, {"url": "https://powervc.local:9000/v2/676b8977322946c0ab4700d7b908db5b",
+        "interface": "internal", "region": "RegionOne", "region_id": "RegionOne",
+        "id": "9083374a8cff42ac8c728478264edd65"}, {"url": "https://powervc.local:9000/v2/676b8977322946c0ab4700d7b908db5b",
+        "interface": "public", "region": "RegionOne", "region_id": "RegionOne", "id":
+        "f1c77ca2f98240a7a6603713a0d70c5a"}], "type": "volumev2", "id": "fdca7ddb2c2d447fa9f3023fced7b621",
+        "name": "cinderv2"}], "user": {"password_expires_at": null, "domain": {"id":
+        "default", "name": "Default"}, "id": "0688b01e6439ca32d698d20789d52169126fb41fb1a4ddafcebb97d854e836c9",
+        "name": "user"}, "audit_ids": ["25OMbCvgShG5pM_It-Z3KQ"], "issued_at": "2021-04-13T19:54:05.000000Z",
+        "is_admin_project": true}}'
+    http_version:
+  recorded_at: Tue, 13 Apr 2021 19:54:05 GMT
+- request:
+    method: get
+    uri: https://powervc.local:8774/v2.1/676b8977322946c0ab4700d7b908db5b//os-quota-sets/676b8977322946c0ab4700d7b908db5b
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - fog-core/2.1.0
+      Content-Type:
+      - application/json
+      Accept:
+      - application/json
+      X-Auth-Token:
+      - gAAAAABgdfaL-VQ3iBSN-uTH4NpK4sNQVYJYDuvUyHVzuD0W5UAtYLRObfTbw6dCxQuCGciCa72_WkPip6xigmcfSaRDPeE1qI9U1yQ7X0pLtTw40GhlDFddZiEya9vjgRUzgMUt8tUxh0F0CoMt_VN_D1cZvBXn--vD8z1e8irHYS-A6IIPlPRt_gReO8al3zhiLwv_-QeqeESFKakWNy55s--QPeqSIhVHUlsdfGKuTKZyXmkFucQ
+      X-Openstack-Nova-Api-Version:
+      - '2.15'
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Tue, 13 Apr 2021 19:54:06 GMT
+      Server:
+      - Apache
+      Content-Length:
+      - '380'
+      Content-Type:
+      - application/json
+      Openstack-Api-Version:
+      - compute 2.15
+      X-Openstack-Nova-Api-Version:
+      - '2.15'
+      Vary:
+      - OpenStack-API-Version,Accept-Encoding,User-Agent,X-OpenStack-Nova-API-Version
+      X-Openstack-Request-Id:
+      - req-a2d2da91-7e8d-42cf-9472-b0f155d95129
+      X-Compute-Request-Id:
+      - req-a2d2da91-7e8d-42cf-9472-b0f155d95129
+    body:
+      encoding: ASCII-8BIT
+      string: '{"quota_set": {"injected_file_content_bytes": 10240, "metadata_items":
+        256, "server_group_members": 100, "server_groups": 25, "ram": 40960000, "floating_ips":
+        10, "key_pairs": 100, "id": "676b8977322946c0ab4700d7b908db5b", "instances":
+        5500, "security_group_rules": 20, "injected_files": 5, "cores": 55000, "fixed_ips":
+        -1, "injected_file_path_bytes": 255, "security_groups": 10}}'
+    http_version:
+  recorded_at: Tue, 13 Apr 2021 19:54:06 GMT
+- request:
+    method: get
+    uri: https://powervc.local:9000/v2/676b8977322946c0ab4700d7b908db5b//os-quota-sets/676b8977322946c0ab4700d7b908db5b
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - fog-core/2.1.0
+      Content-Type:
+      - application/json
+      Accept:
+      - application/json
+      X-Auth-Token:
+      - gAAAAABgdfamG-xWspBYKZcQvWrxRf4FTDkUtZefy1EOM-nu9DpJb-oN4X3F_4qbgDoLSIx0F8frGTH1Okx0w_c48W2m4NUQHeVe21Viy9x7OSmMadCChgnqnUDuIVTsu3nN5CvvIAg1v7Y1U4YPPYnsKk102CgTMIURJPhtlat_Szfvo1OFJ-PBDrYiDNZbcKg7hk5n766cCOsCalx29xGsBD_lOQ7p9UtRulZHDuPFJiqMO27V1Jo
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Tue, 13 Apr 2021 19:54:06 GMT
+      Server:
+      - Apache
+      X-Compute-Request-Id:
+      - req-a10630c6-62ec-4832-a939-948d95a39143
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '611'
+      X-Openstack-Request-Id:
+      - req-a10630c6-62ec-4832-a939-948d95a39143
+      Vary:
+      - Accept-Encoding,User-Agent
+    body:
+      encoding: ASCII-8BIT
+      string: '{"quota_set": {"per_volume_gigabytes": -1, "snapshots_SVC100 base template":
+        100000, "groups": 1500, "gigabytes_SVC100 base template": 10000000, "gigabytes":
+        10000000, "snapshots_SSP_Cluster_FVT base template": 100000, "backup_gigabytes":
+        15000, "gigabytes_SVC106 base template": 10000000, "snapshots": 100000, "volumes_SVC100
+        base template": 100000, "volumes_SSP_Cluster_FVT base template": 100000, "volumes":
+        100000, "backups": 30, "gigabytes_SSP_Cluster_FVT base template": 10000000,
+        "id": "676b8977322946c0ab4700d7b908db5b", "snapshots_SVC106 base template":
+        100000, "volumes_SVC106 base template": 100000}}'
+    http_version:
+  recorded_at: Tue, 13 Apr 2021 19:54:07 GMT
+- request:
+    method: post
+    uri: https://powervc.local:5000/v3/auth/tokens
+    body:
+      encoding: UTF-8
+      string: '{"auth":{"identity":{"methods":["password"],"password":{"user":{"name":"user","domain":{"id":"default"},"password":"password"}}},"scope":{"project":{"name":"ibm-default","domain":{"id":"default"}}}}}'
+    headers:
+      User-Agent:
+      - fog-core/2.1.0
+      Content-Type:
+      - application/json
+  response:
+    status:
+      code: 201
+      message: CREATED
+    headers:
+      Date:
+      - Tue, 13 Apr 2021 19:54:07 GMT
+      Server:
+      - Apache
+      X-Subject-Token:
+      - gAAAAABgdfb5UQq36jK3maEkhmQW2oBNl163-FricqzTcE5VP_Xflt1ar_BVqgQIt3Fv8XBTzDkndtiMoElz0tatQlhy3Mk3MAGDm5zpDpZUaj5pf0JOJyL7d5PQxgtfg6ovd-pgHaciPdrASKkTRzGMtupyg2mT6rvs5WIEGRE4QlsAbY-4ddO-rVm8qvi8JbpLrma_Xq_RIEvPtHf4MwlzjWIYGQ0hP3TGIx9sJDXdr_goKnpNMO4
+      Vary:
+      - X-Auth-Token,User-Agent
+      X-Openstack-Request-Id:
+      - req-6937761d-8607-4750-a179-49ac7196218c
+      Content-Length:
+      - '8539'
+      Content-Type:
+      - application/json
+    body:
+      encoding: ASCII-8BIT
+      string: '{"token": {"is_domain": false, "methods": ["password"], "roles": [{"id":
+        "379eb0a8ca554c208f2e2bc03254f239", "name": "admin"}], "expires_at": "2021-04-14T01:54:33.000000Z",
+        "project": {"domain": {"id": "default", "name": "Default"}, "id": "676b8977322946c0ab4700d7b908db5b",
+        "name": "ibm-default"}, "catalog": [{"endpoints": [{"url": "https://powervc.local:9292",
+        "interface": "admin", "region": "RegionOne", "region_id": "RegionOne", "id":
+        "9df13c8adc3b4698a02b6f891af66441"}, {"url": "https://powervc.local:9292",
+        "interface": "internal", "region": "RegionOne", "region_id": "RegionOne",
+        "id": "d118e424ac72472ea36b3ca1bb265f64"}, {"url": "https://powervc.local:9292",
+        "interface": "public", "region": "RegionOne", "region_id": "RegionOne", "id":
+        "f95a690760524c3fba935216c4a5d04e"}], "type": "image", "id": "15982d6dc71141ffbcdec2cca5ed80b4",
+        "name": "glance"}, {"endpoints": [{"url": "https://powervc.local:8428", "interface":
+        "admin", "region": "RegionOne", "region_id": "RegionOne", "id": "33ac582041024eb3a100d4c22e725387"},
+        {"url": "https://powervc.local:8428", "interface": "internal", "region": "RegionOne",
+        "region_id": "RegionOne", "id": "b3b402bec07f4ed6ae2f2fbb53fed5ce"}, {"url":
+        "https://powervc.local:8428", "interface": "public", "region": "RegionOne",
+        "region_id": "RegionOne", "id": "e00871da16454284b919b2d4cae6e4d5"}], "type":
+        "ttv", "id": "30c155f1186a4478a58d0fb484df87ef", "name": "validator"}, {"endpoints":
+        [{"url": "https://powervc.local:5000/v3", "interface": "public", "region":
+        "RegionOne", "region_id": "RegionOne", "id": "0d202a117585429ab662ce22884c7c98"},
+        {"url": "https://powervc.local:5000/v3", "interface": "internal", "region":
+        "RegionOne", "region_id": "RegionOne", "id": "6a2693c0567845e7b7acc61f8484ed60"},
+        {"url": "https://powervc.local:5000/v3", "interface": "admin", "region": "RegionOne",
+        "region_id": "RegionOne", "id": "a8df8f1432474ecc85bc07f2fa555b76"}], "type":
+        "identity", "id": "702de05ce707422192705789e35d84d1", "name": "keystone"},
+        {"endpoints": [{"url": "https://powervc.local:9000/v2/676b8977322946c0ab4700d7b908db5b",
+        "interface": "internal", "region": "RegionOne", "region_id": "RegionOne",
+        "id": "a7670e388aa645e38c87d68a45a4193a"}, {"url": "https://powervc.local:9000/v2/676b8977322946c0ab4700d7b908db5b",
+        "interface": "public", "region": "RegionOne", "region_id": "RegionOne", "id":
+        "e215e0495a5748718228b8e9c4450ffa"}, {"url": "https://powervc.local:9000/v2/676b8977322946c0ab4700d7b908db5b",
+        "interface": "admin", "region": "RegionOne", "region_id": "RegionOne", "id":
+        "eb93823b398c4d3aaefa01f9017833cd"}], "type": "volume", "id": "7c5bbbf6929a4481983d33f4c577ece8",
+        "name": "cinder"}, {"endpoints": [{"url": "https://powervc.local:8778", "interface":
+        "admin", "region": "RegionOne", "region_id": "RegionOne", "id": "89a67d62454a47b295e35fd886f9bdf3"},
+        {"url": "https://powervc.local:8778", "interface": "public", "region": "RegionOne",
+        "region_id": "RegionOne", "id": "8f5f237d6ab54d62b049729a1e497bce"}, {"url":
+        "https://powervc.local:8778", "interface": "internal", "region": "RegionOne",
+        "region_id": "RegionOne", "id": "9e4863dc21d446e9a26ff125f2a251b3"}], "type":
+        "event", "id": "80d1967bf27d4b478c83fb043bababb5", "name": "panko"}, {"endpoints":
+        [{"url": "https://powervc.local:9696", "interface": "public", "region": "RegionOne",
+        "region_id": "RegionOne", "id": "1d217a828d0648b9a75c0535bd6b75c1"}, {"url":
+        "https://powervc.local:9696", "interface": "admin", "region": "RegionOne",
+        "region_id": "RegionOne", "id": "591befadd43f49269ec11e2a2c2a683a"}, {"url":
+        "https://powervc.local:9696", "interface": "internal", "region": "RegionOne",
+        "region_id": "RegionOne", "id": "a149251ece864342877bcb8e9b0f8776"}], "type":
+        "network", "id": "97a3e84732df47ad8627cf52567bfe26", "name": "neutron"}, {"endpoints":
+        [{"url": "https://powervc.local:9000/v3/676b8977322946c0ab4700d7b908db5b",
+        "interface": "internal", "region": "RegionOne", "region_id": "RegionOne",
+        "id": "67296992f3a348c6be611ced4edef1b3"}, {"url": "https://powervc.local:9000/v3/676b8977322946c0ab4700d7b908db5b",
+        "interface": "admin", "region": "RegionOne", "region_id": "RegionOne", "id":
+        "e024241807044e92aa37f6b3d6deee07"}, {"url": "https://powervc.local:9000/v3/676b8977322946c0ab4700d7b908db5b",
+        "interface": "public", "region": "RegionOne", "region_id": "RegionOne", "id":
+        "ea589e63d4f64197b7ede86c3cfecfb4"}], "type": "volumev3", "id": "d1101d2c53664032a7c439962caeb9f8",
+        "name": "cinderv3"}, {"endpoints": [{"url": "https://powervc.local:5470",
+        "interface": "public", "region": "RegionOne", "region_id": "RegionOne", "id":
+        "60ba607b26a8434d906dfea8d92154c4"}, {"url": "https://powervc.local:5470",
+        "interface": "admin", "region": "RegionOne", "region_id": "RegionOne", "id":
+        "96bc8751f67c4f70be3eb290654752d4"}, {"url": "https://powervc.local:5470",
+        "interface": "internal", "region": "RegionOne", "region_id": "RegionOne",
+        "id": "b32eeb5c399440c4a0d487d59636e330"}], "type": "notification", "id":
+        "d7d45118e95a41399388c32bc88aaf73", "name": "bumblebee"}, {"endpoints": [{"url":
+        "https://powervc.local:8080/v1/AUTH_676b8977322946c0ab4700d7b908db5b", "interface":
+        "internal", "region": "RegionOne", "region_id": "RegionOne", "id": "0c2b8e2400e1423e971a012f83751f6b"},
+        {"url": "https://powervc.local:8080/v1/AUTH_676b8977322946c0ab4700d7b908db5b",
+        "interface": "admin", "region": "RegionOne", "region_id": "RegionOne", "id":
+        "19e3b7a7ff524fd2baff1241ed362b62"}, {"url": "https://powervc.local:8080/v1/AUTH_676b8977322946c0ab4700d7b908db5b",
+        "interface": "public", "region": "RegionOne", "region_id": "RegionOne", "id":
+        "706260d9ce594701997da9e2e46eaae0"}], "type": "object-store", "id": "d7fb93ac906d4264ac75b6bdaffef338",
+        "name": "swift"}, {"endpoints": [{"url": "https://powervc.local:8774/v2.1/676b8977322946c0ab4700d7b908db5b",
+        "interface": "admin", "region": "RegionOne", "region_id": "RegionOne", "id":
+        "7d87db0d316d46139ca62d188a308008"}, {"url": "https://powervc.local:8774/v2.1/676b8977322946c0ab4700d7b908db5b",
+        "interface": "internal", "region": "RegionOne", "region_id": "RegionOne",
+        "id": "98e2cee0e0d24bd5a967ac6a93c23ad8"}, {"url": "https://powervc.local:8774/v2.1/676b8977322946c0ab4700d7b908db5b",
+        "interface": "public", "region": "RegionOne", "region_id": "RegionOne", "id":
+        "f0db46f90d9f4f96894a2fba7aa85f5b"}], "type": "compute", "id": "ea5836130fa34bb18a8fd14161a0d200",
+        "name": "nova"}, {"endpoints": [{"url": "https://powervc.local:8041", "interface":
+        "public", "region": "RegionOne", "region_id": "RegionOne", "id": "44f2521c8cab44ccb719dd228fd09533"},
+        {"url": "https://powervc.local:8041", "interface": "admin", "region": "RegionOne",
+        "region_id": "RegionOne", "id": "b0c8b6f45ab746e0a0e39184820d5435"}, {"url":
+        "https://powervc.local:8041", "interface": "internal", "region": "RegionOne",
+        "region_id": "RegionOne", "id": "d00ac5b2174d47679c705c189beaa9e1"}], "type":
+        "metric", "id": "fc224425288748a5864b159639eb92eb", "name": "gnocchi"}, {"endpoints":
+        [{"url": "https://powervc.local:9000/v2/676b8977322946c0ab4700d7b908db5b",
+        "interface": "admin", "region": "RegionOne", "region_id": "RegionOne", "id":
+        "0ddae59bac8c4853a8ab7252bde249bc"}, {"url": "https://powervc.local:9000/v2/676b8977322946c0ab4700d7b908db5b",
+        "interface": "internal", "region": "RegionOne", "region_id": "RegionOne",
+        "id": "9083374a8cff42ac8c728478264edd65"}, {"url": "https://powervc.local:9000/v2/676b8977322946c0ab4700d7b908db5b",
+        "interface": "public", "region": "RegionOne", "region_id": "RegionOne", "id":
+        "f1c77ca2f98240a7a6603713a0d70c5a"}], "type": "volumev2", "id": "fdca7ddb2c2d447fa9f3023fced7b621",
+        "name": "cinderv2"}], "user": {"password_expires_at": null, "domain": {"id":
+        "default", "name": "Default"}, "id": "0688b01e6439ca32d698d20789d52169126fb41fb1a4ddafcebb97d854e836c9",
+        "name": "user"}, "audit_ids": ["jXSE1F3kRIGb2QIONMEd2Q"], "issued_at": "2021-04-13T19:54:33.000000Z",
+        "is_admin_project": true}}'
+    http_version:
+  recorded_at: Tue, 13 Apr 2021 19:54:33 GMT
+- request:
+    method: get
+    uri: https://powervc.local:9696/v2.0//quotas/676b8977322946c0ab4700d7b908db5b
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - fog-core/2.1.0
+      Content-Type:
+      - application/json
+      Accept:
+      - application/json
+      X-Auth-Token:
+      - gAAAAABgdfb5UQq36jK3maEkhmQW2oBNl163-FricqzTcE5VP_Xflt1ar_BVqgQIt3Fv8XBTzDkndtiMoElz0tatQlhy3Mk3MAGDm5zpDpZUaj5pf0JOJyL7d5PQxgtfg6ovd-pgHaciPdrASKkTRzGMtupyg2mT6rvs5WIEGRE4QlsAbY-4ddO-rVm8qvi8JbpLrma_Xq_RIEvPtHf4MwlzjWIYGQ0hP3TGIx9sJDXdr_goKnpNMO4
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Tue, 13 Apr 2021 19:54:34 GMT
+      Server:
+      - Apache
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '172'
+      X-Openstack-Request-Id:
+      - req-56e98627-8112-4129-8bed-bfdd8a5c11f5
+      Vary:
+      - Accept-Encoding,User-Agent
+    body:
+      encoding: ASCII-8BIT
+      string: '{"quota": {"subnet": -1, "network": -1, "floatingip": 100, "subnetpool":
+        -1, "security_group_rule": 100, "security_group": 10, "router": 10, "rbac_policy":
+        10, "port": -1}}'
+    http_version:
+  recorded_at: Tue, 13 Apr 2021 19:54:34 GMT
+- request:
+    method: get
+    uri: https://powervc.local:8774/v2.1/676b8977322946c0ab4700d7b908db5b/servers/detail?limit=1000
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - fog-core/2.1.0
+      Content-Type:
+      - application/json
+      Accept:
+      - application/json
+      X-Auth-Token:
+      - gAAAAABgdfaL-VQ3iBSN-uTH4NpK4sNQVYJYDuvUyHVzuD0W5UAtYLRObfTbw6dCxQuCGciCa72_WkPip6xigmcfSaRDPeE1qI9U1yQ7X0pLtTw40GhlDFddZiEya9vjgRUzgMUt8tUxh0F0CoMt_VN_D1cZvBXn--vD8z1e8irHYS-A6IIPlPRt_gReO8al3zhiLwv_-QeqeESFKakWNy55s--QPeqSIhVHUlsdfGKuTKZyXmkFucQ
+      X-Openstack-Nova-Api-Version:
+      - '2.15'
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Tue, 13 Apr 2021 19:54:35 GMT
+      Server:
+      - Apache
+      Content-Length:
+      - '14699'
+      Content-Type:
+      - application/json
+      Openstack-Api-Version:
+      - compute 2.15
+      X-Openstack-Nova-Api-Version:
+      - '2.15'
+      Vary:
+      - OpenStack-API-Version,Accept-Encoding,User-Agent,X-OpenStack-Nova-API-Version
+      X-Openstack-Request-Id:
+      - req-35b0df94-12bf-4a77-91b1-bb48173c067e
+      X-Compute-Request-Id:
+      - req-35b0df94-12bf-4a77-91b1-bb48173c067e
+    body:
+      encoding: ASCII-8BIT
+      string: '{"servers": [{"OS-EXT-STS:task_state": null, "addresses": {"net_2227":
+        [{"OS-EXT-IPS-MAC:mac_addr": "fa:81:86:c6:35:20", "version": 4, "addr": "9.114.250.137",
+        "OS-EXT-IPS:type": "fixed"}]}, "links": [{"href": "https://powervc.local:8774/v2.1/676b8977322946c0ab4700d7b908db5b/servers/a3142a2b-a3ee-44ea-af42-00267eadc4d0",
+        "rel": "self"}, {"href": "https://powervc.local:8774/676b8977322946c0ab4700d7b908db5b/servers/a3142a2b-a3ee-44ea-af42-00267eadc4d0",
+        "rel": "bookmark"}], "image": {"id": "2798216a-3926-4223-b168-3d493c7d1dd7",
+        "links": [{"href": "https://powervc.local:8774/676b8977322946c0ab4700d7b908db5b/images/2798216a-3926-4223-b168-3d493c7d1dd7",
+        "rel": "bookmark"}]}, "ephemeral_gb": 0, "cpus": 1, "vm_pg_swap_out_rate":
+        null, "OS-EXT-SRV-ATTR:user_data": null, "max_vcpus": "1.00", "OS-EXT-STS:vm_state":
+        "active", "OS-EXT-SRV-ATTR:instance_name": "SLES11_SP4-a3142a2b-00000009",
+        "OS-EXT-SRV-ATTR:user_device_name": "/dev/sda", "OS-SRV-USG:launched_at":
+        "2021-02-25T11:01:03.000000", "cpu_utilization": 0.56, "flavor": {"id": "1f5d7ca92cb39704b1946590204f49b9",
+        "links": [{"href": "https://powervc.local:8774/676b8977322946c0ab4700d7b908db5b/flavors/1f5d7ca92cb39704b1946590204f49b9",
+        "rel": "bookmark"}]}, "id": "a3142a2b-a3ee-44ea-af42-00267eadc4d0", "storage_connectivity_group_id":
+        "def51767-817b-4c88-81b5-34f34356e797", "os_distro": "sles", "memory_utilization":
+        null, "vm_pg_in_rate": null, "user_id": "0688b01e6439ca32d698d20789d52169126fb41fb1a4ddafcebb97d854e836c9",
+        "dedicated_sharing_mode": "", "OS-EXT-SRV-ATTR:hostname": "sles11-sp4", "OS-DCF:diskConfig":
+        "MANUAL", "health_status": {"health_value": "CRITICAL", "id": "a3142a2b-a3ee-44ea-af42-00267eadc4d0",
+        "value_reason": [{"display_name": "SLES11_SP4-a3142a2b-00000009-boot-0", "resource_id":
+        "39dbc870-ae08-4f8f-9835-df4d88e0d0ec", "resource_related": "volume", "resource_property_key":
+        "status", "resource_property_value": "error"}], "updated_at": "2021-04-13T19:54:35.589969"},
+        "memory_mb": 4096, "srr_capability": false, "accessIPv4": "", "accessIPv6":
+        "", "desired_compatibility_mode": "default", "OS-EXT-SRV-ATTR:reservation_id":
+        "r-pdg6nkxk", "shared_weight": 128, "vm_pg_swap_in_rate": null, "progress":
+        100, "OS-EXT-STS:power_state": 1, "OS-EXT-AZ:availability_zone": "Default
+        Group", "launched_at": "2021-02-25T11:01:03.000000", "enable_lpar_metric":
+        "false", "config_drive": "True", "status": "ACTIVE", "OS-EXT-SRV-ATTR:ramdisk_id":
+        "", "updated": "2021-04-13T19:54:17Z", "hostId": "859a1cf6af73979536c5def07bb49ae9fb957771d1c12f74077c216d",
+        "OS-EXT-SRV-ATTR:host": "828422A_215E28V", "OS-SRV-USG:terminated_at": null,
+        "memory_mode": "dedicated", "uncapped": true, "key_name": null, "compliance_status":
+        [{"status": "compliant", "category": "resource.allocation"}], "current_compatibility_mode":
+        "POWER8", "operating_system": "Linux/SuSE 3.0.101-100-ppc64 11", "OS-EXT-SRV-ATTR:kernel_id":
+        "", "avail_priority": 127, "srr_state": "Invalid", "locked": false, "endianness":
+        "big-endian", "vcpu_mode": "shared", "min_memory_mb": 2048, "user_gb": 11,
+        "OS-EXT-SRV-ATTR:hypervisor_hostname": "828422A_215E28V", "name": "SLES11_SP4",
+        "OS-EXT-SRV-ATTR:launch_index": 0, "created": "2021-02-25T10:58:35Z", "tenant_id":
+        "676b8977322946c0ab4700d7b908db5b", "shared_proc_pool_name": "DefaultPool",
+        "min_vcpus": "0.10", "ame_expansion_factor": 0.0, "os-extended-volumes:volumes_attached":
+        [{"id": "39dbc870-ae08-4f8f-9835-df4d88e0d0ec", "delete_on_termination": true}],
+        "vcpus": "0.50", "max_memory_mb": 6144, "max_cpus": 1, "min_cpus": 1, "ppt_ratio":
+        "1:4096", "secure_boot": 0, "metadata": {"original_host": "828422A_215E28V",
+        "move_pin_vm": "false"}, "vm_pg_out_rate": null}, {"OS-EXT-STS:task_state":
+        null, "addresses": {"net_2227": [{"OS-EXT-IPS-MAC:mac_addr": "fa:a1:d3:db:00:20",
+        "version": 4, "addr": "9.114.252.230", "OS-EXT-IPS:type": "fixed"}]}, "links":
+        [{"href": "https://powervc.local:8774/v2.1/676b8977322946c0ab4700d7b908db5b/servers/dfc63faa-01f6-476f-8cd0-3055f61c4fcf",
+        "rel": "self"}, {"href": "https://powervc.local:8774/676b8977322946c0ab4700d7b908db5b/servers/dfc63faa-01f6-476f-8cd0-3055f61c4fcf",
+        "rel": "bookmark"}], "image": {"id": "fd343d6e-cbdf-4b07-9eb3-c0d0315fe770",
+        "links": [{"href": "https://powervc.local:8774/676b8977322946c0ab4700d7b908db5b/images/fd343d6e-cbdf-4b07-9eb3-c0d0315fe770",
+        "rel": "bookmark"}]}, "ephemeral_gb": 0, "cpus": 1, "vm_pg_swap_out_rate":
+        null, "OS-EXT-SRV-ATTR:user_data": null, "max_vcpus": "1.00", "OS-EXT-STS:vm_state":
+        "active", "OS-EXT-SRV-ATTR:instance_name": "SLES15SP2-CI1-dfc63faa-00000008",
+        "OS-EXT-SRV-ATTR:user_device_name": "/dev/sda", "OS-SRV-USG:launched_at":
+        "2021-01-28T18:13:30.000000", "cpu_utilization": 2.75, "flavor": {"id": "dc2fcb64bb13ba5c44780154789a6bd3",
+        "links": [{"href": "https://powervc.local:8774/676b8977322946c0ab4700d7b908db5b/flavors/dc2fcb64bb13ba5c44780154789a6bd3",
+        "rel": "bookmark"}]}, "id": "dfc63faa-01f6-476f-8cd0-3055f61c4fcf", "storage_connectivity_group_id":
+        "def51767-817b-4c88-81b5-34f34356e797", "os_distro": "sles", "memory_utilization":
+        null, "vm_pg_in_rate": null, "user_id": "0688b01e6439ca32d698d20789d52169126fb41fb1a4ddafcebb97d854e836c9",
+        "dedicated_sharing_mode": "", "OS-EXT-SRV-ATTR:hostname": "sles15sp2-ci19.1-colo",
+        "OS-DCF:diskConfig": "MANUAL", "health_status": {"health_value": "CRITICAL",
+        "id": "dfc63faa-01f6-476f-8cd0-3055f61c4fcf", "value_reason": [{"display_name":
+        "SLES15SP2-CI1-dfc63faa-00000008-boot-0", "resource_id": "a178dc92-8a3d-4867-8a68-dad097179cf0",
+        "resource_related": "volume", "resource_property_key": "status", "resource_property_value":
+        "error"}], "updated_at": "2021-04-13T19:54:35.590080"}, "memory_mb": 4096,
+        "srr_capability": false, "accessIPv4": "", "accessIPv6": "", "desired_compatibility_mode":
+        "default", "OS-EXT-SRV-ATTR:reservation_id": "r-bqpgs8y6", "shared_weight":
+        128, "vm_pg_swap_in_rate": null, "progress": 100, "OS-EXT-STS:power_state":
+        1, "OS-EXT-AZ:availability_zone": "Default Group", "launched_at": "2021-01-28T18:13:30.000000",
+        "enable_lpar_metric": "false", "config_drive": "True", "status": "ACTIVE",
+        "OS-EXT-SRV-ATTR:ramdisk_id": "", "updated": "2021-04-13T19:47:08Z", "hostId":
+        "859a1cf6af73979536c5def07bb49ae9fb957771d1c12f74077c216d", "OS-EXT-SRV-ATTR:host":
+        "828422A_215E28V", "OS-SRV-USG:terminated_at": null, "memory_mode": "dedicated",
+        "uncapped": true, "key_name": null, "compliance_status": [{"status": "compliant",
+        "category": "resource.allocation"}], "current_compatibility_mode": "POWER8",
+        "operating_system": "Linux/SLES 5.3.18-22-default 15-SP2", "OS-EXT-SRV-ATTR:kernel_id":
+        "", "avail_priority": 127, "srr_state": "Invalid", "locked": false, "endianness":
+        "big-endian", "vcpu_mode": "shared", "min_memory_mb": 2048, "user_gb": 20,
+        "OS-EXT-SRV-ATTR:hypervisor_hostname": "828422A_215E28V", "name": "SLES15SP2-CI19.1-COLO",
+        "OS-EXT-SRV-ATTR:launch_index": 0, "created": "2021-01-28T18:09:22Z", "tenant_id":
+        "676b8977322946c0ab4700d7b908db5b", "shared_proc_pool_name": "DefaultPool",
+        "min_vcpus": "0.10", "ame_expansion_factor": 0.0, "os-extended-volumes:volumes_attached":
+        [{"id": "a178dc92-8a3d-4867-8a68-dad097179cf0", "delete_on_termination": true}],
+        "vcpus": "0.50", "max_memory_mb": 6144, "max_cpus": 1, "min_cpus": 1, "ppt_ratio":
+        "1:4096", "secure_boot": 0, "metadata": {"original_host": "828422A_215E28V",
+        "move_pin_vm": "false"}, "vm_pg_out_rate": null}, {"OS-EXT-STS:task_state":
+        null, "addresses": {"net_2227": []}, "links": [{"href": "https://powervc.local:8774/v2.1/676b8977322946c0ab4700d7b908db5b/servers/42534253-7340-4203-96d5-82301b1c645b",
+        "rel": "self"}, {"href": "https://powervc.local:8774/676b8977322946c0ab4700d7b908db5b/servers/42534253-7340-4203-96d5-82301b1c645b",
+        "rel": "bookmark"}], "image": {"id": "ONBOARDED_NO_IMAGE", "links": [{"href":
+        "https://powervc.local:8774/676b8977322946c0ab4700d7b908db5b/images/ONBOARDED_NO_IMAGE",
+        "rel": "bookmark"}]}, "ephemeral_gb": 0, "cpus": 1, "vm_pg_swap_out_rate":
+        null, "OS-EXT-SRV-ATTR:user_data": null, "max_vcpus": "1.00", "OS-EXT-STS:vm_state":
+        "error", "OS-EXT-SRV-ATTR:instance_name": "vm-7071197a-00000001", "OS-EXT-SRV-ATTR:user_device_name":
+        "/dev/sda", "OS-SRV-USG:launched_at": "2021-01-27T08:54:16.000000", "cpu_utilization":
+        0.0, "flavor": {"id": "ad598189224b97c2b56f5591200fbe66", "links": [{"href":
+        "https://powervc.local:8774/676b8977322946c0ab4700d7b908db5b/flavors/ad598189224b97c2b56f5591200fbe66",
+        "rel": "bookmark"}]}, "id": "42534253-7340-4203-96d5-82301b1c645b", "storage_connectivity_group_id":
+        null, "memory_mb": 2048, "memory_utilization": null, "user_id": "0688b01e6439ca32d698d20789d52169126fb41fb1a4ddafcebb97d854e836c9",
+        "dedicated_sharing_mode": "", "OS-EXT-SRV-ATTR:hostname": "vm-7071197a-00000001",
+        "OS-DCF:diskConfig": "MANUAL", "health_status": {"health_value": "CRITICAL",
+        "id": "42534253-7340-4203-96d5-82301b1c645b", "value_reason": [{"resource_local":
+        "server", "resource_id": "42534253-7340-4203-96d5-82301b1c645b", "display_name":
+        "vm-7071197a-00000001", "resource_property_key": "vm_state", "resource_property_value":
+        "error"}], "updated_at": "2021-04-13T19:54:35.590174"}, "srr_capability":
+        false, "accessIPv4": "", "accessIPv6": "", "desired_compatibility_mode": "default",
+        "OS-EXT-SRV-ATTR:reservation_id": null, "shared_weight": 128, "vm_pg_swap_in_rate":
+        null, "OS-EXT-STS:power_state": 0, "OS-EXT-AZ:availability_zone": "Default
+        Group", "launched_at": "2021-01-27T08:54:16.000000", "enable_lpar_metric":
+        "false", "config_drive": "", "status": "ERROR", "OS-EXT-SRV-ATTR:ramdisk_id":
+        "", "updated": "2021-04-13T19:44:00Z", "hostId": "859a1cf6af73979536c5def07bb49ae9fb957771d1c12f74077c216d",
+        "OS-EXT-SRV-ATTR:host": "828422A_215E28V", "OS-SRV-USG:terminated_at": null,
+        "memory_mode": "dedicated", "uncapped": true, "key_name": null, "compliance_status":
+        [{"status": "compliant", "category": "resource.allocation"}], "current_compatibility_mode":
+        "POWER8", "operating_system": "Unknown", "OS-EXT-SRV-ATTR:kernel_id": "",
+        "avail_priority": 127, "srr_state": "Invalid", "locked": false, "vm_pg_in_rate":
+        null, "vcpu_mode": "shared", "min_memory_mb": 2048, "user_gb": 20, "OS-EXT-SRV-ATTR:hypervisor_hostname":
+        "828422A_215E28V", "name": "vm-7071197a-00000001", "OS-EXT-SRV-ATTR:launch_index":
+        null, "created": "2021-01-27T08:54:17Z", "tenant_id": "676b8977322946c0ab4700d7b908db5b",
+        "pending_onboard_actions": ["capture"], "min_vcpus": "0.10", "ame_expansion_factor":
+        0.0, "os-extended-volumes:volumes_attached": [{"id": "5c1d6e0c-14c8-4d05-92ce-aae1bde1a8d0",
+        "delete_on_termination": true}], "vcpus": "0.10", "max_memory_mb": 6144, "max_cpus":
+        1, "min_cpus": 1, "ppt_ratio": "1:4096", "secure_boot": 0, "metadata": {"pin_vm":
+        "false", "original_host": "828422A_215E28V", "move_pin_vm": "false"}, "shared_proc_pool_name":
+        "DefaultPool", "vm_pg_out_rate": null}, {"OS-EXT-STS:task_state": null, "addresses":
+        {"net_2227": [{"OS-EXT-IPS-MAC:mac_addr": "fa:9f:92:36:2e:20", "version":
+        4, "addr": "9.114.251.182", "OS-EXT-IPS:type": "fixed"}]}, "links": [{"href":
+        "https://powervc.local:8774/v2.1/676b8977322946c0ab4700d7b908db5b/servers/42420bf6-e08e-4360-85b0-4dea6e80344f",
+        "rel": "self"}, {"href": "https://powervc.local:8774/676b8977322946c0ab4700d7b908db5b/servers/42420bf6-e08e-4360-85b0-4dea6e80344f",
+        "rel": "bookmark"}], "image": {"id": "f852e1a3-9177-4d49-8e35-2acb731dc334",
+        "links": [{"href": "https://powervc.local:8774/676b8977322946c0ab4700d7b908db5b/images/f852e1a3-9177-4d49-8e35-2acb731dc334",
+        "rel": "bookmark"}]}, "ephemeral_gb": 0, "cpus": 1, "vm_pg_swap_out_rate":
+        null, "OS-EXT-SRV-ATTR:user_data": null, "max_vcpus": "1.00", "OS-EXT-STS:vm_state":
+        "active", "OS-EXT-SRV-ATTR:instance_name": "RHEL82_100GB--42420bf6-00000002",
+        "OS-EXT-SRV-ATTR:user_device_name": "/dev/sda", "OS-SRV-USG:launched_at":
+        "2021-01-08T05:54:35.000000", "cpu_utilization": 0.05, "flavor": {"id": "4c7b250adb349d84f638aec9c76f6eba",
+        "links": [{"href": "https://powervc.local:8774/676b8977322946c0ab4700d7b908db5b/flavors/4c7b250adb349d84f638aec9c76f6eba",
+        "rel": "bookmark"}]}, "id": "42420bf6-e08e-4360-85b0-4dea6e80344f", "storage_connectivity_group_id":
+        "def51767-817b-4c88-81b5-34f34356e797", "os_distro": "rhel", "memory_utilization":
+        null, "vm_pg_in_rate": null, "user_id": "0688b01e6439ca32d698d20789d52169126fb41fb1a4ddafcebb97d854e836c9",
+        "dedicated_sharing_mode": "", "OS-EXT-SRV-ATTR:hostname": "rhel82-100gb-test",
+        "OS-DCF:diskConfig": "MANUAL", "health_status": {"health_value": "CRITICAL",
+        "id": "42420bf6-e08e-4360-85b0-4dea6e80344f", "value_reason": [{"display_name":
+        "RHEL82_100GB--42420bf6-00000002-boot-0", "resource_id": "731eb98a-6822-4e83-9076-20ba834f7869",
+        "resource_related": "volume", "resource_property_key": "status", "resource_property_value":
+        "error"}], "updated_at": "2021-04-13T19:54:35.590251"}, "memory_mb": 4096,
+        "srr_capability": false, "accessIPv4": "", "accessIPv6": "", "desired_compatibility_mode":
+        "default", "OS-EXT-SRV-ATTR:reservation_id": "r-rxynqxpz", "shared_weight":
+        128, "vm_pg_swap_in_rate": null, "progress": 100, "OS-EXT-STS:power_state":
+        1, "OS-EXT-AZ:availability_zone": "Default Group", "launched_at": "2021-01-08T05:54:35.000000",
+        "enable_lpar_metric": "false", "config_drive": "True", "status": "ACTIVE",
+        "OS-EXT-SRV-ATTR:ramdisk_id": "", "updated": "2021-04-13T19:53:13Z", "hostId":
+        "859a1cf6af73979536c5def07bb49ae9fb957771d1c12f74077c216d", "OS-EXT-SRV-ATTR:host":
+        "828422A_215E28V", "OS-SRV-USG:terminated_at": null, "memory_mode": "dedicated",
+        "uncapped": true, "key_name": null, "compliance_status": [{"status": "compliant",
+        "category": "resource.allocation"}], "current_compatibility_mode": "POWER8",
+        "operating_system": "Unknown", "OS-EXT-SRV-ATTR:kernel_id": "", "avail_priority":
+        127, "srr_state": "Invalid", "locked": false, "endianness": "big-endian",
+        "vcpu_mode": "shared", "min_memory_mb": 2048, "user_gb": 100, "OS-EXT-SRV-ATTR:hypervisor_hostname":
+        "828422A_215E28V", "name": "RHEL82_100GB-test", "OS-EXT-SRV-ATTR:launch_index":
+        0, "created": "2021-01-08T05:51:34Z", "tenant_id": "676b8977322946c0ab4700d7b908db5b",
+        "shared_proc_pool_name": "DefaultPool", "min_vcpus": "0.10", "ame_expansion_factor":
+        0.0, "os-extended-volumes:volumes_attached": [{"id": "731eb98a-6822-4e83-9076-20ba834f7869",
+        "delete_on_termination": true}], "vcpus": "0.50", "max_memory_mb": 6144, "max_cpus":
+        1, "min_cpus": 1, "ppt_ratio": "1:4096", "secure_boot": 0, "metadata": {"original_host":
+        "828422A_215E28V", "move_pin_vm": "false"}, "vm_pg_out_rate": null}]}'
+    http_version:
+  recorded_at: Tue, 13 Apr 2021 19:54:35 GMT
+- request:
+    method: get
+    uri: https://powervc.local:8774/v2.1/676b8977322946c0ab4700d7b908db5b/servers/detail?limit=1000&marker=42420bf6-e08e-4360-85b0-4dea6e80344f
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - fog-core/2.1.0
+      Content-Type:
+      - application/json
+      Accept:
+      - application/json
+      X-Auth-Token:
+      - gAAAAABgdfaL-VQ3iBSN-uTH4NpK4sNQVYJYDuvUyHVzuD0W5UAtYLRObfTbw6dCxQuCGciCa72_WkPip6xigmcfSaRDPeE1qI9U1yQ7X0pLtTw40GhlDFddZiEya9vjgRUzgMUt8tUxh0F0CoMt_VN_D1cZvBXn--vD8z1e8irHYS-A6IIPlPRt_gReO8al3zhiLwv_-QeqeESFKakWNy55s--QPeqSIhVHUlsdfGKuTKZyXmkFucQ
+      X-Openstack-Nova-Api-Version:
+      - '2.15'
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Tue, 13 Apr 2021 19:54:36 GMT
+      Server:
+      - Apache
+      Content-Length:
+      - '15'
+      Content-Type:
+      - application/json
+      Openstack-Api-Version:
+      - compute 2.15
+      X-Openstack-Nova-Api-Version:
+      - '2.15'
+      Vary:
+      - OpenStack-API-Version,User-Agent,X-OpenStack-Nova-API-Version
+      X-Openstack-Request-Id:
+      - req-d43ce053-4e8c-4685-bcc9-9fe5eaea8a92
+      X-Compute-Request-Id:
+      - req-d43ce053-4e8c-4685-bcc9-9fe5eaea8a92
+    body:
+      encoding: ASCII-8BIT
+      string: '{"servers": []}'
+    http_version:
+  recorded_at: Tue, 13 Apr 2021 19:54:36 GMT
+- request:
+    method: get
+    uri: https://powervc.local:8774/v2.1/676b8977322946c0ab4700d7b908db5b/flavors/1f5d7ca92cb39704b1946590204f49b9/os-flavor-access
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - fog-core/2.1.0
+      Content-Type:
+      - application/json
+      Accept:
+      - application/json
+      X-Auth-Token:
+      - gAAAAABgdfaL-VQ3iBSN-uTH4NpK4sNQVYJYDuvUyHVzuD0W5UAtYLRObfTbw6dCxQuCGciCa72_WkPip6xigmcfSaRDPeE1qI9U1yQ7X0pLtTw40GhlDFddZiEya9vjgRUzgMUt8tUxh0F0CoMt_VN_D1cZvBXn--vD8z1e8irHYS-A6IIPlPRt_gReO8al3zhiLwv_-QeqeESFKakWNy55s--QPeqSIhVHUlsdfGKuTKZyXmkFucQ
+      X-Openstack-Nova-Api-Version:
+      - '2.15'
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Tue, 13 Apr 2021 19:54:36 GMT
+      Server:
+      - Apache
+      Content-Length:
+      - '119'
+      Content-Type:
+      - application/json
+      Openstack-Api-Version:
+      - compute 2.15
+      X-Openstack-Nova-Api-Version:
+      - '2.15'
+      Vary:
+      - OpenStack-API-Version,Accept-Encoding,User-Agent,X-OpenStack-Nova-API-Version
+      X-Openstack-Request-Id:
+      - req-81735171-30fa-4fba-ab51-93c399147d0d
+      X-Compute-Request-Id:
+      - req-81735171-30fa-4fba-ab51-93c399147d0d
+    body:
+      encoding: ASCII-8BIT
+      string: '{"flavor_access": [{"tenant_id": "676b8977322946c0ab4700d7b908db5b",
+        "flavor_id": "1f5d7ca92cb39704b1946590204f49b9"}]}'
+    http_version:
+  recorded_at: Tue, 13 Apr 2021 19:54:36 GMT
+- request:
+    method: get
+    uri: https://powervc.local:8774/v2.1/676b8977322946c0ab4700d7b908db5b/servers/a3142a2b-a3ee-44ea-af42-00267eadc4d0/os-volume_attachments
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - fog-core/2.1.0
+      Content-Type:
+      - application/json
+      Accept:
+      - application/json
+      X-Auth-Token:
+      - gAAAAABgdfaL-VQ3iBSN-uTH4NpK4sNQVYJYDuvUyHVzuD0W5UAtYLRObfTbw6dCxQuCGciCa72_WkPip6xigmcfSaRDPeE1qI9U1yQ7X0pLtTw40GhlDFddZiEya9vjgRUzgMUt8tUxh0F0CoMt_VN_D1cZvBXn--vD8z1e8irHYS-A6IIPlPRt_gReO8al3zhiLwv_-QeqeESFKakWNy55s--QPeqSIhVHUlsdfGKuTKZyXmkFucQ
+      X-Openstack-Nova-Api-Version:
+      - '2.15'
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Tue, 13 Apr 2021 19:54:36 GMT
+      Server:
+      - Apache
+      Content-Length:
+      - '213'
+      Content-Type:
+      - application/json
+      Openstack-Api-Version:
+      - compute 2.15
+      X-Openstack-Nova-Api-Version:
+      - '2.15'
+      Vary:
+      - OpenStack-API-Version,Accept-Encoding,User-Agent,X-OpenStack-Nova-API-Version
+      X-Openstack-Request-Id:
+      - req-0f82e252-d6b4-41be-b27d-199aa5c7429e
+      X-Compute-Request-Id:
+      - req-0f82e252-d6b4-41be-b27d-199aa5c7429e
+    body:
+      encoding: ASCII-8BIT
+      string: '{"volumeAttachments": [{"device": "/dev/sda", "bootIndex": 0, "serverId":
+        "a3142a2b-a3ee-44ea-af42-00267eadc4d0", "id": "39dbc870-ae08-4f8f-9835-df4d88e0d0ec",
+        "volumeId": "39dbc870-ae08-4f8f-9835-df4d88e0d0ec"}]}'
+    http_version:
+  recorded_at: Tue, 13 Apr 2021 19:54:37 GMT
+- request:
+    method: get
+    uri: https://powervc.local:8774/v2.1/676b8977322946c0ab4700d7b908db5b/flavors/dc2fcb64bb13ba5c44780154789a6bd3/os-flavor-access
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - fog-core/2.1.0
+      Content-Type:
+      - application/json
+      Accept:
+      - application/json
+      X-Auth-Token:
+      - gAAAAABgdfaL-VQ3iBSN-uTH4NpK4sNQVYJYDuvUyHVzuD0W5UAtYLRObfTbw6dCxQuCGciCa72_WkPip6xigmcfSaRDPeE1qI9U1yQ7X0pLtTw40GhlDFddZiEya9vjgRUzgMUt8tUxh0F0CoMt_VN_D1cZvBXn--vD8z1e8irHYS-A6IIPlPRt_gReO8al3zhiLwv_-QeqeESFKakWNy55s--QPeqSIhVHUlsdfGKuTKZyXmkFucQ
+      X-Openstack-Nova-Api-Version:
+      - '2.15'
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Tue, 13 Apr 2021 19:54:37 GMT
+      Server:
+      - Apache
+      Content-Length:
+      - '119'
+      Content-Type:
+      - application/json
+      Openstack-Api-Version:
+      - compute 2.15
+      X-Openstack-Nova-Api-Version:
+      - '2.15'
+      Vary:
+      - OpenStack-API-Version,Accept-Encoding,User-Agent,X-OpenStack-Nova-API-Version
+      X-Openstack-Request-Id:
+      - req-6bceab62-2b1e-47f8-a743-d969eeb0c468
+      X-Compute-Request-Id:
+      - req-6bceab62-2b1e-47f8-a743-d969eeb0c468
+    body:
+      encoding: ASCII-8BIT
+      string: '{"flavor_access": [{"tenant_id": "676b8977322946c0ab4700d7b908db5b",
+        "flavor_id": "dc2fcb64bb13ba5c44780154789a6bd3"}]}'
+    http_version:
+  recorded_at: Tue, 13 Apr 2021 19:54:37 GMT
+- request:
+    method: get
+    uri: https://powervc.local:8774/v2.1/676b8977322946c0ab4700d7b908db5b/servers/dfc63faa-01f6-476f-8cd0-3055f61c4fcf/os-volume_attachments
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - fog-core/2.1.0
+      Content-Type:
+      - application/json
+      Accept:
+      - application/json
+      X-Auth-Token:
+      - gAAAAABgdfaL-VQ3iBSN-uTH4NpK4sNQVYJYDuvUyHVzuD0W5UAtYLRObfTbw6dCxQuCGciCa72_WkPip6xigmcfSaRDPeE1qI9U1yQ7X0pLtTw40GhlDFddZiEya9vjgRUzgMUt8tUxh0F0CoMt_VN_D1cZvBXn--vD8z1e8irHYS-A6IIPlPRt_gReO8al3zhiLwv_-QeqeESFKakWNy55s--QPeqSIhVHUlsdfGKuTKZyXmkFucQ
+      X-Openstack-Nova-Api-Version:
+      - '2.15'
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Tue, 13 Apr 2021 19:54:37 GMT
+      Server:
+      - Apache
+      Content-Length:
+      - '213'
+      Content-Type:
+      - application/json
+      Openstack-Api-Version:
+      - compute 2.15
+      X-Openstack-Nova-Api-Version:
+      - '2.15'
+      Vary:
+      - OpenStack-API-Version,Accept-Encoding,User-Agent,X-OpenStack-Nova-API-Version
+      X-Openstack-Request-Id:
+      - req-89993a67-fe9f-48e6-82f8-f8ee763d08cd
+      X-Compute-Request-Id:
+      - req-89993a67-fe9f-48e6-82f8-f8ee763d08cd
+    body:
+      encoding: ASCII-8BIT
+      string: '{"volumeAttachments": [{"device": "/dev/sda", "bootIndex": 0, "serverId":
+        "dfc63faa-01f6-476f-8cd0-3055f61c4fcf", "id": "a178dc92-8a3d-4867-8a68-dad097179cf0",
+        "volumeId": "a178dc92-8a3d-4867-8a68-dad097179cf0"}]}'
+    http_version:
+  recorded_at: Tue, 13 Apr 2021 19:54:37 GMT
+- request:
+    method: get
+    uri: https://powervc.local:8774/v2.1/676b8977322946c0ab4700d7b908db5b/flavors/ad598189224b97c2b56f5591200fbe66/os-flavor-access
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - fog-core/2.1.0
+      Content-Type:
+      - application/json
+      Accept:
+      - application/json
+      X-Auth-Token:
+      - gAAAAABgdfaL-VQ3iBSN-uTH4NpK4sNQVYJYDuvUyHVzuD0W5UAtYLRObfTbw6dCxQuCGciCa72_WkPip6xigmcfSaRDPeE1qI9U1yQ7X0pLtTw40GhlDFddZiEya9vjgRUzgMUt8tUxh0F0CoMt_VN_D1cZvBXn--vD8z1e8irHYS-A6IIPlPRt_gReO8al3zhiLwv_-QeqeESFKakWNy55s--QPeqSIhVHUlsdfGKuTKZyXmkFucQ
+      X-Openstack-Nova-Api-Version:
+      - '2.15'
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Tue, 13 Apr 2021 19:54:37 GMT
+      Server:
+      - Apache
+      Content-Length:
+      - '119'
+      Content-Type:
+      - application/json
+      Openstack-Api-Version:
+      - compute 2.15
+      X-Openstack-Nova-Api-Version:
+      - '2.15'
+      Vary:
+      - OpenStack-API-Version,Accept-Encoding,User-Agent,X-OpenStack-Nova-API-Version
+      X-Openstack-Request-Id:
+      - req-7c39f65d-3614-404f-9037-cfad0840d2e8
+      X-Compute-Request-Id:
+      - req-7c39f65d-3614-404f-9037-cfad0840d2e8
+    body:
+      encoding: ASCII-8BIT
+      string: '{"flavor_access": [{"tenant_id": "676b8977322946c0ab4700d7b908db5b",
+        "flavor_id": "ad598189224b97c2b56f5591200fbe66"}]}'
+    http_version:
+  recorded_at: Tue, 13 Apr 2021 19:54:37 GMT
+- request:
+    method: get
+    uri: https://powervc.local:8774/v2.1/676b8977322946c0ab4700d7b908db5b/servers/42534253-7340-4203-96d5-82301b1c645b/os-volume_attachments
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - fog-core/2.1.0
+      Content-Type:
+      - application/json
+      Accept:
+      - application/json
+      X-Auth-Token:
+      - gAAAAABgdfaL-VQ3iBSN-uTH4NpK4sNQVYJYDuvUyHVzuD0W5UAtYLRObfTbw6dCxQuCGciCa72_WkPip6xigmcfSaRDPeE1qI9U1yQ7X0pLtTw40GhlDFddZiEya9vjgRUzgMUt8tUxh0F0CoMt_VN_D1cZvBXn--vD8z1e8irHYS-A6IIPlPRt_gReO8al3zhiLwv_-QeqeESFKakWNy55s--QPeqSIhVHUlsdfGKuTKZyXmkFucQ
+      X-Openstack-Nova-Api-Version:
+      - '2.15'
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Tue, 13 Apr 2021 19:54:38 GMT
+      Server:
+      - Apache
+      Content-Length:
+      - '213'
+      Content-Type:
+      - application/json
+      Openstack-Api-Version:
+      - compute 2.15
+      X-Openstack-Nova-Api-Version:
+      - '2.15'
+      Vary:
+      - OpenStack-API-Version,Accept-Encoding,User-Agent,X-OpenStack-Nova-API-Version
+      X-Openstack-Request-Id:
+      - req-a13a84de-5e66-4905-8099-2d0a2dbf1e37
+      X-Compute-Request-Id:
+      - req-a13a84de-5e66-4905-8099-2d0a2dbf1e37
+    body:
+      encoding: ASCII-8BIT
+      string: '{"volumeAttachments": [{"device": "/dev/sda", "bootIndex": 0, "serverId":
+        "42534253-7340-4203-96d5-82301b1c645b", "id": "5c1d6e0c-14c8-4d05-92ce-aae1bde1a8d0",
+        "volumeId": "5c1d6e0c-14c8-4d05-92ce-aae1bde1a8d0"}]}'
+    http_version:
+  recorded_at: Tue, 13 Apr 2021 19:54:38 GMT
+- request:
+    method: get
+    uri: https://powervc.local:8774/v2.1/676b8977322946c0ab4700d7b908db5b/flavors/4c7b250adb349d84f638aec9c76f6eba/os-flavor-access
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - fog-core/2.1.0
+      Content-Type:
+      - application/json
+      Accept:
+      - application/json
+      X-Auth-Token:
+      - gAAAAABgdfaL-VQ3iBSN-uTH4NpK4sNQVYJYDuvUyHVzuD0W5UAtYLRObfTbw6dCxQuCGciCa72_WkPip6xigmcfSaRDPeE1qI9U1yQ7X0pLtTw40GhlDFddZiEya9vjgRUzgMUt8tUxh0F0CoMt_VN_D1cZvBXn--vD8z1e8irHYS-A6IIPlPRt_gReO8al3zhiLwv_-QeqeESFKakWNy55s--QPeqSIhVHUlsdfGKuTKZyXmkFucQ
+      X-Openstack-Nova-Api-Version:
+      - '2.15'
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Tue, 13 Apr 2021 19:54:38 GMT
+      Server:
+      - Apache
+      Content-Length:
+      - '119'
+      Content-Type:
+      - application/json
+      Openstack-Api-Version:
+      - compute 2.15
+      X-Openstack-Nova-Api-Version:
+      - '2.15'
+      Vary:
+      - OpenStack-API-Version,Accept-Encoding,User-Agent,X-OpenStack-Nova-API-Version
+      X-Openstack-Request-Id:
+      - req-812c42eb-e142-48fd-a5d0-39fb32482806
+      X-Compute-Request-Id:
+      - req-812c42eb-e142-48fd-a5d0-39fb32482806
+    body:
+      encoding: ASCII-8BIT
+      string: '{"flavor_access": [{"tenant_id": "676b8977322946c0ab4700d7b908db5b",
+        "flavor_id": "4c7b250adb349d84f638aec9c76f6eba"}]}'
+    http_version:
+  recorded_at: Tue, 13 Apr 2021 19:54:38 GMT
+- request:
+    method: get
+    uri: https://powervc.local:8774/v2.1/676b8977322946c0ab4700d7b908db5b/servers/42420bf6-e08e-4360-85b0-4dea6e80344f/os-volume_attachments
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - fog-core/2.1.0
+      Content-Type:
+      - application/json
+      Accept:
+      - application/json
+      X-Auth-Token:
+      - gAAAAABgdfaL-VQ3iBSN-uTH4NpK4sNQVYJYDuvUyHVzuD0W5UAtYLRObfTbw6dCxQuCGciCa72_WkPip6xigmcfSaRDPeE1qI9U1yQ7X0pLtTw40GhlDFddZiEya9vjgRUzgMUt8tUxh0F0CoMt_VN_D1cZvBXn--vD8z1e8irHYS-A6IIPlPRt_gReO8al3zhiLwv_-QeqeESFKakWNy55s--QPeqSIhVHUlsdfGKuTKZyXmkFucQ
+      X-Openstack-Nova-Api-Version:
+      - '2.15'
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Tue, 13 Apr 2021 19:54:38 GMT
+      Server:
+      - Apache
+      Content-Length:
+      - '213'
+      Content-Type:
+      - application/json
+      Openstack-Api-Version:
+      - compute 2.15
+      X-Openstack-Nova-Api-Version:
+      - '2.15'
+      Vary:
+      - OpenStack-API-Version,Accept-Encoding,User-Agent,X-OpenStack-Nova-API-Version
+      X-Openstack-Request-Id:
+      - req-e028caa2-d328-4dcd-b688-f97555c74f6f
+      X-Compute-Request-Id:
+      - req-e028caa2-d328-4dcd-b688-f97555c74f6f
+    body:
+      encoding: ASCII-8BIT
+      string: '{"volumeAttachments": [{"device": "/dev/sda", "bootIndex": 0, "serverId":
+        "42420bf6-e08e-4360-85b0-4dea6e80344f", "id": "731eb98a-6822-4e83-9076-20ba834f7869",
+        "volumeId": "731eb98a-6822-4e83-9076-20ba834f7869"}]}'
+    http_version:
+  recorded_at: Tue, 13 Apr 2021 19:54:38 GMT
+- request:
+    method: post
+    uri: https://powervc.local:5000/v3/auth/tokens
+    body:
+      encoding: UTF-8
+      string: '{"auth":{"identity":{"methods":["password"],"password":{"user":{"name":"user","domain":{"id":"default"},"password":"password"}}},"scope":{"project":{"name":"ibm-default","domain":{"id":"default"}}}}}'
+    headers:
+      User-Agent:
+      - fog-core/2.1.0
+      Content-Type:
+      - application/json
+  response:
+    status:
+      code: 201
+      message: CREATED
+    headers:
+      Date:
+      - Tue, 13 Apr 2021 19:54:39 GMT
+      Server:
+      - Apache
+      X-Subject-Token:
+      - gAAAAABgdfcYJGRnbT3p1eaHhjQQrPtxC9UbPXpnuNskQbVOvxyOIhE20ZtK2ye7qoUr_kr6xFi5rBDcwJ212CCA61i6bVpaVTZ4juA5z9FRZ8wvcfyXacsG9pofGF3hK93L9OM9xNJ_VgSkwUSGNpn1Cu2WxJV-S-rhdt7hnORigGU_-YoGXc0X4hFCOM1f85meJKe5XPJD4oQ0cEVypBpNhTiCKldMdZwatTMScx59WuNciVbHkss
+      Vary:
+      - X-Auth-Token,User-Agent
+      X-Openstack-Request-Id:
+      - req-fec6c8cc-38fd-4f44-8279-08df3c92b02e
+      Content-Length:
+      - '8539'
+      Content-Type:
+      - application/json
+    body:
+      encoding: ASCII-8BIT
+      string: '{"token": {"is_domain": false, "methods": ["password"], "roles": [{"id":
+        "379eb0a8ca554c208f2e2bc03254f239", "name": "admin"}], "expires_at": "2021-04-14T01:55:04.000000Z",
+        "project": {"domain": {"id": "default", "name": "Default"}, "id": "676b8977322946c0ab4700d7b908db5b",
+        "name": "ibm-default"}, "catalog": [{"endpoints": [{"url": "https://powervc.local:9292",
+        "interface": "admin", "region": "RegionOne", "region_id": "RegionOne", "id":
+        "9df13c8adc3b4698a02b6f891af66441"}, {"url": "https://powervc.local:9292",
+        "interface": "internal", "region": "RegionOne", "region_id": "RegionOne",
+        "id": "d118e424ac72472ea36b3ca1bb265f64"}, {"url": "https://powervc.local:9292",
+        "interface": "public", "region": "RegionOne", "region_id": "RegionOne", "id":
+        "f95a690760524c3fba935216c4a5d04e"}], "type": "image", "id": "15982d6dc71141ffbcdec2cca5ed80b4",
+        "name": "glance"}, {"endpoints": [{"url": "https://powervc.local:8428", "interface":
+        "admin", "region": "RegionOne", "region_id": "RegionOne", "id": "33ac582041024eb3a100d4c22e725387"},
+        {"url": "https://powervc.local:8428", "interface": "internal", "region": "RegionOne",
+        "region_id": "RegionOne", "id": "b3b402bec07f4ed6ae2f2fbb53fed5ce"}, {"url":
+        "https://powervc.local:8428", "interface": "public", "region": "RegionOne",
+        "region_id": "RegionOne", "id": "e00871da16454284b919b2d4cae6e4d5"}], "type":
+        "ttv", "id": "30c155f1186a4478a58d0fb484df87ef", "name": "validator"}, {"endpoints":
+        [{"url": "https://powervc.local:5000/v3", "interface": "public", "region":
+        "RegionOne", "region_id": "RegionOne", "id": "0d202a117585429ab662ce22884c7c98"},
+        {"url": "https://powervc.local:5000/v3", "interface": "internal", "region":
+        "RegionOne", "region_id": "RegionOne", "id": "6a2693c0567845e7b7acc61f8484ed60"},
+        {"url": "https://powervc.local:5000/v3", "interface": "admin", "region": "RegionOne",
+        "region_id": "RegionOne", "id": "a8df8f1432474ecc85bc07f2fa555b76"}], "type":
+        "identity", "id": "702de05ce707422192705789e35d84d1", "name": "keystone"},
+        {"endpoints": [{"url": "https://powervc.local:9000/v2/676b8977322946c0ab4700d7b908db5b",
+        "interface": "internal", "region": "RegionOne", "region_id": "RegionOne",
+        "id": "a7670e388aa645e38c87d68a45a4193a"}, {"url": "https://powervc.local:9000/v2/676b8977322946c0ab4700d7b908db5b",
+        "interface": "public", "region": "RegionOne", "region_id": "RegionOne", "id":
+        "e215e0495a5748718228b8e9c4450ffa"}, {"url": "https://powervc.local:9000/v2/676b8977322946c0ab4700d7b908db5b",
+        "interface": "admin", "region": "RegionOne", "region_id": "RegionOne", "id":
+        "eb93823b398c4d3aaefa01f9017833cd"}], "type": "volume", "id": "7c5bbbf6929a4481983d33f4c577ece8",
+        "name": "cinder"}, {"endpoints": [{"url": "https://powervc.local:8778", "interface":
+        "admin", "region": "RegionOne", "region_id": "RegionOne", "id": "89a67d62454a47b295e35fd886f9bdf3"},
+        {"url": "https://powervc.local:8778", "interface": "public", "region": "RegionOne",
+        "region_id": "RegionOne", "id": "8f5f237d6ab54d62b049729a1e497bce"}, {"url":
+        "https://powervc.local:8778", "interface": "internal", "region": "RegionOne",
+        "region_id": "RegionOne", "id": "9e4863dc21d446e9a26ff125f2a251b3"}], "type":
+        "event", "id": "80d1967bf27d4b478c83fb043bababb5", "name": "panko"}, {"endpoints":
+        [{"url": "https://powervc.local:9696", "interface": "public", "region": "RegionOne",
+        "region_id": "RegionOne", "id": "1d217a828d0648b9a75c0535bd6b75c1"}, {"url":
+        "https://powervc.local:9696", "interface": "admin", "region": "RegionOne",
+        "region_id": "RegionOne", "id": "591befadd43f49269ec11e2a2c2a683a"}, {"url":
+        "https://powervc.local:9696", "interface": "internal", "region": "RegionOne",
+        "region_id": "RegionOne", "id": "a149251ece864342877bcb8e9b0f8776"}], "type":
+        "network", "id": "97a3e84732df47ad8627cf52567bfe26", "name": "neutron"}, {"endpoints":
+        [{"url": "https://powervc.local:9000/v3/676b8977322946c0ab4700d7b908db5b",
+        "interface": "internal", "region": "RegionOne", "region_id": "RegionOne",
+        "id": "67296992f3a348c6be611ced4edef1b3"}, {"url": "https://powervc.local:9000/v3/676b8977322946c0ab4700d7b908db5b",
+        "interface": "admin", "region": "RegionOne", "region_id": "RegionOne", "id":
+        "e024241807044e92aa37f6b3d6deee07"}, {"url": "https://powervc.local:9000/v3/676b8977322946c0ab4700d7b908db5b",
+        "interface": "public", "region": "RegionOne", "region_id": "RegionOne", "id":
+        "ea589e63d4f64197b7ede86c3cfecfb4"}], "type": "volumev3", "id": "d1101d2c53664032a7c439962caeb9f8",
+        "name": "cinderv3"}, {"endpoints": [{"url": "https://powervc.local:5470",
+        "interface": "public", "region": "RegionOne", "region_id": "RegionOne", "id":
+        "60ba607b26a8434d906dfea8d92154c4"}, {"url": "https://powervc.local:5470",
+        "interface": "admin", "region": "RegionOne", "region_id": "RegionOne", "id":
+        "96bc8751f67c4f70be3eb290654752d4"}, {"url": "https://powervc.local:5470",
+        "interface": "internal", "region": "RegionOne", "region_id": "RegionOne",
+        "id": "b32eeb5c399440c4a0d487d59636e330"}], "type": "notification", "id":
+        "d7d45118e95a41399388c32bc88aaf73", "name": "bumblebee"}, {"endpoints": [{"url":
+        "https://powervc.local:8080/v1/AUTH_676b8977322946c0ab4700d7b908db5b", "interface":
+        "internal", "region": "RegionOne", "region_id": "RegionOne", "id": "0c2b8e2400e1423e971a012f83751f6b"},
+        {"url": "https://powervc.local:8080/v1/AUTH_676b8977322946c0ab4700d7b908db5b",
+        "interface": "admin", "region": "RegionOne", "region_id": "RegionOne", "id":
+        "19e3b7a7ff524fd2baff1241ed362b62"}, {"url": "https://powervc.local:8080/v1/AUTH_676b8977322946c0ab4700d7b908db5b",
+        "interface": "public", "region": "RegionOne", "region_id": "RegionOne", "id":
+        "706260d9ce594701997da9e2e46eaae0"}], "type": "object-store", "id": "d7fb93ac906d4264ac75b6bdaffef338",
+        "name": "swift"}, {"endpoints": [{"url": "https://powervc.local:8774/v2.1/676b8977322946c0ab4700d7b908db5b",
+        "interface": "admin", "region": "RegionOne", "region_id": "RegionOne", "id":
+        "7d87db0d316d46139ca62d188a308008"}, {"url": "https://powervc.local:8774/v2.1/676b8977322946c0ab4700d7b908db5b",
+        "interface": "internal", "region": "RegionOne", "region_id": "RegionOne",
+        "id": "98e2cee0e0d24bd5a967ac6a93c23ad8"}, {"url": "https://powervc.local:8774/v2.1/676b8977322946c0ab4700d7b908db5b",
+        "interface": "public", "region": "RegionOne", "region_id": "RegionOne", "id":
+        "f0db46f90d9f4f96894a2fba7aa85f5b"}], "type": "compute", "id": "ea5836130fa34bb18a8fd14161a0d200",
+        "name": "nova"}, {"endpoints": [{"url": "https://powervc.local:8041", "interface":
+        "public", "region": "RegionOne", "region_id": "RegionOne", "id": "44f2521c8cab44ccb719dd228fd09533"},
+        {"url": "https://powervc.local:8041", "interface": "admin", "region": "RegionOne",
+        "region_id": "RegionOne", "id": "b0c8b6f45ab746e0a0e39184820d5435"}, {"url":
+        "https://powervc.local:8041", "interface": "internal", "region": "RegionOne",
+        "region_id": "RegionOne", "id": "d00ac5b2174d47679c705c189beaa9e1"}], "type":
+        "metric", "id": "fc224425288748a5864b159639eb92eb", "name": "gnocchi"}, {"endpoints":
+        [{"url": "https://powervc.local:9000/v2/676b8977322946c0ab4700d7b908db5b",
+        "interface": "admin", "region": "RegionOne", "region_id": "RegionOne", "id":
+        "0ddae59bac8c4853a8ab7252bde249bc"}, {"url": "https://powervc.local:9000/v2/676b8977322946c0ab4700d7b908db5b",
+        "interface": "internal", "region": "RegionOne", "region_id": "RegionOne",
+        "id": "9083374a8cff42ac8c728478264edd65"}, {"url": "https://powervc.local:9000/v2/676b8977322946c0ab4700d7b908db5b",
+        "interface": "public", "region": "RegionOne", "region_id": "RegionOne", "id":
+        "f1c77ca2f98240a7a6603713a0d70c5a"}], "type": "volumev2", "id": "fdca7ddb2c2d447fa9f3023fced7b621",
+        "name": "cinderv2"}], "user": {"password_expires_at": null, "domain": {"id":
+        "default", "name": "Default"}, "id": "0688b01e6439ca32d698d20789d52169126fb41fb1a4ddafcebb97d854e836c9",
+        "name": "user"}, "audit_ids": ["WsAnVNmrRLKMHrVsjY_Mgw"], "issued_at": "2021-04-13T19:55:04.000000Z",
+        "is_admin_project": true}}'
+    http_version:
+  recorded_at: Tue, 13 Apr 2021 19:55:04 GMT
+- request:
+    method: post
+    uri: https://powervc.local:5000/v3/auth/tokens
+    body:
+      encoding: UTF-8
+      string: '{"auth":{"identity":{"methods":["password"],"password":{"user":{"name":"user","domain":{"id":"default"},"password":"password"}}},"scope":{"project":{"name":"ibm-default","domain":{"id":"default"}}}}}'
+    headers:
+      User-Agent:
+      - fog-core/2.1.0
+      Content-Type:
+      - application/json
+  response:
+    status:
+      code: 201
+      message: CREATED
+    headers:
+      Date:
+      - Tue, 13 Apr 2021 19:55:04 GMT
+      Server:
+      - Apache
+      X-Subject-Token:
+      - gAAAAABgdfcyb-RX-qR2XACITODqANCXuZIDhjHnifQ_57ZQnEzIZbOl1nzqvS_7wUf20vDvcVqg7aGZC0TV0MewYNw5og1mx_GGg0XcOiofyYZmOeD8l0VMxNVe8A_ObLVwZMnkkchr77WDBDv9o5OWyA7dnRz9DzaorTX5_C-Q4rEe9uL__5w3mV7GwNQpwQju73_AW3-5MOsCLrfXl9L6YoU-kROfRk-rRtf9t22gCVHS2Yor7uw
+      Vary:
+      - X-Auth-Token,User-Agent
+      X-Openstack-Request-Id:
+      - req-d907ba05-b6b0-4cbe-b350-92bcf2292831
+      Content-Length:
+      - '8539'
+      Content-Type:
+      - application/json
+    body:
+      encoding: ASCII-8BIT
+      string: '{"token": {"is_domain": false, "methods": ["password"], "roles": [{"id":
+        "379eb0a8ca554c208f2e2bc03254f239", "name": "admin"}], "expires_at": "2021-04-14T01:55:30.000000Z",
+        "project": {"domain": {"id": "default", "name": "Default"}, "id": "676b8977322946c0ab4700d7b908db5b",
+        "name": "ibm-default"}, "catalog": [{"endpoints": [{"url": "https://powervc.local:9292",
+        "interface": "admin", "region": "RegionOne", "region_id": "RegionOne", "id":
+        "9df13c8adc3b4698a02b6f891af66441"}, {"url": "https://powervc.local:9292",
+        "interface": "internal", "region": "RegionOne", "region_id": "RegionOne",
+        "id": "d118e424ac72472ea36b3ca1bb265f64"}, {"url": "https://powervc.local:9292",
+        "interface": "public", "region": "RegionOne", "region_id": "RegionOne", "id":
+        "f95a690760524c3fba935216c4a5d04e"}], "type": "image", "id": "15982d6dc71141ffbcdec2cca5ed80b4",
+        "name": "glance"}, {"endpoints": [{"url": "https://powervc.local:8428", "interface":
+        "admin", "region": "RegionOne", "region_id": "RegionOne", "id": "33ac582041024eb3a100d4c22e725387"},
+        {"url": "https://powervc.local:8428", "interface": "internal", "region": "RegionOne",
+        "region_id": "RegionOne", "id": "b3b402bec07f4ed6ae2f2fbb53fed5ce"}, {"url":
+        "https://powervc.local:8428", "interface": "public", "region": "RegionOne",
+        "region_id": "RegionOne", "id": "e00871da16454284b919b2d4cae6e4d5"}], "type":
+        "ttv", "id": "30c155f1186a4478a58d0fb484df87ef", "name": "validator"}, {"endpoints":
+        [{"url": "https://powervc.local:5000/v3", "interface": "public", "region":
+        "RegionOne", "region_id": "RegionOne", "id": "0d202a117585429ab662ce22884c7c98"},
+        {"url": "https://powervc.local:5000/v3", "interface": "internal", "region":
+        "RegionOne", "region_id": "RegionOne", "id": "6a2693c0567845e7b7acc61f8484ed60"},
+        {"url": "https://powervc.local:5000/v3", "interface": "admin", "region": "RegionOne",
+        "region_id": "RegionOne", "id": "a8df8f1432474ecc85bc07f2fa555b76"}], "type":
+        "identity", "id": "702de05ce707422192705789e35d84d1", "name": "keystone"},
+        {"endpoints": [{"url": "https://powervc.local:9000/v2/676b8977322946c0ab4700d7b908db5b",
+        "interface": "internal", "region": "RegionOne", "region_id": "RegionOne",
+        "id": "a7670e388aa645e38c87d68a45a4193a"}, {"url": "https://powervc.local:9000/v2/676b8977322946c0ab4700d7b908db5b",
+        "interface": "public", "region": "RegionOne", "region_id": "RegionOne", "id":
+        "e215e0495a5748718228b8e9c4450ffa"}, {"url": "https://powervc.local:9000/v2/676b8977322946c0ab4700d7b908db5b",
+        "interface": "admin", "region": "RegionOne", "region_id": "RegionOne", "id":
+        "eb93823b398c4d3aaefa01f9017833cd"}], "type": "volume", "id": "7c5bbbf6929a4481983d33f4c577ece8",
+        "name": "cinder"}, {"endpoints": [{"url": "https://powervc.local:8778", "interface":
+        "admin", "region": "RegionOne", "region_id": "RegionOne", "id": "89a67d62454a47b295e35fd886f9bdf3"},
+        {"url": "https://powervc.local:8778", "interface": "public", "region": "RegionOne",
+        "region_id": "RegionOne", "id": "8f5f237d6ab54d62b049729a1e497bce"}, {"url":
+        "https://powervc.local:8778", "interface": "internal", "region": "RegionOne",
+        "region_id": "RegionOne", "id": "9e4863dc21d446e9a26ff125f2a251b3"}], "type":
+        "event", "id": "80d1967bf27d4b478c83fb043bababb5", "name": "panko"}, {"endpoints":
+        [{"url": "https://powervc.local:9696", "interface": "public", "region": "RegionOne",
+        "region_id": "RegionOne", "id": "1d217a828d0648b9a75c0535bd6b75c1"}, {"url":
+        "https://powervc.local:9696", "interface": "admin", "region": "RegionOne",
+        "region_id": "RegionOne", "id": "591befadd43f49269ec11e2a2c2a683a"}, {"url":
+        "https://powervc.local:9696", "interface": "internal", "region": "RegionOne",
+        "region_id": "RegionOne", "id": "a149251ece864342877bcb8e9b0f8776"}], "type":
+        "network", "id": "97a3e84732df47ad8627cf52567bfe26", "name": "neutron"}, {"endpoints":
+        [{"url": "https://powervc.local:9000/v3/676b8977322946c0ab4700d7b908db5b",
+        "interface": "internal", "region": "RegionOne", "region_id": "RegionOne",
+        "id": "67296992f3a348c6be611ced4edef1b3"}, {"url": "https://powervc.local:9000/v3/676b8977322946c0ab4700d7b908db5b",
+        "interface": "admin", "region": "RegionOne", "region_id": "RegionOne", "id":
+        "e024241807044e92aa37f6b3d6deee07"}, {"url": "https://powervc.local:9000/v3/676b8977322946c0ab4700d7b908db5b",
+        "interface": "public", "region": "RegionOne", "region_id": "RegionOne", "id":
+        "ea589e63d4f64197b7ede86c3cfecfb4"}], "type": "volumev3", "id": "d1101d2c53664032a7c439962caeb9f8",
+        "name": "cinderv3"}, {"endpoints": [{"url": "https://powervc.local:5470",
+        "interface": "public", "region": "RegionOne", "region_id": "RegionOne", "id":
+        "60ba607b26a8434d906dfea8d92154c4"}, {"url": "https://powervc.local:5470",
+        "interface": "admin", "region": "RegionOne", "region_id": "RegionOne", "id":
+        "96bc8751f67c4f70be3eb290654752d4"}, {"url": "https://powervc.local:5470",
+        "interface": "internal", "region": "RegionOne", "region_id": "RegionOne",
+        "id": "b32eeb5c399440c4a0d487d59636e330"}], "type": "notification", "id":
+        "d7d45118e95a41399388c32bc88aaf73", "name": "bumblebee"}, {"endpoints": [{"url":
+        "https://powervc.local:8080/v1/AUTH_676b8977322946c0ab4700d7b908db5b", "interface":
+        "internal", "region": "RegionOne", "region_id": "RegionOne", "id": "0c2b8e2400e1423e971a012f83751f6b"},
+        {"url": "https://powervc.local:8080/v1/AUTH_676b8977322946c0ab4700d7b908db5b",
+        "interface": "admin", "region": "RegionOne", "region_id": "RegionOne", "id":
+        "19e3b7a7ff524fd2baff1241ed362b62"}, {"url": "https://powervc.local:8080/v1/AUTH_676b8977322946c0ab4700d7b908db5b",
+        "interface": "public", "region": "RegionOne", "region_id": "RegionOne", "id":
+        "706260d9ce594701997da9e2e46eaae0"}], "type": "object-store", "id": "d7fb93ac906d4264ac75b6bdaffef338",
+        "name": "swift"}, {"endpoints": [{"url": "https://powervc.local:8774/v2.1/676b8977322946c0ab4700d7b908db5b",
+        "interface": "admin", "region": "RegionOne", "region_id": "RegionOne", "id":
+        "7d87db0d316d46139ca62d188a308008"}, {"url": "https://powervc.local:8774/v2.1/676b8977322946c0ab4700d7b908db5b",
+        "interface": "internal", "region": "RegionOne", "region_id": "RegionOne",
+        "id": "98e2cee0e0d24bd5a967ac6a93c23ad8"}, {"url": "https://powervc.local:8774/v2.1/676b8977322946c0ab4700d7b908db5b",
+        "interface": "public", "region": "RegionOne", "region_id": "RegionOne", "id":
+        "f0db46f90d9f4f96894a2fba7aa85f5b"}], "type": "compute", "id": "ea5836130fa34bb18a8fd14161a0d200",
+        "name": "nova"}, {"endpoints": [{"url": "https://powervc.local:8041", "interface":
+        "public", "region": "RegionOne", "region_id": "RegionOne", "id": "44f2521c8cab44ccb719dd228fd09533"},
+        {"url": "https://powervc.local:8041", "interface": "admin", "region": "RegionOne",
+        "region_id": "RegionOne", "id": "b0c8b6f45ab746e0a0e39184820d5435"}, {"url":
+        "https://powervc.local:8041", "interface": "internal", "region": "RegionOne",
+        "region_id": "RegionOne", "id": "d00ac5b2174d47679c705c189beaa9e1"}], "type":
+        "metric", "id": "fc224425288748a5864b159639eb92eb", "name": "gnocchi"}, {"endpoints":
+        [{"url": "https://powervc.local:9000/v2/676b8977322946c0ab4700d7b908db5b",
+        "interface": "admin", "region": "RegionOne", "region_id": "RegionOne", "id":
+        "0ddae59bac8c4853a8ab7252bde249bc"}, {"url": "https://powervc.local:9000/v2/676b8977322946c0ab4700d7b908db5b",
+        "interface": "internal", "region": "RegionOne", "region_id": "RegionOne",
+        "id": "9083374a8cff42ac8c728478264edd65"}, {"url": "https://powervc.local:9000/v2/676b8977322946c0ab4700d7b908db5b",
+        "interface": "public", "region": "RegionOne", "region_id": "RegionOne", "id":
+        "f1c77ca2f98240a7a6603713a0d70c5a"}], "type": "volumev2", "id": "fdca7ddb2c2d447fa9f3023fced7b621",
+        "name": "cinderv2"}], "user": {"password_expires_at": null, "domain": {"id":
+        "default", "name": "Default"}, "id": "0688b01e6439ca32d698d20789d52169126fb41fb1a4ddafcebb97d854e836c9",
+        "name": "user"}, "audit_ids": ["vdQyAkASRLmIPv6epg4iWg"], "issued_at": "2021-04-13T19:55:30.000000Z",
+        "is_admin_project": true}}'
+    http_version:
+  recorded_at: Tue, 13 Apr 2021 19:55:30 GMT
+- request:
+    method: get
+    uri: https://powervc.local:8774/v2.1/676b8977322946c0ab4700d7b908db5b/os-aggregates
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - fog-core/2.1.0
+      Content-Type:
+      - application/json
+      Accept:
+      - application/json
+      X-Auth-Token:
+      - gAAAAABgdfaL-VQ3iBSN-uTH4NpK4sNQVYJYDuvUyHVzuD0W5UAtYLRObfTbw6dCxQuCGciCa72_WkPip6xigmcfSaRDPeE1qI9U1yQ7X0pLtTw40GhlDFddZiEya9vjgRUzgMUt8tUxh0F0CoMt_VN_D1cZvBXn--vD8z1e8irHYS-A6IIPlPRt_gReO8al3zhiLwv_-QeqeESFKakWNy55s--QPeqSIhVHUlsdfGKuTKZyXmkFucQ
+      X-Openstack-Nova-Api-Version:
+      - '2.15'
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Tue, 13 Apr 2021 19:55:30 GMT
+      Server:
+      - Apache
+      Content-Length:
+      - '727'
+      Content-Type:
+      - application/json
+      Openstack-Api-Version:
+      - compute 2.15
+      X-Openstack-Nova-Api-Version:
+      - '2.15'
+      Vary:
+      - OpenStack-API-Version,Accept-Encoding,User-Agent,X-OpenStack-Nova-API-Version
+      X-Openstack-Request-Id:
+      - req-ed2a61c3-026f-423d-8ebd-68547c8f58eb
+      X-Compute-Request-Id:
+      - req-ed2a61c3-026f-423d-8ebd-68547c8f58eb
+    body:
+      encoding: ASCII-8BIT
+      string: '{"aggregates": [{"name": "Default Group", "availability_zone": "Default
+        Group", "deleted": false, "created_at": "2020-12-08T10:00:39.000000", "powervc_default":
+        true, "updated_at": null, "dro_schedules": {}, "hosts": ["828422A_215E28V",
+        "828422A_215E31V", "900942A_213275W"], "deleted_at": null, "id": 1, "metadata":
+        {"dro_enabled": "False", "runtimepolicy-max_parallel": "10", "hapolicy-id":
+        "1", "availability_zone": "Default Group", "runtimepolicy-run_interval": "5",
+        "arr_enabled": "False", "hapolicy-stabilization": "5", "runtimepolicy-stabilization":
+        "2", "initialpolicy-id": "1", "runtimepolicy-threshold": "70", "runtimepolicy-id":
+        "5", "hapolicy-run_interval": "1", "runtimepolicy-action": "migrate_vm_advise_only"}}]}'
+    http_version:
+  recorded_at: Tue, 13 Apr 2021 19:55:30 GMT
+- request:
+    method: get
+    uri: https://powervc.local:9000/v2/676b8977322946c0ab4700d7b908db5b/volumes/detail?limit=1000&status=available
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - fog-core/2.1.0
+      Content-Type:
+      - application/json
+      Accept:
+      - application/json
+      X-Auth-Token:
+      - gAAAAABgdfamG-xWspBYKZcQvWrxRf4FTDkUtZefy1EOM-nu9DpJb-oN4X3F_4qbgDoLSIx0F8frGTH1Okx0w_c48W2m4NUQHeVe21Viy9x7OSmMadCChgnqnUDuIVTsu3nN5CvvIAg1v7Y1U4YPPYnsKk102CgTMIURJPhtlat_Szfvo1OFJ-PBDrYiDNZbcKg7hk5n766cCOsCalx29xGsBD_lOQ7p9UtRulZHDuPFJiqMO27V1Jo
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Tue, 13 Apr 2021 19:55:30 GMT
+      Server:
+      - Apache
+      X-Compute-Request-Id:
+      - req-625e2fa1-d5fd-49a9-bc02-bbab280a4a61
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '6899'
+      X-Openstack-Request-Id:
+      - req-625e2fa1-d5fd-49a9-bc02-bbab280a4a61
+      Vary:
+      - Accept-Encoding,User-Agent
+    body:
+      encoding: ASCII-8BIT
+      string: '{"volumes": [{"migration_status": null, "attachments": [], "links":
+        [{"href": "https://powervc.local:9000/v2/676b8977322946c0ab4700d7b908db5b/volumes/d52dd831-0ff5-41d7-a479-4684918046d0",
+        "rel": "self"}, {"href": "https://powervc.local:9000/676b8977322946c0ab4700d7b908db5b/volumes/d52dd831-0ff5-41d7-a479-4684918046d0",
+        "rel": "bookmark"}], "availability_zone": "nova", "os-vol-host-attr:host":
+        "pvcsvt_v7000_1_scale2_mgmt", "encrypted": false, "updated_at": null, "replication_status":
+        null, "snapshot_id": null, "id": "d52dd831-0ff5-41d7-a479-4684918046d0", "size":
+        11, "user_id": "0688b01e6439ca32d698d20789d52169126fb41fb1a4ddafcebb97d854e836c9",
+        "os-vol-tenant-attr:tenant_id": "676b8977322946c0ab4700d7b908db5b", "metadata":
+        {"volume_wwn": "6005076D02818103580000000000F33A", "storage_pool": "SCALE-2-140",
+        "is_boot_volume": "True", "is_image_volume": "True"}, "status": "available",
+        "description": null, "multiattach": false, "source_volid": null, "consistencygroup_id":
+        null, "backend_host": "pvcsvt_v7000_1_scale2_mgmt", "name": "sles11_SP4_final",
+        "bootable": "false", "created_at": "2021-02-25T10:51:55.000000", "volume_type":
+        null, "health_status": {"health_value": "OK", "id": "d52dd831-0ff5-41d7-a479-4684918046d0",
+        "value_reason": [], "updated_at": "2021-04-13T19:55:30.722063"}}, {"migration_status":
+        null, "attachments": [], "links": [{"href": "https://powervc.local:9000/v2/676b8977322946c0ab4700d7b908db5b/volumes/b7e3c64e-b3b1-40f7-b423-9b683baad268",
+        "rel": "self"}, {"href": "https://powervc.local:9000/676b8977322946c0ab4700d7b908db5b/volumes/b7e3c64e-b3b1-40f7-b423-9b683baad268",
+        "rel": "bookmark"}], "availability_zone": "nova", "os-vol-host-attr:host":
+        "pvcsvt_v7000_1_scale2_mgmt", "encrypted": false, "updated_at": null, "replication_status":
+        null, "snapshot_id": null, "id": "b7e3c64e-b3b1-40f7-b423-9b683baad268", "size":
+        20, "user_id": "0688b01e6439ca32d698d20789d52169126fb41fb1a4ddafcebb97d854e836c9",
+        "os-vol-tenant-attr:tenant_id": "676b8977322946c0ab4700d7b908db5b", "metadata":
+        {"volume_wwn": "6005076D02818103580000000000EB16", "storage_pool": "SCALE-2-140",
+        "is_boot_volume": "True", "is_image_volume": "True"}, "status": "available",
+        "description": null, "multiattach": false, "source_volid": null, "consistencygroup_id":
+        null, "backend_host": "pvcsvt_v7000_1_scale2_mgmt", "name": "volume-Image_sles15sp2le_19.1-8_aug25",
+        "bootable": "false", "created_at": "2021-01-28T18:03:25.000000", "volume_type":
+        null, "health_status": {"health_value": "OK", "id": "b7e3c64e-b3b1-40f7-b423-9b683baad268",
+        "value_reason": [], "updated_at": "2021-04-13T19:55:30.722121"}}, {"migration_status":
+        null, "attachments": [], "links": [{"href": "https://powervc.local:9000/v2/676b8977322946c0ab4700d7b908db5b/volumes/9d6c7fd8-5eb4-40ec-90ae-cae6416ec64f",
+        "rel": "self"}, {"href": "https://powervc.local:9000/676b8977322946c0ab4700d7b908db5b/volumes/9d6c7fd8-5eb4-40ec-90ae-cae6416ec64f",
+        "rel": "bookmark"}], "availability_zone": "nova", "os-vol-host-attr:host":
+        "c387f15u7_v7k", "encrypted": false, "updated_at": null, "replication_status":
+        null, "snapshot_id": null, "id": "9d6c7fd8-5eb4-40ec-90ae-cae6416ec64f", "size":
+        20, "user_id": "0688b01e6439ca32d698d20789d52169126fb41fb1a4ddafcebb97d854e836c9",
+        "os-vol-tenant-attr:tenant_id": "676b8977322946c0ab4700d7b908db5b", "metadata":
+        {"volume_wwn": "60050768028111D9A00000000000B5B8", "storage_pool": "mdisk-pool0",
+        "is_boot_volume": "True", "is_image_volume": "True"}, "status": "available",
+        "description": null, "multiattach": false, "source_volid": null, "consistencygroup_id":
+        null, "backend_host": "c387f15u7_v7k", "name": "volume-Image_sles15sp2le_AUG25-19.1-8_volume-27817a51-fc26",
+        "bootable": "false", "created_at": "2021-01-27T11:10:35.000000", "volume_type":
+        null, "health_status": {"health_value": "OK", "id": "9d6c7fd8-5eb4-40ec-90ae-cae6416ec64f",
+        "value_reason": [], "updated_at": "2021-04-13T19:55:30.722171"}}, {"migration_status":
+        null, "attachments": [], "links": [{"href": "https://powervc.local:9000/v2/676b8977322946c0ab4700d7b908db5b/volumes/5ea83a92-fb6e-4c45-9146-352b733f5233",
+        "rel": "self"}, {"href": "https://powervc.local:9000/676b8977322946c0ab4700d7b908db5b/volumes/5ea83a92-fb6e-4c45-9146-352b733f5233",
+        "rel": "bookmark"}], "availability_zone": "nova", "os-vol-host-attr:host":
+        "pvcsvt_v7000_1_scale2_mgmt", "encrypted": false, "updated_at": null, "replication_status":
+        null, "snapshot_id": null, "id": "5ea83a92-fb6e-4c45-9146-352b733f5233", "size":
+        100, "user_id": "0688b01e6439ca32d698d20789d52169126fb41fb1a4ddafcebb97d854e836c9",
+        "os-vol-tenant-attr:tenant_id": "676b8977322946c0ab4700d7b908db5b", "metadata":
+        {"volume_wwn": "6005076D02818103580000000000F172", "storage_pool": "SCALE-2-140",
+        "is_boot_volume": "True", "is_image_volume": "True"}, "status": "available",
+        "description": null, "multiattach": false, "source_volid": null, "consistencygroup_id":
+        null, "backend_host": "pvcsvt_v7000_1_scale2_mgmt", "name": "RHEL82_100GB",
+        "bootable": "false", "created_at": "2020-12-11T18:37:08.000000", "volume_type":
+        null, "health_status": {"health_value": "OK", "id": "5ea83a92-fb6e-4c45-9146-352b733f5233",
+        "value_reason": [], "updated_at": "2021-04-13T19:55:30.722220"}}, {"migration_status":
+        null, "attachments": [], "links": [{"href": "https://powervc.local:9000/v2/676b8977322946c0ab4700d7b908db5b/volumes/2b78f17c-c308-4249-8480-d8b063d35fca",
+        "rel": "self"}, {"href": "https://powervc.local:9000/676b8977322946c0ab4700d7b908db5b/volumes/2b78f17c-c308-4249-8480-d8b063d35fca",
+        "rel": "bookmark"}], "availability_zone": "nova", "os-vol-host-attr:host":
+        "pvcsvt_v7000_1_scale2_mgmt", "encrypted": false, "updated_at": "2021-01-27T08:26:23.000000",
+        "replication_status": null, "snapshot_id": null, "id": "2b78f17c-c308-4249-8480-d8b063d35fca",
+        "size": 20, "user_id": "0688b01e6439ca32d698d20789d52169126fb41fb1a4ddafcebb97d854e836c9",
+        "os-vol-tenant-attr:tenant_id": "676b8977322946c0ab4700d7b908db5b", "metadata":
+        {"volume_wwn": "6005076D02818103580000000000EC93", "out_of_band_deleted":
+        "True", "storage_pool": "SCALE-2-140", "is_boot_volume": "True"}, "status":
+        "available", "description": null, "multiattach": false, "source_volid": null,
+        "consistencygroup_id": null, "backend_host": "pvcsvt_v7000_1_scale2_mgmt",
+        "name": "RHEL82_PVC_CI_23rd_Oct", "bootable": "false", "created_at": "2020-12-10T18:34:23.000000",
+        "volume_type": null, "health_status": {"health_value": "WARNING", "id": "2b78f17c-c308-4249-8480-d8b063d35fca",
+        "value_reason": [{"resource_local": "volume", "resource_id": "2b78f17c-c308-4249-8480-d8b063d35fca",
+        "display_name": "RHEL82_PVC_CI_23rd_Oct", "resource_property_key": "status",
+        "resource_property_value": "deleted"}], "updated_at": "2021-04-13T19:55:30.722303"}}]}'
+    http_version:
+  recorded_at: Tue, 13 Apr 2021 19:55:30 GMT
+- request:
+    method: get
+    uri: https://powervc.local:9000/v2/676b8977322946c0ab4700d7b908db5b/volumes/detail?limit=1000&marker=2b78f17c-c308-4249-8480-d8b063d35fca&status=available
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - fog-core/2.1.0
+      Content-Type:
+      - application/json
+      Accept:
+      - application/json
+      X-Auth-Token:
+      - gAAAAABgdfamG-xWspBYKZcQvWrxRf4FTDkUtZefy1EOM-nu9DpJb-oN4X3F_4qbgDoLSIx0F8frGTH1Okx0w_c48W2m4NUQHeVe21Viy9x7OSmMadCChgnqnUDuIVTsu3nN5CvvIAg1v7Y1U4YPPYnsKk102CgTMIURJPhtlat_Szfvo1OFJ-PBDrYiDNZbcKg7hk5n766cCOsCalx29xGsBD_lOQ7p9UtRulZHDuPFJiqMO27V1Jo
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Tue, 13 Apr 2021 19:55:31 GMT
+      Server:
+      - Apache
+      X-Compute-Request-Id:
+      - req-bef05d02-b36c-471a-9ca7-181c58444976
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '15'
+      X-Openstack-Request-Id:
+      - req-bef05d02-b36c-471a-9ca7-181c58444976
+      Vary:
+      - User-Agent
+    body:
+      encoding: ASCII-8BIT
+      string: '{"volumes": []}'
+    http_version:
+  recorded_at: Tue, 13 Apr 2021 19:55:31 GMT
+- request:
+    method: get
+    uri: https://powervc.local:9000/v2/676b8977322946c0ab4700d7b908db5b/snapshots/detail
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - fog-core/2.1.0
+      Content-Type:
+      - application/json
+      Accept:
+      - application/json
+      X-Auth-Token:
+      - gAAAAABgdfamG-xWspBYKZcQvWrxRf4FTDkUtZefy1EOM-nu9DpJb-oN4X3F_4qbgDoLSIx0F8frGTH1Okx0w_c48W2m4NUQHeVe21Viy9x7OSmMadCChgnqnUDuIVTsu3nN5CvvIAg1v7Y1U4YPPYnsKk102CgTMIURJPhtlat_Szfvo1OFJ-PBDrYiDNZbcKg7hk5n766cCOsCalx29xGsBD_lOQ7p9UtRulZHDuPFJiqMO27V1Jo
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Tue, 13 Apr 2021 19:55:31 GMT
+      Server:
+      - Apache
+      X-Compute-Request-Id:
+      - req-58184749-f047-4280-8daf-022dedbc0c4b
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '17'
+      X-Openstack-Request-Id:
+      - req-58184749-f047-4280-8daf-022dedbc0c4b
+      Vary:
+      - User-Agent
+    body:
+      encoding: ASCII-8BIT
+      string: '{"snapshots": []}'
+    http_version:
+  recorded_at: Tue, 13 Apr 2021 19:55:31 GMT
+- request:
+    method: get
+    uri: https://powervc.local:9000/v2/676b8977322946c0ab4700d7b908db5b/snapshots/detail?limit=1000&status=available
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - fog-core/2.1.0
+      Content-Type:
+      - application/json
+      Accept:
+      - application/json
+      X-Auth-Token:
+      - gAAAAABgdfamG-xWspBYKZcQvWrxRf4FTDkUtZefy1EOM-nu9DpJb-oN4X3F_4qbgDoLSIx0F8frGTH1Okx0w_c48W2m4NUQHeVe21Viy9x7OSmMadCChgnqnUDuIVTsu3nN5CvvIAg1v7Y1U4YPPYnsKk102CgTMIURJPhtlat_Szfvo1OFJ-PBDrYiDNZbcKg7hk5n766cCOsCalx29xGsBD_lOQ7p9UtRulZHDuPFJiqMO27V1Jo
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Tue, 13 Apr 2021 19:55:31 GMT
+      Server:
+      - Apache
+      X-Compute-Request-Id:
+      - req-1d751520-7887-4c63-8100-274637afac29
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '17'
+      X-Openstack-Request-Id:
+      - req-1d751520-7887-4c63-8100-274637afac29
+      Vary:
+      - User-Agent
+    body:
+      encoding: ASCII-8BIT
+      string: '{"snapshots": []}'
+    http_version:
+  recorded_at: Tue, 13 Apr 2021 19:55:31 GMT
+recorded_with: VCR 5.1.0
