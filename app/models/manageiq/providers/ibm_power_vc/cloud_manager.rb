@@ -1,10 +1,14 @@
 ManageIQ::Providers::Openstack::CloudManager.include(ActsAsStiLeafClass)
 
 class ManageIQ::Providers::IbmPowerVc::CloudManager < ManageIQ::Providers::Openstack::CloudManager
+  require_nested :AuthKeyPair
+  require_nested :AvailabilityZone
+  require_nested :CloudTenant
   require_nested :MetricsCapture
   require_nested :MetricsCollectorWorker
   require_nested :Refresher
   require_nested :RefreshWorker
+  require_nested :Template
   require_nested :Vm
 
   def self.params_for_create
