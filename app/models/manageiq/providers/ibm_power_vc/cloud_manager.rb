@@ -11,6 +11,10 @@ class ManageIQ::Providers::IbmPowerVc::CloudManager < ManageIQ::Providers::Opens
   require_nested :Template
   require_nested :Vm
 
+  def self.vm_vendor
+    "ibm"
+  end
+
   def self.params_for_create
     params = super
 

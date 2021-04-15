@@ -67,7 +67,7 @@ describe ManageIQ::Providers::IbmPowerVc::CloudManager::Refresher do
     def assert_specific_vm
       vm = ems.vms.find_by(:ems_ref => "42420bf6-e08e-4360-85b0-4dea6e80344f")
       expect(vm).to have_attributes(
-        # TODO: :vendor            => "ibm",
+        :vendor            => "ibm",
         :name              => "RHEL82_100GB-test",
         :description       => nil,
         :location          => "unknown",
