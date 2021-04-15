@@ -1,3 +1,5 @@
+ManageIQ::Providers::Openstack::CloudManager::MetricsCollectorWorker.include(ActsAsStiLeafClass)
+
 class ManageIQ::Providers::IbmPowerVc::CloudManager::MetricsCollectorWorker < ManageIQ::Providers::Openstack::CloudManager::MetricsCollectorWorker
   require_nested :Runner
 
