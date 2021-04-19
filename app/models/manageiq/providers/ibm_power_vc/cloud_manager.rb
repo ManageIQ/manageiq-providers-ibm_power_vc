@@ -78,6 +78,22 @@ class ManageIQ::Providers::IbmPowerVc::CloudManager < ManageIQ::Providers::Opens
     "ibm"
   end
 
+  def ensure_network_manager
+    build_network_manager(:type => 'ManageIQ::Providers::IbmPowerVc::NetworkManager') unless network_manager
+  end
+
+  def ensure_cinder_manager
+    return false if cinder_manager
+    build_cinder_manager(:type => 'ManageIQ::Providers::IbmPowerVc::StorageManager::CinderManager')
+    true
+  end
+
+  def ensure_swift_manager
+    return false if swift_manager
+    build_swift_manager(:type => 'ManageIQ::Providers::IbmPowerVc::StorageManager::SwiftManager')
+    true
+  end
+
   def self.ems_type
     @ems_type ||= "ibm_power_vc".freeze
   end
