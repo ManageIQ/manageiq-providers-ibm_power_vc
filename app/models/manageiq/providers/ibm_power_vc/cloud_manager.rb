@@ -3,7 +3,11 @@ ManageIQ::Providers::Openstack::CloudManager.include(ActsAsStiLeafClass)
 class ManageIQ::Providers::IbmPowerVc::CloudManager < ManageIQ::Providers::Openstack::CloudManager
   require_nested :AuthKeyPair
   require_nested :AvailabilityZone
+  require_nested :AvailabilityZoneNull
+  require_nested :CloudResourceQuota
   require_nested :CloudTenant
+  require_nested :Flavor
+  require_nested :HostAggregate
   require_nested :MetricsCapture
   require_nested :MetricsCollectorWorker
   require_nested :Refresher
