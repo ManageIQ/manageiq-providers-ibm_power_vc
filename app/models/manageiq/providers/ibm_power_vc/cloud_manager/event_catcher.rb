@@ -1,6 +1,4 @@
 class ManageIQ::Providers::IbmPowerVc::CloudManager::EventCatcher < ManageIQ::Providers::BaseManager::EventCatcher
-  include ActsAsStiLeafClass
-
   require_nested :Runner
 
   def self.settings_name
