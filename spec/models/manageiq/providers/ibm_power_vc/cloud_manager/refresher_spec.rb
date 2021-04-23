@@ -32,7 +32,7 @@ describe ManageIQ::Providers::IbmPowerVc::CloudManager::Refresher do
       expect(az).to have_attributes(
         :name                        => "Default Group",
         :ems_ref                     => "Default Group",
-        # TODO: :type                        => "ManageIQ::Providers::IbmPowerVc::CloudManager::AvailabilityZone",
+        :type                        => "ManageIQ::Providers::IbmPowerVc::CloudManager::AvailabilityZone",
         :provider_services_supported => ["compute"]
       )
     end
@@ -57,7 +57,7 @@ describe ManageIQ::Providers::IbmPowerVc::CloudManager::Refresher do
         :cpu_cores          => nil,
         :memory             => 4.gigabytes,
         :ems_ref            => "4c7b250adb349d84f638aec9c76f6eba",
-        # TODO: :type               => "ManageIQ::Providers::IbmPowerVc::CloudManager::Flavor",
+        :type               => "ManageIQ::Providers::IbmPowerVc::CloudManager::Flavor",
         :root_disk_size     => 100.gigabytes,
         :swap_disk_size     => 0,
         :publicly_available => false
@@ -67,13 +67,13 @@ describe ManageIQ::Providers::IbmPowerVc::CloudManager::Refresher do
     def assert_specific_vm
       vm = ems.vms.find_by(:ems_ref => "42420bf6-e08e-4360-85b0-4dea6e80344f")
       expect(vm).to have_attributes(
-        # TODO: :vendor            => "ibm",
+        :vendor            => "ibm",
         :name              => "RHEL82_100GB-test",
         :description       => nil,
         :location          => "unknown",
         :uid_ems           => "42420bf6-e08e-4360-85b0-4dea6e80344f",
         :connection_state  => "connected",
-        # TODO: :type              => "ManageIQ::Providers::IbmPowerVc::CloudManager::Vm",
+        :type              => "ManageIQ::Providers::IbmPowerVc::CloudManager::Vm",
         :ems_ref           => "42420bf6-e08e-4360-85b0-4dea6e80344f",
         :flavor            => ems.flavors.find_by(:ems_ref => "4c7b250adb349d84f638aec9c76f6eba"),
         :availability_zone => ems.availability_zones.find_by(:ems_ref => "Default Group"),

@@ -3,13 +3,21 @@ ManageIQ::Providers::Openstack::CloudManager.include(ActsAsStiLeafClass)
 class ManageIQ::Providers::IbmPowerVc::CloudManager < ManageIQ::Providers::Openstack::CloudManager
   require_nested :AuthKeyPair
   require_nested :AvailabilityZone
+  require_nested :AvailabilityZoneNull
+  require_nested :CloudResourceQuota
   require_nested :CloudTenant
+  require_nested :Flavor
+  require_nested :HostAggregate
   require_nested :MetricsCapture
   require_nested :MetricsCollectorWorker
   require_nested :Refresher
   require_nested :RefreshWorker
   require_nested :Template
   require_nested :Vm
+
+  def self.vm_vendor
+    "ibm"
+  end
 
   def self.params_for_create
     params = super
@@ -68,6 +76,22 @@ class ManageIQ::Providers::IbmPowerVc::CloudManager < ManageIQ::Providers::Opens
 
   def image_name
     "ibm"
+  end
+
+  def ensure_network_manager
+    build_network_manager(:type => 'ManageIQ::Providers::IbmPowerVc::NetworkManager') unless network_manager
+  end
+
+  def ensure_cinder_manager
+    return false if cinder_manager
+    build_cinder_manager(:type => 'ManageIQ::Providers::IbmPowerVc::StorageManager::CinderManager')
+    true
+  end
+
+  def ensure_swift_manager
+    return false if swift_manager
+    build_swift_manager(:type => 'ManageIQ::Providers::IbmPowerVc::StorageManager::SwiftManager')
+    true
   end
 
   def self.ems_type
