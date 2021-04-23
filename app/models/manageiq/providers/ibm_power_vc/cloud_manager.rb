@@ -99,6 +99,6 @@ class ManageIQ::Providers::IbmPowerVc::CloudManager < ManageIQ::Providers::Opens
   end
 
   def self.description
-    @description ||= "IBM Power Systems PowerVC".freeze
+    @description ||= "IBM PowerVC".freeze
   end
 end
