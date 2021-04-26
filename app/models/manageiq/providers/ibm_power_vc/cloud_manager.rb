@@ -16,11 +16,11 @@ class ManageIQ::Providers::IbmPowerVc::CloudManager < ManageIQ::Providers::Opens
   require_nested :Vm
 
   def self.vm_vendor
-    "power_vc"
+    "ibm"
   end
 
   def image_name
-    self.class.vm_vendor
+    "power_vc"
   end
 
   def self.params_for_create
