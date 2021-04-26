@@ -16,7 +16,11 @@ class ManageIQ::Providers::IbmPowerVc::CloudManager < ManageIQ::Providers::Opens
   require_nested :Vm
 
   def self.vm_vendor
-    "ibm"
+    "power_vc"
+  end
+
+  def image_name
+    self.class.vm_vendor
   end
 
   def self.params_for_create
@@ -72,10 +76,6 @@ class ManageIQ::Providers::IbmPowerVc::CloudManager < ManageIQ::Providers::Opens
   def connect(options = {})
     super(options)
     # TODO: here allow getting saved creds
-  end
-
-  def image_name
-    "ibm"
   end
 
   def ensure_network_manager
