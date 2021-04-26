@@ -1,6 +1,4 @@
-ManageIQ::Providers::Openstack::CloudManager::RefreshWorker.include(ActsAsStiLeafClass)
-
-class ManageIQ::Providers::IbmPowerVc::CloudManager::RefreshWorker < ManageIQ::Providers::Openstack::CloudManager::RefreshWorker
+class ManageIQ::Providers::IbmPowerVc::CloudManager::RefreshWorker < ManageIQ::Providers::BaseManager::RefreshWorker
   require_nested :Runner
 
   def self.settings_name
