@@ -90,9 +90,7 @@ class ManageIQ::Providers::IbmPowerVc::CloudManager < ManageIQ::Providers::Opens
   end
 
   def ensure_swift_manager
-    return false if swift_manager
-    build_swift_manager(:type => 'ManageIQ::Providers::IbmPowerVc::StorageManager::SwiftManager')
-    true
+    false
   end
 
   def self.ems_type
