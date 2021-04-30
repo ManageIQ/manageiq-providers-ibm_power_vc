@@ -7,7 +7,7 @@
 
 [![Chat](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/ManageIQ/manageiq-providers-ibm_power_vc?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
-ManageIQ plugin for the Ibm Power Vc provider.
+ManageIQ plugin for the [IBM PowerVC](https://www.ibm.com/products/powervc) provider.
 
 ## Development
 
