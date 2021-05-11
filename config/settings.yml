@@ -129,74 +129,61 @@
 :workers:
   :worker_base:
     :event_catcher:
-      :event_catcher_ibm_power_vc:
-        :poll: 15.seconds
-        :topics:
-          :nova: notifications.*
-          :cinder: notifications.*
-          :glance: notifications.*
-          :heat: notifications.*
-        :duration: 10.seconds
-        :capacity: 50
-        :amqp_port: 5672
-        :amqp_heartbeat: 30
-        :amqp_recovery_attempts: 4
-        :amqp_vhost: '/'
-        :ceilometer:
-          :event_types_regex: '\A(?!firewall|floatingip|gateway|net|port|router|subnet|security_group|vpn|volume|snapshot|backup)'
-        :stf:
-          :topic_name: anycast/ceilometer/event.sample
-          :event_types_regex: '\A(aggregate|compute\.instance|identity\.project|image|keypair|orchestration\.stack|servergroup|snapshot)'
-      :event_catcher_ibm_power_vc_cinder:
-        :poll: 15.seconds
-        :topics:
-          :nova: notifications.*
-          :cinder: notifications.*
-          :glance: notifications.*
-          :heat: notifications.*
-        :duration: 10.seconds
-        :capacity: 50
-        :amqp_port: 5672
-        :amqp_heartbeat: 30
-        :amqp_recovery_attempts: 4
-        :amqp_vhost: '/'
-        :ceilometer:
-          :event_types_regex: '\A(volume|snapshot|backup)'
-        :stf:
-          :topic_name: anycast/ceilometer/event.sample
-          :event_types_regex: '\A(volume|snapshot|backup)'
-      :event_catcher_ibm_power_vc_infra:
-        :poll: 15.seconds
-        :topics:
-          :nova: notifications.*
-          :cinder: notifications.*
-          :glance: notifications.*
-          :heat: notifications.*
-          :ironic: notifications.*
-        :duration: 10.seconds
-        :capacity: 50
-        :amqp_port: 5672
-        :amqp_heartbeat: 30
-        :amqp_recovery_attempts: 4
-        :amqp_vhost: '/'
-        :ceilometer:
-          :event_types_regex: '\A(?!firewall|floatingip|gateway|net|port|router|subnet|security_group|vpn)'
-      :event_catcher_ibm_power_vc_network:
-        :poll: 15.seconds
-        :topics:
-          :neutron: "notifications.*"
-        :duration: 10.seconds
-        :capacity: 50
-        :amqp_port: 5672
-        :amqp_heartbeat: 30
-        :amqp_recovery_attempts: 4
-        :amqp_vhost: '/'
-        :ceilometer:
-          :event_types_regex: '\A(firewall|floatingip|gateway|net|port|router|subnet|security_group|security_group_rule|vpn)'
-        :stf:
-          :topic_name: anycast/ceilometer/event.sample
-          :event_types_regex: '\A(network|port|router|subnet|security_group|security_group_rule)'
-      :event_catcher_ibm_power_vc_service: "auto"
+      :event_catcher_openstack:
+        :event_catcher_ibm_power_vc:
+          :poll: 15.seconds
+          :topics:
+            :nova: notifications.*
+            :cinder: notifications.*
+            :glance: notifications.*
+            :heat: notifications.*
+          :duration: 10.seconds
+          :capacity: 50
+          :amqp_port: 5672
+          :amqp_heartbeat: 30
+          :amqp_recovery_attempts: 4
+          :amqp_vhost: '/'
+          :ceilometer:
+            :event_types_regex: '\A(?!firewall|floatingip|gateway|net|port|router|subnet|security_group|vpn|volume|snapshot|backup)'
+          :stf:
+            :topic_name: anycast/ceilometer/event.sample
+            :event_types_regex: '\A(aggregate|compute\.instance|identity\.project|image|keypair|orchestration\.stack|servergroup|snapshot)'
+      :event_catcher_openstack_cinder:
+        :event_catcher_ibm_power_vc_cinder:
+          :poll: 15.seconds
+          :topics:
+            :nova: notifications.*
+            :cinder: notifications.*
+            :glance: notifications.*
+            :heat: notifications.*
+          :duration: 10.seconds
+          :capacity: 50
+          :amqp_port: 5672
+          :amqp_heartbeat: 30
+          :amqp_recovery_attempts: 4
+          :amqp_vhost: '/'
+          :ceilometer:
+            :event_types_regex: '\A(volume|snapshot|backup)'
+          :stf:
+            :topic_name: anycast/ceilometer/event.sample
+            :event_types_regex: '\A(volume|snapshot|backup)'
+      :event_catcher_openstack_network:
+        :event_catcher_ibm_power_vc_network:
+          :poll: 15.seconds
+          :topics:
+            :neutron: "notifications.*"
+          :duration: 10.seconds
+          :capacity: 50
+          :amqp_port: 5672
+          :amqp_heartbeat: 30
+          :amqp_recovery_attempts: 4
+          :amqp_vhost: '/'
+          :ceilometer:
+            :event_types_regex: '\A(firewall|floatingip|gateway|net|port|router|subnet|security_group|security_group_rule|vpn)'
+          :stf:
+            :topic_name: anycast/ceilometer/event.sample
+            :event_types_regex: '\A(network|port|router|subnet|security_group|security_group_rule)'
+        :event_catcher_ibm_power_vc_service: "auto"
     :queue_worker_base:
       :ems_metrics_collector_worker:
         :ems_metrics_collector_worker_ibm_power_vc: {}
