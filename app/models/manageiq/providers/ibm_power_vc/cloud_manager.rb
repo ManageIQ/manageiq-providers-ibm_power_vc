@@ -383,8 +383,8 @@ class ManageIQ::Providers::IbmPowerVc::CloudManager < ManageIQ::Providers::Opens
     authentications.detect { |e| e.authtype == "default" }
   end
 
-  def get_image_info(id)
-    image = MiqTemplate.find(id)
+  def get_image_info(img_id)
+    image = MiqTemplate.find(img_id)
     os = OperatingSystem.find_by(:vm_or_template => image.id)
 
     # XXX: do we need verification here?
