@@ -28,10 +28,10 @@ class ManageIQ::Providers::IbmPowerVc::CloudManager < ManageIQ::Providers::Opens
     {
       :fields => [
         {
-          :component => "text-field",
-          :id        => "provider_region",
-          :name      => "provider_region",
-          :label     => _("Provider Region"),
+          :component    => "text-field",
+          :id           => "provider_region",
+          :name         => "provider_region",
+          :label        => _("Provider Region"),
           :initialValue => _("RegionOne"),
         },
         {
@@ -51,23 +51,23 @@ class ManageIQ::Providers::IbmPowerVc::CloudManager < ManageIQ::Providers::Opens
           ],
         },
         {
-          :component  => 'text-field',
-          :id         => 'uid_ems',
-          :name       => 'uid_ems',
-          :label      => _('Domain ID'),
+          :component    => 'text-field',
+          :id           => 'uid_ems',
+          :name         => 'uid_ems',
+          :label        => _('Domain ID'),
           :initialValue => 'default',
-          :isRequired => true,
-          :condition  => {
+          :isRequired   => true,
+          :condition    => {
             :when => 'api_version',
             :is   => 'v3',
           },
-          :validate   => [{
-                            :type      => "required",
-                            :condition => {
-                              :when => 'api_version',
-                              :is   => 'v3',
-                            }
-                          }],
+          :validate     => [{
+            :type      => "required",
+            :condition => {
+              :when => 'api_version',
+              :is   => 'v3',
+            }
+          }],
         },
         {
           :component => 'switch',
@@ -388,7 +388,7 @@ class ManageIQ::Providers::IbmPowerVc::CloudManager < ManageIQ::Providers::Opens
     os = OperatingSystem.find_by(:vm_or_template => image.id)
 
     # XXX: do we need verification here?
-    if(os.distribution == 'rhel')
+    if os.distribution == 'rhel'
       os.distribution = 'redhat'
     end
 
@@ -406,6 +406,7 @@ class ManageIQ::Providers::IbmPowerVc::CloudManager < ManageIQ::Providers::Opens
 
   def ensure_cinder_manager
     return false if cinder_manager
+
     build_cinder_manager(:type => 'ManageIQ::Providers::IbmPowerVc::StorageManager::CinderManager')
     true
   end
