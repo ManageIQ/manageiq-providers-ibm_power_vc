@@ -192,10 +192,11 @@ class ManageIQ::Providers::IbmPowerVc::CloudManager < ManageIQ::Providers::Opens
                   },
                   {
                     :component    => 'text-field',
-                    :type         => 'hidden',
+                    :hideField    => true,
+                    :label        => 'ceilometer',
                     :id           => 'endpoints.ceilometer',
                     :name         => 'endpoints.ceilometer',
-                    :initialValue => {},
+                    :initialValue => '',
                     :condition    => {
                       :when => 'event_stream_selection',
                       :is   => 'ceilometer',
@@ -319,10 +320,11 @@ class ManageIQ::Providers::IbmPowerVc::CloudManager < ManageIQ::Providers::Opens
                   :fields    => [
                     {
                       :component    => 'text-field',
-                      :type         => 'hidden',
+                      :hideField    => true,
+                      :label        => 'ssh_keypair',
                       :id           => 'endpoints.ssh_keypair',
                       :name         => 'endpoints.ssh_keypair',
-                      :initialValue => {},
+                      :initialValue => '',
                       :condition    => {
                         :when       => 'authentications.ssh_keypair.userid',
                         :isNotEmpty => true,
