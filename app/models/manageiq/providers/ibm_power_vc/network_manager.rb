@@ -10,4 +10,8 @@ class ManageIQ::Providers::IbmPowerVc::NetworkManager < ManageIQ::Providers::Ope
   def self.description
     @description ||= "IBM PowerVC Network".freeze
   end
+
+  def image_name
+    "ibm_power_vc"
+  end
 end
