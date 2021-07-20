@@ -19,11 +19,11 @@ class ManageIQ::Providers::IbmPowerVc::CloudManager < ManageIQ::Providers::Opens
   supports :metrics
 
   def self.vm_vendor
-    "ibm"
+    "ibm_power_vc"
   end
 
   def image_name
-    "power_vc"
+    "ibm_power_vc"
   end
 
   def self.params_for_create
