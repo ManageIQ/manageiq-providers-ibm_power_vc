@@ -372,9 +372,9 @@ class ManageIQ::Providers::IbmPowerVc::CloudManager < ManageIQ::Providers::Opens
                   },
 
                   {
-                    :component => "password-field",
-                    :id        => "authentications.node.options",
-                    :name      => "authentications.node.options",
+                    :component => "text-field",
+                    :id        => "endpoints.node.options",
+                    :name      => "endpoints.node.options",
                     :label     => _("Resource File Path"),
                     :type      => "text",
                   },
@@ -387,8 +387,12 @@ class ManageIQ::Providers::IbmPowerVc::CloudManager < ManageIQ::Providers::Opens
     }
   end
 
-  def endpoint
-    endpoints.detect { |e| e.role == "default" }
+  def endpoint(type = :default)
+    if type === :default
+      default_endpoint
+    elsif type === :node
+      endpoints.detect { |e| e.role == "node" }
+    end
   end
 
   def node_auth
