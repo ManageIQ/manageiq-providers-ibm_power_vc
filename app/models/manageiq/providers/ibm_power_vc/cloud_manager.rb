@@ -388,9 +388,9 @@ class ManageIQ::Providers::IbmPowerVc::CloudManager < ManageIQ::Providers::Opens
   end
 
   def endpoint(type = :default)
-    if type === :default
+    if type == :default
       default_endpoint
-    elsif type === :node
+    elsif type == :node
       endpoints.detect { |e| e.role == "node" }
     end
   end
