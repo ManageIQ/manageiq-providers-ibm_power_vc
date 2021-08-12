@@ -368,6 +368,14 @@ class ManageIQ::Providers::IbmPowerVc::CloudManager < ManageIQ::Providers::Opens
                     :label     => _("PowerVC Server Password"),
                     :type      => "password",
                   },
+
+                  {
+                    :component => "text-field",
+                    :id        => "endpoints.node.options",
+                    :name      => "endpoints.node.options",
+                    :label     => _("Resource File Path"),
+                    :type      => "text",
+                  },
                 ]
               }
             ],
@@ -377,12 +385,17 @@ class ManageIQ::Providers::IbmPowerVc::CloudManager < ManageIQ::Providers::Opens
     }
   end
 
-  def node_endpoint
-    endpoints.detect { |e| e.role == "default" }
+  def endpoint(type = :default)
+    case type
+    when :default
+      default_endpoint
+    when :node
+      endpoints.detect { |e| e.role == "node" }
+    end
   end
 
   def node_auth
-    authentications.detect { |e| e.authtype == "default" }
+    authentications.detect { |e| e.authtype == "node" }
   end
 
   def get_image_info(img_id)
