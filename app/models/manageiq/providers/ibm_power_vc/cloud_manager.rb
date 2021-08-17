@@ -403,12 +403,6 @@ class ManageIQ::Providers::IbmPowerVc::CloudManager < ManageIQ::Providers::Opens
   def get_image_info(img_id)
     image = MiqTemplate.find(img_id)
     os = OperatingSystem.find_by(:vm_or_template => image.id)
-
-    # XXX: do we need verification here?
-    if os.distribution == 'rhel'
-      os.distribution = 'redhat'
-    end
-
     {:name => image.name, :os => os.distribution}
   end
 
