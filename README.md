@@ -1,9 +1,9 @@
 # ManageIQ::Providers::IbmPowerVc
 
-[![Build Status](https://travis-ci.com/ManageIQ/manageiq-providers-ibm_power_vc.svg?branch=master)](https://travis-ci.com/ManageIQ/manageiq-providers-ibm_power_vc)
+[![Build Status](https://travis-ci.com/ManageIQ/manageiq-providers-ibm_power_vc.svg?branch=morphy)](https://travis-ci.com/ManageIQ/manageiq-providers-ibm_power_vc)
 [![Maintainability](https://api.codeclimate.com/v1/badges/<badge_token>/maintainability)](https://codeclimate.com/github/ManageIQ/manageiq-providers-ibm_power_vc/maintainability)
 [![Test Coverage](https://api.codeclimate.com/v1/badges/<badge_token>/test_coverage)](https://codeclimate.com/github/ManageIQ/manageiq-providers-ibm_power_vc/test_coverage)
-[![Security](https://hakiri.io/github/ManageIQ/manageiq-providers-ibm_power_vc/master.svg)](https://hakiri.io/github/ManageIQ/manageiq-providers-ibm_power_vc/master)
+[![Security](https://hakiri.io/github/ManageIQ/manageiq-providers-ibm_power_vc/morphy.svg)](https://hakiri.io/github/ManageIQ/manageiq-providers-ibm_power_vc/morphy)
 
 [![Chat](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/ManageIQ/manageiq-providers-ibm_power_vc?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
