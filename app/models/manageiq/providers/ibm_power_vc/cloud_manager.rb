@@ -349,7 +349,6 @@ class ManageIQ::Providers::IbmPowerVc::CloudManager < ManageIQ::Providers::Opens
                   ],
                 ],
               },
-
               {
                 :component => 'tab-item',
                 :id        => 'image_export-tab',
