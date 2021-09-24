@@ -16,7 +16,7 @@ module ManageIQ
         end
 
         def self.plugin_name
-          _('Ibm Power Vc Provider')
+          _('IBM PowerVC Provider')
         end
 
         def self.init_loggers
