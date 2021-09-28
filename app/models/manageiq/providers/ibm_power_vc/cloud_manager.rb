@@ -380,6 +380,15 @@ class ManageIQ::Providers::IbmPowerVc::CloudManager < ManageIQ::Providers::Opens
                   },
                   {
                     :component      => 'password-field',
+                    :id             => 'authentications.node.auth_key_password',
+                    :name           => 'authentications.node.auth_key_password',
+                    :label          => _("PowerVC Server SSH Private Key Passphrase"),
+                    :type           => "password",
+                    :initialValue   => '',
+                    :condition      => { :when => 'authentications.node.options', :is   => 'pkey' },
+                  },
+                  {
+                    :component      => 'password-field',
                     :id             => 'authentications.node.auth_key',
                     :name           => 'authentications.node.auth_key',
                     :label          => _("PowerVC Server SSH Private Key"),
