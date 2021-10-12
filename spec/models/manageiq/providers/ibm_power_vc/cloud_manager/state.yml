@@ -2,7 +2,7 @@
 version: 4
 terraform_version: 1.0.11
 serial: 15
-lineage: cc482302-e12e-e3b9-074b-13f8e88ae75b
+lineage: 3540f6a7-bc3d-4939-2e96-f7995504d2f7
 outputs: {}
 resources:
 - mode: data
@@ -44,12 +44,12 @@ resources:
   instances:
   - schema_version: 0
     attributes:
-      access_ip_v4: 9.47.87.64
+      access_ip_v4: 9.47.87.61
       access_ip_v6: ''
       availability_zone: dual-vscsi
       flavor_id: 5a356c6f-88d7-4c15-9407-af55c5196ceb
       flavor_name: small
-      id: 9423752b-cd1f-485b-b620-bcbe9cb4a430
+      id: 964d10f8-1173-4a4f-a9b3-9d4f6c9504a8
       image_id: 6d9e7fc7-ae10-463c-b3bf-14ee6ff3647a
       image_name: rhel8.4-2021-05-24-ppc64le
       key_pair: ''
@@ -58,9 +58,9 @@ resources:
         original_host: 900922G_ZZ40007
       name: miq-testvm
       network:
-      - fixed_ip_v4: 9.47.87.64
+      - fixed_ip_v4: 9.47.87.61
         fixed_ip_v6: ''
-        mac: fa:7c:43:f9:a7:20
+        mac: fa:4c:94:90:f3:20
         name: ICP-2231
         port: ''
         uuid: ''
@@ -156,7 +156,7 @@ resources:
   instances:
   - schema_version: 0
     attributes:
-      access_ip_v4: 9.47.87.64
+      access_ip_v4: 9.47.87.61
       access_ip_v6: ''
       admin_pass: 
       all_metadata:
@@ -171,7 +171,7 @@ resources:
       flavor_name: small
       floating_ip: 
       force_delete: false
-      id: 9423752b-cd1f-485b-b620-bcbe9cb4a430
+      id: 964d10f8-1173-4a4f-a9b3-9d4f6c9504a8
       image_id: 6d9e7fc7-ae10-463c-b3bf-14ee6ff3647a
       image_name: rhel8.4-2021-05-24-ppc64le
       key_pair: ''
@@ -179,10 +179,10 @@ resources:
       name: miq-testvm
       network:
       - access_network: false
-        fixed_ip_v4: 9.47.87.64
+        fixed_ip_v4: 9.47.87.61
         fixed_ip_v6: ''
         floating_ip: ''
-        mac: fa:7c:43:f9:a7:20
+        mac: fa:4c:94:90:f3:20
         name: ICP-2231
         port: ''
         uuid: f07a85c1-7997-49af-9103-29954a3160dd

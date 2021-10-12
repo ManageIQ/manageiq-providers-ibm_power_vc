@@ -23,7 +23,7 @@ namespace :provision do
     cdir = ENV['cwd'] || Dir.pwd
     tdir = __dir__
     config = setup(cdir, tdir)
-    destroy(cdir, config)
+    destroy(config)
   end
 
   def setup(cdir, tdir)
@@ -66,7 +66,7 @@ namespace :provision do
     File.write(outfile, data.to_yaml)
   end
 
-  def destroy(cdir, config)
+  def destroy(config)
     RubyTerraform.destroy(
       :var_file     => 'terraform.tfvars',
       :auto_approve => true,
