@@ -379,13 +379,13 @@ class ManageIQ::Providers::IbmPowerVc::CloudManager < ManageIQ::Providers::Opens
                     ],
                   },
                   {
-                    :component      => 'password-field',
-                    :id             => 'authentications.node.auth_key_password',
-                    :name           => 'authentications.node.auth_key_password',
-                    :label          => _("PowerVC Server SSH Private Key Passphrase"),
-                    :type           => "password",
-                    :initialValue   => '',
-                    :condition      => { :when => 'authentications.node.options', :is   => 'pkey' },
+                    :component    => 'password-field',
+                    :id           => 'authentications.node.auth_key_password',
+                    :name         => 'authentications.node.auth_key_password',
+                    :label        => _("PowerVC Server SSH Private Key Passphrase"),
+                    :type         => "password",
+                    :initialValue => '',
+                    :condition    => {:when => 'authentications.node.options', :is => 'pkey'},
                   },
                   {
                     :component      => 'password-field',
@@ -396,7 +396,7 @@ class ManageIQ::Providers::IbmPowerVc::CloudManager < ManageIQ::Providers::Opens
                     :initialValue   => '',
                     :componentClass => 'textarea',
                     :rows           => 10,
-                    :condition      => { :when => 'authentications.node.options', :is   => 'pkey' },
+                    :condition      => {:when => 'authentications.node.options', :is => 'pkey'},
                   },
                   {
                     :component    => "password-field",
@@ -405,7 +405,7 @@ class ManageIQ::Providers::IbmPowerVc::CloudManager < ManageIQ::Providers::Opens
                     :label        => _("PowerVC Server SSH Password"),
                     :type         => "password",
                     :initialValue => '',
-                    :condition    => { :when => 'authentications.node.options', :is   => 'pass' },
+                    :condition    => {:when => 'authentications.node.options', :is => 'pass'},
                   },
                   {
                     :component => "text-field",
