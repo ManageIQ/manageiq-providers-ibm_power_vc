@@ -349,7 +349,6 @@ class ManageIQ::Providers::IbmPowerVc::CloudManager < ManageIQ::Providers::Opens
                   ],
                 ],
               },
-
               {
                 :component => 'tab-item',
                 :id        => 'image_export-tab',
@@ -362,15 +361,52 @@ class ManageIQ::Providers::IbmPowerVc::CloudManager < ManageIQ::Providers::Opens
                     :name      => "authentications.node.userid",
                     :label     => _("PowerVC Server Username"),
                   },
-
                   {
-                    :component => "password-field",
-                    :id        => "authentications.node.password",
-                    :name      => "authentications.node.password",
-                    :label     => _("PowerVC Server Password"),
-                    :type      => "password",
+                    :component    => 'select',
+                    :id           => 'authentications.node.options',
+                    :name         => 'authentications.node.options',
+                    :label        => _('Ansible Access Method'),
+                    :initialValue => 'pkey',
+                    :options      => [
+                      {
+                        :label => _('Private SSH Key'),
+                        :value => 'pkey',
+                      },
+                      {
+                        :label => _('Password'),
+                        :value => 'pass',
+                      },
+                    ],
                   },
-
+                  {
+                    :component    => 'password-field',
+                    :id           => 'authentications.node.auth_key_password',
+                    :name         => 'authentications.node.auth_key_password',
+                    :label        => _("PowerVC Server SSH Private Key Passphrase"),
+                    :type         => "password",
+                    :initialValue => '',
+                    :condition    => {:when => 'authentications.node.options', :is => 'pkey'},
+                  },
+                  {
+                    :component      => 'password-field',
+                    :id             => 'authentications.node.auth_key',
+                    :name           => 'authentications.node.auth_key',
+                    :label          => _("PowerVC Server SSH Private Key"),
+                    :type           => "password",
+                    :initialValue   => '',
+                    :componentClass => 'textarea',
+                    :rows           => 10,
+                    :condition      => {:when => 'authentications.node.options', :is => 'pkey'},
+                  },
+                  {
+                    :component    => "password-field",
+                    :id           => "authentications.node.password",
+                    :name         => "authentications.node.password",
+                    :label        => _("PowerVC Server SSH Password"),
+                    :type         => "password",
+                    :initialValue => '',
+                    :condition    => {:when => 'authentications.node.options', :is => 'pass'},
+                  },
                   {
                     :component => "text-field",
                     :id        => "endpoints.node.options",
