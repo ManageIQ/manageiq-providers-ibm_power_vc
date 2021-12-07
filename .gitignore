@@ -11,7 +11,14 @@
 .rubocop-*
 /bundler.d/*
 !/bundler.d/.keep
+/config/secrets.yml
 /config/settings.local.yml
 /config/settings/*.local.yml
 /config/environments/*.local.yml
 /spec/manageiq
+
+/lib/tasks_private/terraform/terraform.tfstate*
+/lib/tasks_private/terraform/*.log
+/lib/tasks_private/terraform/.terraform
+/lib/tasks_private/terraform/.terraform*
+

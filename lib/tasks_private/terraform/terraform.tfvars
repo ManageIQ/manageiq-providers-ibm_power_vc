@@ -1,0 +1,5 @@
+openstack_tenant_name = "ibm-default"
+openstack_domain_name = "default"
+openstack_network     = "icp-2231"
+openstack_image       = "rhel8.4-2021-05-24-ppc64le"
+openstack_flavor      = "small"
