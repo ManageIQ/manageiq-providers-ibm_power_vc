@@ -2,6 +2,23 @@ describe ManageIQ::Providers::IbmPowerVc::CloudManager::Refresher do
   let(:zone) { EvmSpecHelper.create_guid_miq_server_zone.last }
   let(:ems) { FactoryBot.create(:ems_ibm_power_vc_with_vcr_authentication, :zone => zone) }
 
+  specs = YAML.load_file(File.join(__dir__, 'state.yml'))
+  specs['resources'].each do |key, _value|
+    case key['type']
+    when 'openstack_compute_flavor_v2'
+      let(:flavorid) { key['instances'][0]['attributes']['id'] }
+    when 'openstack_identity_project_v3'
+      let(:tenantid) { key['instances'][0]['attributes']['id'] }
+    when 'openstack_compute_instance_v2'
+      let(:instid) { key['instances'][0]['attributes']['id'] }
+      let(:azone) { key['instances'][0]['attributes']['availability_zone'] }
+    when 'openstack_images_image_v2'
+      let(:imageid) { key['instances'][0]['attributes']['id'] }
+    when 'openstack_networking_network_v2'
+      let(:networkid) { key['instances'][0]['attributes']['id'] }
+    end
+  end
+
   describe "#refresh" do
     context "full refresh" do
       it "Performs a full refresh" do
@@ -21,66 +38,67 @@ describe ManageIQ::Providers::IbmPowerVc::CloudManager::Refresher do
       expect(ems.last_refresh_error).to be_nil
       expect(ems.last_refresh_date).not_to be_nil
 
-      expect(ems.availability_zones.count).to eq(3)
-      expect(ems.cloud_tenants.count).to eq(1)
-      expect(ems.flavors.count).to eq(12)
-      expect(ems.vms.count).to eq(4)
+      expect(ems.cloud_tenants.count).to be > 1
+      expect(ems.availability_zones.count).to be > 2
+      expect(ems.flavors.count).to be > 2
+      expect(ems.vms.count).to be > 1
     end
 
     def assert_specific_availability_zone
-      az = ems.availability_zones.find_by(:ems_ref => "Default Group")
+      az = ems.availability_zones.find_by(:ems_ref => azone)
       expect(az).to have_attributes(
-        :name                        => "Default Group",
-        :ems_ref                     => "Default Group",
+        :name                        => azone,
+        :ems_ref                     => azone,
         :type                        => "ManageIQ::Providers::IbmPowerVc::CloudManager::AvailabilityZone",
         :provider_services_supported => ["compute"]
       )
     end
 
     def assert_specific_cloud_tenant
-      cloud_tenant = ems.cloud_tenants.find_by(:ems_ref => "676b8977322946c0ab4700d7b908db5b")
+      cloud_tenant = ems.cloud_tenants.find_by(:ems_ref => tenantid)
       expect(cloud_tenant).to have_attributes(
         :name        => "ibm-default",
         :description => "IBM Default Tenant",
         :enabled     => true,
-        :ems_ref     => "676b8977322946c0ab4700d7b908db5b",
+        :ems_ref     => tenantid
         # TODO: :type        => "ManageIQ::Providers::IbmPowerVc::CloudManager::CloudTenant"
       )
     end
 
     def assert_specific_flavor
-      flavor = ems.flavors.find_by(:ems_ref => "4c7b250adb349d84f638aec9c76f6eba")
+      flavor = ems.flavors.find_by(:ems_ref => flavorid)
       expect(flavor).to have_attributes(
-        :name               => "4c7b250adb349d84f638aec9c76f6eba",
-        :description        => "1 CPUs, 4 GB RAM, 100 GB Root Disk",
-        :cpus               => 1,
-        :cpu_cores          => nil,
-        :memory             => 4.gigabytes,
-        :ems_ref            => "4c7b250adb349d84f638aec9c76f6eba",
-        :type               => "ManageIQ::Providers::IbmPowerVc::CloudManager::Flavor",
-        :root_disk_size     => 100.gigabytes,
-        :swap_disk_size     => 0,
-        :publicly_available => false
+        :name                 => "small",
+        :cpu_total_cores      => 2,
+        :cpu_cores_per_socket => nil,
+        :memory               => 8_589_934_592,
+        :ems_ref              => flavorid,
+        :type                 => "ManageIQ::Providers::IbmPowerVc::CloudManager::Flavor",
+        :ephemeral_disk_size  => 0,
+        :ephemeral_disk_count => 0,
+        :root_disk_size       => 0,
+        :swap_disk_size       => 0,
+        :publicly_available   => true,
+        :cpu_sockets          => 1
       )
     end
 
     def assert_specific_vm
-      vm = ems.vms.find_by(:ems_ref => "42420bf6-e08e-4360-85b0-4dea6e80344f")
+      vm = ems.vms.find_by(:ems_ref => instid)
       expect(vm).to have_attributes(
-        :vendor            => "ibm_power_vc",
-        :name              => "RHEL82_100GB-test",
-        :description       => nil,
-        :location          => "unknown",
-        :uid_ems           => "42420bf6-e08e-4360-85b0-4dea6e80344f",
-        :connection_state  => "connected",
-        :type              => "ManageIQ::Providers::IbmPowerVc::CloudManager::Vm",
-        :ems_ref           => "42420bf6-e08e-4360-85b0-4dea6e80344f",
-        :flavor            => ems.flavors.find_by(:ems_ref => "4c7b250adb349d84f638aec9c76f6eba"),
-        :availability_zone => ems.availability_zones.find_by(:ems_ref => "Default Group"),
-        :cloud             => true,
-        :cloud_tenant      => ems.cloud_tenants.find_by(:ems_ref => "676b8977322946c0ab4700d7b908db5b"),
-        :raw_power_state   => "ACTIVE",
-        :power_state       => "on"
+        :vendor           => "ibm_power_vc",
+        :name             => "miq-testvm",
+        :description      => nil,
+        :location         => "unknown",
+        :uid_ems          => instid,
+        :connection_state => "connected",
+        :type             => "ManageIQ::Providers::IbmPowerVc::CloudManager::Vm",
+        :ems_ref          => instid,
+        :flavor           => ems.flavors.find_by(:ems_ref => flavorid),
+        :cloud            => true,
+        :cloud_tenant     => ems.cloud_tenants.find_by(:ems_ref => tenantid),
+        :raw_power_state  => "ACTIVE",
+        :power_state      => "on"
       )
     end
 

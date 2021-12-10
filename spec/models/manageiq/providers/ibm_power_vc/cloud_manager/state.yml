@@ -1,0 +1,206 @@
+---
+version: 4
+terraform_version: 1.0.11
+serial: 15
+lineage: cc482302-e12e-e3b9-074b-13f8e88ae75b
+outputs: {}
+resources:
+- mode: data
+  type: openstack_compute_flavor_v2
+  name: flavor
+  provider: provider["registry.terraform.io/terraform-provider-openstack/openstack"]
+  instances:
+  - schema_version: 0
+    attributes:
+      disk: 0
+      extra_specs:
+        powervm:availability_priority: '127'
+        powervm:dedicated_proc: 'false'
+        powervm:max_mem: '10240'
+        powervm:max_proc_units: '2'
+        powervm:max_vcpu: '2'
+        powervm:min_mem: '4096'
+        powervm:min_proc_units: '0.1'
+        powervm:min_vcpu: '1'
+        powervm:proc_units: '1'
+        powervm:shared_weight: '128'
+        powervm:uncapped: 'true'
+      flavor_id: 5a356c6f-88d7-4c15-9407-af55c5196ceb
+      id: 5a356c6f-88d7-4c15-9407-af55c5196ceb
+      is_public: true
+      min_disk: 
+      min_ram: 
+      name: small
+      ram: 8192
+      region: 
+      rx_tx_factor: 1
+      swap: 0
+      vcpus: 2
+    sensitive_attributes: []
+- mode: data
+  type: openstack_compute_instance_v2
+  name: miq-test-vm
+  provider: provider["registry.terraform.io/terraform-provider-openstack/openstack"]
+  instances:
+  - schema_version: 0
+    attributes:
+      access_ip_v4: 9.47.87.64
+      access_ip_v6: ''
+      availability_zone: dual-vscsi
+      flavor_id: 5a356c6f-88d7-4c15-9407-af55c5196ceb
+      flavor_name: small
+      id: 9423752b-cd1f-485b-b620-bcbe9cb4a430
+      image_id: 6d9e7fc7-ae10-463c-b3bf-14ee6ff3647a
+      image_name: rhel8.4-2021-05-24-ppc64le
+      key_pair: ''
+      metadata:
+        move_pin_vm: 'false'
+        original_host: 900922G_ZZ40007
+      name: miq-testvm
+      network:
+      - fixed_ip_v4: 9.47.87.64
+        fixed_ip_v6: ''
+        mac: fa:7c:43:f9:a7:20
+        name: ICP-2231
+        port: ''
+        uuid: ''
+      power_state: active
+      region: ''
+      security_groups: []
+      tags: []
+      user_data: 
+    sensitive_attributes: []
+- mode: data
+  type: openstack_identity_project_v3
+  name: project
+  provider: provider["registry.terraform.io/terraform-provider-openstack/openstack"]
+  instances:
+  - schema_version: 0
+    attributes:
+      description: IBM Default Tenant
+      domain_id: default
+      enabled: true
+      id: 5e3ab887763e4015b5d6c68a194f971b
+      is_domain: false
+      name: ibm-default
+      parent_id: default
+      region: 
+      tags: []
+    sensitive_attributes: []
+- mode: data
+  type: openstack_images_image_v2
+  name: rhel
+  provider: provider["registry.terraform.io/terraform-provider-openstack/openstack"]
+  instances:
+  - schema_version: 0
+    attributes:
+      checksum: d41d8cd98f00b204e9800998ecf8427e
+      container_format: bare
+      created_at: '2021-05-24T11:11:49Z'
+      disk_format: raw
+      file: "/v2/images/6d9e7fc7-ae10-463c-b3bf-14ee6ff3647a/file"
+      hidden: false
+      id: 6d9e7fc7-ae10-463c-b3bf-14ee6ff3647a
+      member_status: 
+      metadata: {}
+      min_disk_gb: 1
+      min_ram_mb: 0
+      most_recent: false
+      name: rhel8.4-2021-05-24-ppc64le
+      owner: 5e3ab887763e4015b5d6c68a194f971b
+      properties: 
+      protected: false
+      region: ''
+      schema: "/v2/schemas/image"
+      size_bytes: 0
+      size_max: 
+      size_min: 
+      sort_direction: asc
+      sort_key: name
+      tag: 
+      tags: []
+      updated_at: '2021-05-25T05:57:25Z'
+      visibility: public
+    sensitive_attributes: []
+- mode: data
+  type: openstack_networking_network_v2
+  name: network
+  provider: provider["registry.terraform.io/terraform-provider-openstack/openstack"]
+  instances:
+  - schema_version: 0
+    attributes:
+      admin_state_up: 'true'
+      all_tags: []
+      availability_zone_hints: []
+      description: ''
+      dns_domain: ''
+      external: false
+      id: f07a85c1-7997-49af-9103-29954a3160dd
+      matching_subnet_cidr: 
+      mtu: 1500
+      name: ICP-2231
+      network_id: 
+      region: ''
+      shared: 'false'
+      status: 
+      subnets:
+      - 9afdf9f4-8ee7-43e6-98b3-398a13fec13a
+      tags: 
+      tenant_id: 0cb66eac4dbb42fba3a4455eb30e73fc
+      transparent_vlan: false
+    sensitive_attributes: []
+- mode: managed
+  type: openstack_compute_instance_v2
+  name: miq-testvm
+  provider: provider["registry.terraform.io/terraform-provider-openstack/openstack"]
+  instances:
+  - schema_version: 0
+    attributes:
+      access_ip_v4: 9.47.87.64
+      access_ip_v6: ''
+      admin_pass: 
+      all_metadata:
+        move_pin_vm: 'false'
+        original_host: 900922G_ZZ40007
+      all_tags: []
+      availability_zone: dual-vscsi
+      availability_zone_hints: 
+      block_device: []
+      config_drive: 
+      flavor_id: 5a356c6f-88d7-4c15-9407-af55c5196ceb
+      flavor_name: small
+      floating_ip: 
+      force_delete: false
+      id: 9423752b-cd1f-485b-b620-bcbe9cb4a430
+      image_id: 6d9e7fc7-ae10-463c-b3bf-14ee6ff3647a
+      image_name: rhel8.4-2021-05-24-ppc64le
+      key_pair: ''
+      metadata: 
+      name: miq-testvm
+      network:
+      - access_network: false
+        fixed_ip_v4: 9.47.87.64
+        fixed_ip_v6: ''
+        floating_ip: ''
+        mac: fa:7c:43:f9:a7:20
+        name: ICP-2231
+        port: ''
+        uuid: f07a85c1-7997-49af-9103-29954a3160dd
+      network_mode: 
+      personality: []
+      power_state: active
+      region: ''
+      scheduler_hints: []
+      security_groups: []
+      stop_before_destroy: false
+      tags: 
+      timeouts: 
+      user_data: 
+      vendor_options: []
+      volume: []
+    sensitive_attributes: []
+    private: eyJlMmJmYjczMC1lY2FhLTExZTYtOGY4OC0zNDM2M2JjN2M0YzAiOnsiY3JlYXRlIjoxODAwMDAwMDAwMDAwLCJkZWxldGUiOjE4MDAwMDAwMDAwMDAsInVwZGF0ZSI6MTgwMDAwMDAwMDAwMH19
+    dependencies:
+    - data.openstack_compute_flavor_v2.flavor
+    - data.openstack_images_image_v2.rhel
+    - data.openstack_networking_network_v2.network
