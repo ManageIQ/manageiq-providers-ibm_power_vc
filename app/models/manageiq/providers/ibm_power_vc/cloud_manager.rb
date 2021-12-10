@@ -488,7 +488,7 @@ class ManageIQ::Providers::IbmPowerVc::CloudManager < ManageIQ::Providers::Opens
     authentication_for_providers.collect(&:authentication_type) - [:ssh_keypair, :node]
   end
 
-  def verify_credentials(_auth_type = nil, options = {})
+  def verify_credentials(auth_type = nil, options = {})
     self.class.verify_pvc_rel(endpoint[:hostname]) if _auth_type == :default
     super
   end
@@ -501,7 +501,7 @@ class ManageIQ::Providers::IbmPowerVc::CloudManager < ManageIQ::Providers::Opens
   def self.powervc_release(host)
     require 'ethon'
     ethon = Ethon::Easy.new
-    ethon.http_request("#{host}/powervc/version", :get, followlocation: true, ssl_verifyhost: 0, ssl_verifypeer: 0)
+    ethon.http_request("#{host}/powervc/version", :get, :followlocation => true, :ssl_verifyhost => 0, :ssl_verifypeer => 0)
     ethon.perform
 
     raise MiqException::MiqCommunicationsError, 'unable to retrieve IBM PowerVC release version number' if ethon.response_code != 200
@@ -523,7 +523,7 @@ class ManageIQ::Providers::IbmPowerVc::CloudManager < ManageIQ::Providers::Opens
 
   def self.rel_supported?(min, rel)
     raise MiqException::Error, _("value of min. supported PowerVC release is malformed") unless /^(\d+\.?)+$/.match?(min)
-    raise MiqException::Error, _("value of provided PowerVC release is malformed: '#{min}'") unless /^(\d+\.?)+$/.match?(rel)
+    raise MiqException::Error, _("value of provided PowerVC release is malformed: '#{rel}'") unless /^(\d+\.?)+$/.match?(rel)
 
     min_parsed = min.split('.')
     rel_parsed = rel.split('.')
