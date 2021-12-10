@@ -16,6 +16,7 @@ class ManageIQ::Providers::IbmPowerVc::CloudManager < ManageIQ::Providers::Opens
   require_nested :Template
   require_nested :Vm
 
+  supports :create
   supports :metrics
 
   def self.vm_vendor
