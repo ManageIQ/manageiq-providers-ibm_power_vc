@@ -60,8 +60,8 @@ describe ManageIQ::Providers::IbmPowerVc::CloudManager::Refresher do
         :name        => "ibm-default",
         :description => "IBM Default Tenant",
         :enabled     => true,
-        :ems_ref     => tenantid
-        # TODO: :type        => "ManageIQ::Providers::IbmPowerVc::CloudManager::CloudTenant"
+        :ems_ref     => tenantid,
+        :type        => "ManageIQ::Providers::IbmPowerVc::CloudManager::CloudTenant"
       )
     end
 
