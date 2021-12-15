@@ -15,6 +15,7 @@
 /config/settings.local.yml
 /config/settings/*.local.yml
 /config/environments/*.local.yml
+/config/secrets.yml*
 /spec/manageiq
 
 /lib/tasks_private/terraform/terraform.tfstate*
