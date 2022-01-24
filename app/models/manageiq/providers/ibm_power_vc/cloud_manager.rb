@@ -470,4 +470,21 @@ class ManageIQ::Providers::IbmPowerVc::CloudManager < ManageIQ::Providers::Opens
   def self.description
     @description ||= "IBM PowerVC".freeze
   end
+
+  def required_credential_fields(type)
+    case type.to_s
+    when 'ssh_keypair' then [:userid, :auth_key]
+    when 'node' then [:userid]
+    else                    [:userid, :password]
+    end
+  end
+
+  def authentication_status_ok?(type = nil)
+    return true if [:ssh_keypair, :node].include(type)
+    super
+  end
+
+  def authentications_to_validate
+    authentication_for_providers.collect(&:authentication_type) - [:ssh_keypair, :node]
+  end
 end
