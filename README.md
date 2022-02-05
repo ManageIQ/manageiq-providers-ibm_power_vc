@@ -1,6 +1,6 @@
 # ManageIQ::Providers::IbmPowerVc
 
-[![Build Status](https://travis-ci.com/ManageIQ/manageiq-providers-ibm_power_vc.svg?branch=master)](https://travis-ci.com/github/ManageIQ/manageiq-providers-ibm_power_vc)
+[![CI](https://github.com/ManageIQ/manageiq-providers-ibm_power_vc/actions/workflows/ci.yaml/badge.svg)](https://github.com/ManageIQ/manageiq-providers-ibm_power_vc/actions/workflows/ci.yaml)
 [![Maintainability](https://api.codeclimate.com/v1/badges/ca08315939e0235081cb/maintainability)](https://codeclimate.com/github/ManageIQ/manageiq-providers-ibm_power_vc/maintainability)
 [![Test Coverage](https://api.codeclimate.com/v1/badges/ca08315939e0235081cb/test_coverage)](https://codeclimate.com/github/ManageIQ/manageiq-providers-ibm_power_vc/test_coverage)
 [![Chat](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/ManageIQ/manageiq-providers-ibm_power_vc?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
