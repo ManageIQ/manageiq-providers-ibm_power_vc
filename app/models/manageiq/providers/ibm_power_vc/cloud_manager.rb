@@ -489,7 +489,7 @@ class ManageIQ::Providers::IbmPowerVc::CloudManager < ManageIQ::Providers::Opens
   end
 
   def verify_credentials(auth_type = nil, options = {})
-    self.class.verify_pvc_rel(endpoint[:hostname]) if _auth_type == :default
+    self.class.verify_pvc_rel(endpoint[:hostname]) if auth_type == :default
     super
   end
 
@@ -504,10 +504,10 @@ class ManageIQ::Providers::IbmPowerVc::CloudManager < ManageIQ::Providers::Opens
     ethon.http_request("#{host}/powervc/version", :get, :followlocation => true, :ssl_verifyhost => 0, :ssl_verifypeer => 0)
     ethon.perform
 
-    raise MiqException::MiqCommunicationsError, 'unable to retrieve IBM PowerVC release version number' if ethon.response_code != 200
+    raise MiqException::MiqCommunicationsError, _('unable to retrieve IBM PowerVC release version number') if ethon.response_code != 200
 
     version = JSON.parse(ethon.response_body)['version']
-    raise MiqException::MiqIncompleteData, 'unable to determine IBM PowerVC release version number' if version.blank?
+    raise MiqException::MiqIncompleteData, _('unable to determine IBM PowerVC release version number') if version.blank?
 
     version
   end
