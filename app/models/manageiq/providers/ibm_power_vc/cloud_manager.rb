@@ -413,6 +413,7 @@ class ManageIQ::Providers::IbmPowerVc::CloudManager < ManageIQ::Providers::Opens
                     :id        => "endpoints.node.options",
                     :name      => "endpoints.node.options",
                     :label     => _("Resource File Path"),
+                    :hideField => true,
                     :type      => "text",
                   },
                 ]
