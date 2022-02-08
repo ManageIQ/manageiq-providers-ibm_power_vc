@@ -373,10 +373,12 @@ class ManageIQ::Providers::IbmPowerVc::CloudManager < ManageIQ::Providers::Opens
                         :label => _('Private SSH Key'),
                         :value => 'pkey',
                       },
-                      {
-                        :label => _('Password'),
-                        :value => 'pass',
-                      },
+                      # FIXME: setting this to PKey only authentication until a fix to the appearing of
+                      # FIXME: the password in Logs/DB is implemented
+                      # {
+                      #   :label => _('Password'),
+                      #   :value => 'pass',
+                      # },
                     ],
                   },
                   {
