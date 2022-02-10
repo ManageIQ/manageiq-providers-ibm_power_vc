@@ -8,7 +8,8 @@
 
 [![Build history for master branch](https://buildstats.info/github/chart/ManageIQ/manageiq-providers-ibm_power_vc?branch=master&buildCount=50&includeBuildsFromPullRequest=false&showstats=false)](https://github.com/ManageIQ/manageiq-providers-ibm_power_vc/actions?query=branch%3Amaster)
 
-ManageIQ plugin for the [IBM PowerVC](https://www.ibm.com/products/powervc) provider.
+ManageIQ plugin for the [IBM PowerVC](https://www.ibm.com/products/powervc) provider.   
+This plugin supports IBM PowerVC **v1.4.4 or higher**.
 
 ## Development
 

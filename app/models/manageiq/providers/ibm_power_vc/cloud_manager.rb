@@ -475,7 +475,7 @@ class ManageIQ::Providers::IbmPowerVc::CloudManager < ManageIQ::Providers::Opens
     case type.to_s
     when 'ssh_keypair' then [:userid, :auth_key]
     when 'node' then [:userid]
-    else                    [:userid, :password]
+    else [:userid, :password]
     end
   end
 
@@ -486,5 +486,51 @@ class ManageIQ::Providers::IbmPowerVc::CloudManager < ManageIQ::Providers::Opens
 
   def authentications_to_validate
     authentication_for_providers.collect(&:authentication_type) - [:ssh_keypair, :node]
+  end
+
+  def verify_credentials(auth_type = nil, options = {})
+    self.class.verify_pvc_rel(endpoint[:hostname]) if auth_type == :default
+    super
+  end
+
+  def self.verify_credentials(args)
+    verify_pvc_rel(args.dig('endpoints', 'default', 'hostname'))
+    super
+  end
+
+  def self.powervc_release(host)
+    require 'ethon'
+    ethon = Ethon::Easy.new
+    ethon.http_request("#{host}/powervc/version", :get, :followlocation => true, :ssl_verifyhost => 0, :ssl_verifypeer => 0)
+    ethon.perform
+
+    raise MiqException::MiqCommunicationsError, _('unable to retrieve IBM PowerVC release version number') if ethon.response_code != 200
+
+    version = JSON.parse(ethon.response_body)['version']
+    raise MiqException::MiqIncompleteData, _('unable to determine IBM PowerVC release version number') if version.blank?
+
+    version
+  end
+
+  def self.verify_pvc_rel(host)
+    min = ::Settings.ems&.ems_ibm_power_vc&.min_supported_rel&.to_s
+
+    unless min.blank? || min.to_s == '0'
+      rel = powervc_release(host)
+      raise MiqException::ServiceNotAvailable, _("Unsupported PowerVC version '#{rel}', minimal requirement is >= '#{min}'") unless rel_supported?(min, rel)
+    end
+  end
+
+  def self.rel_supported?(min, rel)
+    raise MiqException::Error, _("value of min. supported PowerVC release is malformed") unless /^(\d+\.?)+$/.match?(min)
+    raise MiqException::Error, _("value of provided PowerVC release is malformed: '#{rel}'") unless /^(\d+\.?)+$/.match?(rel)
+
+    min_parsed = min.split('.')
+    rel_parsed = rel.split('.')
+
+    min_parsed.each_with_index do |a, i|
+      break true  if a.to_i < rel_parsed[i].to_i
+      break false if a.to_i > rel_parsed[i].to_i
+    end != false
   end
 end
