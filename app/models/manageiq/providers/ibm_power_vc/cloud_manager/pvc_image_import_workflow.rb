@@ -3,8 +3,9 @@ class ManageIQ::Providers::IbmPowerVc::CloudManager::PvcImageImportWorkflow < Ma
 
   def load_transitions
     super.merge(
-      :pre_execute      => {'pre_execute' => 'pre_execute_poll'},
-      :pre_execute_poll => {'pre_execute_poll' => '*'}
+      :pre_execute      => {'pre_execute'      => 'pre_execute_poll'},
+      :pre_execute_poll => {'pre_execute_poll' => 'pre_execute_poll'},
+      :execute          => {'pre_execute_poll' => 'running'}
     )
   end
 
@@ -27,8 +28,24 @@ class ManageIQ::Providers::IbmPowerVc::CloudManager::PvcImageImportWorkflow < Ma
     signal = nil
     status = nil
 
+    cos_data = options[:cos_data]
+    region = cos_data[:region]
+    bucket_name = cos_data[:bucketName]
+
+    cos = ExtManagementSystem.find_by(:id => cos_data[:cos_id])
+    raise MiqException::Error, _("unable to find cloud object storage by this id '#{options['obj_storage_id']}'") if cos.nil?
+
+    _, _, _, _, access_key, secret_key = cos.cos_creds
+
+    body = {
+      :region     => region,
+      :bucketName => bucket_name,
+      :accessKey  => access_key,
+      :secretKey  => secret_key,
+    }
+
     pvs.with_provider_connection(:service => 'PCloudImagesApi') do |api|
-      response = api.pcloud_cloudinstances_images_export_post(pvs.uid_ems, options[:miq_img][:uid_ems], options[:cos_pvs_creds], {})
+      response = api.pcloud_cloudinstances_images_export_post(pvs.uid_ems, options[:img_id], body, {})
       context[:task_id] = response[:taskID]
       update!(:context => context)
 
@@ -39,11 +56,15 @@ class ManageIQ::Providers::IbmPowerVc::CloudManager::PvcImageImportWorkflow < Ma
       _log.error("OVA image export failure: '#{e.message}'")
 
       message = trunc_err_msg(e.message)
-      signal = nil
+      signal = :abort
       status = 'error'
     end
 
     return message, status, signal
+  end
+
+  def start
+    queue_signal(:pre_execute, :msg_timeout => options[:timeout])
   end
 
   def pre_execute
@@ -52,11 +73,16 @@ class ManageIQ::Providers::IbmPowerVc::CloudManager::PvcImageImportWorkflow < Ma
 
     message, status, signal = export_image_to_cos(options)
 
+    if signal == :abort
+      queue_signal(signal)
+    else
+      queue_signal(signal, message, status)
+    end
+
     set_status(message, status)
-    queue_signal(signal, message, status)
   end
 
-  def pre_execute_poll(*args)
+  def pre_execute_poll(*_args)
     ems = ExtManagementSystem.find(options[:src_provider_id])
     max_retries = 10
 
@@ -83,17 +109,17 @@ class ManageIQ::Providers::IbmPowerVc::CloudManager::PvcImageImportWorkflow < Ma
       end
 
       case response.status
-      when 'creating', 'compressing', 'uploading'
+      when 'capturing', 'downloading', 'creating', 'deleting', 'compressing', 'loading', 'started', 'uploading'
         context[:retry] = 0
-        message = "importing image into PVS, current state is: '#{response.status}'"
+        message = "exporting image onto COS, current state is: '#{response.status}'"
         signal = :pre_execute_poll
         status = 'ok'
       when 'completed'
-        message = 'importing image into image registry has completed'
+        message = 'exporting image from PVS image registry has completed'
         signal = :execute
         status = 'ok'
       when 'failed'
-        raise "importing into image registry failed: '#{trunc_err_msg(response.status)}'"
+        raise "exporting from PVS image registry failed: '#{trunc_err_msg(response.status)}'"
       else
         raise "incompatible API, unexpected status: '#{response.status}'"
       end
@@ -104,12 +130,25 @@ class ManageIQ::Providers::IbmPowerVc::CloudManager::PvcImageImportWorkflow < Ma
     ensure
       update!(:context => context)
       set_status(message, status)
-      queue_signal(signal, message, status, :deliver_on => deliver)
+      queue_signal(signal, :deliver_on => deliver)
     end
   end
 
-  def post_execute(*args)
-    # TODO: implement
+  def post_poll_cleanup(*args)
+    ems = ExtManagementSystem.find(options[:ems_id])
+    ems.remove_import_auth(options[:import_creds_id])
+    ems.remove_ssh_auth(options[:ssh_creds_id]) if options[:ssh_creds_id]
+    return if options[:keep_ova] == true
+
+    begin
+      cos = ExtManagementSystem.find(options[:cos_id])
+      cos.remove_object(options[:cos_data][:bucketName], "#{options[:miq_img]}.ova.gz")
+    rescue => e
+      result = args[0]
+      set_status("#{result}; cleanup result: cannot remove transient OVA image: #{trunc_err_msg(e.message)}", 'error')
+      _log.error("#{result}; cleanup result: cannot remove transient OVA image: #{e.message}")
+    end
+
     _log.info("cleanup procedure")
   end
 
@@ -120,13 +159,11 @@ class ManageIQ::Providers::IbmPowerVc::CloudManager::PvcImageImportWorkflow < Ma
 
   def abort(*args)
     super(*args)
-    # TODO: how to handle fatal error (roll-back changes)?
     post_poll_cleanup(*args)
   end
 
   def cancel(*args)
     super(*args)
-    # TODO: how to handle user cancellation (roll-back changes)?
     post_poll_cleanup(*args)
   end
 end
