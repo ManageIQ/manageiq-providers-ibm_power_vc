@@ -38,7 +38,7 @@ class ManageIQ::Providers::IbmPowerVc::Inventory::Parser::CloudManager < ManageI
     persister.vms_and_templates_advanced_settings.build(
       :resource     => server,
       :display_name => N_('Pin state'),
-      :name         => N_('pin_state'),
+      :name         => 'pin_policy',
       :value        => calculate_pinning(vm),
       :read_only    => true
     )
@@ -64,7 +64,7 @@ class ManageIQ::Providers::IbmPowerVc::Inventory::Parser::CloudManager < ManageI
     persister.vms_and_templates_advanced_settings.build(
       :resource     => server,
       :display_name => N_('Processors'),
-      :name         => N_('processors'),
+      :name         => 'entitled_processors',
       :min          => vm.attributes['min_cpus'].to_s,
       :max          => vm.attributes['max_cpus'].to_s,
       :value        => vm.attributes['cpus'].to_s,
@@ -94,6 +94,14 @@ class ManageIQ::Providers::IbmPowerVc::Inventory::Parser::CloudManager < ManageI
       :display_name => N_('Sharing mode'),
       :name         => N_('dedicated_sharing_mode'),
       :value        => vm.attributes['dedicated_sharing_mode'].to_s,
+      :read_only    => true
+    )
+
+    persister.vms_and_templates_advanced_settings.build(
+      :resource     => server,
+      :display_name => N_('processor_type'),
+      :name         => 'processor_type',
+      :value        => vm.attributes['dedicated_sharing_mode'].to_s + vm.attributes['vcpu_mode'].to_s,
       :read_only    => true
     )
 
