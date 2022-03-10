@@ -6,7 +6,7 @@ class ManageIQ::Providers::IbmPowerVc::Inventory::Parser::CloudManager < ManageI
     persister.vms_and_templates_advanced_settings.build(
       :resource     => server,
       :display_name => N_('Operating system'),
-      :name         => N_('operating_system'),
+      :name         => 'operating_system',
       :value        => vm.attributes['operating_system'].to_s,
       :read_only    => true
     )
@@ -14,7 +14,7 @@ class ManageIQ::Providers::IbmPowerVc::Inventory::Parser::CloudManager < ManageI
     persister.vms_and_templates_advanced_settings.build(
       :resource     => server,
       :display_name => N_('Power state'),
-      :name         => N_('power_state'),
+      :name         => 'power_state',
       :value        => vm.attributes[:os_ext_sts_power_state].to_s,
       :read_only    => true
     )
@@ -22,7 +22,7 @@ class ManageIQ::Providers::IbmPowerVc::Inventory::Parser::CloudManager < ManageI
     persister.vms_and_templates_advanced_settings.build(
       :resource     => server,
       :display_name => N_('Task state'),
-      :name         => N_('task_state'),
+      :name         => 'task_state',
       :value        => vm.attributes[:os_ext_sts_task_state].to_s,
       :read_only    => true
     )
@@ -30,7 +30,7 @@ class ManageIQ::Providers::IbmPowerVc::Inventory::Parser::CloudManager < ManageI
     persister.vms_and_templates_advanced_settings.build(
       :resource     => server,
       :display_name => N_('Secure boot'),
-      :name         => N_('secure_boot'),
+      :name         => 'secure_boot',
       :value        => get_secure_boot(vm.attributes['secure_boot']),
       :read_only    => true
     )
@@ -46,7 +46,7 @@ class ManageIQ::Providers::IbmPowerVc::Inventory::Parser::CloudManager < ManageI
     persister.vms_and_templates_advanced_settings.build(
       :resource     => server,
       :display_name => N_('Memory (MB)'),
-      :name         => N_('memory'),
+      :name         => 'memory',
       :value        => vm.attributes['memory_mb'].to_s,
       :max          => vm.attributes['max_memory_mb'].to_s,
       :min          => vm.attributes['min_memory_mb'].to_s,
@@ -56,7 +56,7 @@ class ManageIQ::Providers::IbmPowerVc::Inventory::Parser::CloudManager < ManageI
     persister.vms_and_templates_advanced_settings.build(
       :resource     => server,
       :display_name => N_('Availability priority'),
-      :name         => N_('avail_priority'),
+      :name         => 'avail_priority',
       :value        => vm.attributes['avail_priority'].to_s,
       :read_only    => true
     )
@@ -74,7 +74,7 @@ class ManageIQ::Providers::IbmPowerVc::Inventory::Parser::CloudManager < ManageI
     persister.vms_and_templates_advanced_settings.build(
       :resource     => server,
       :display_name => N_('Processor mode'),
-      :name         => N_('vcpu_mode'),
+      :name         => 'vcpu_mode',
       :value        => vm.attributes['vcpu_mode'].to_s,
       :read_only    => true
     )
@@ -82,7 +82,7 @@ class ManageIQ::Providers::IbmPowerVc::Inventory::Parser::CloudManager < ManageI
     persister.vms_and_templates_advanced_settings.build(
       :resource     => server,
       :display_name => N_('Processing units'),
-      :name         => N_('processing_units'),
+      :name         => 'processing_units',
       :value        => vm.attributes['vcpus'].to_s,
       :min          => vm.attributes['min_vcpus'].to_s,
       :max          => vm.attributes['max_vcpus'].to_s,
@@ -92,7 +92,7 @@ class ManageIQ::Providers::IbmPowerVc::Inventory::Parser::CloudManager < ManageI
     persister.vms_and_templates_advanced_settings.build(
       :resource     => server,
       :display_name => N_('Sharing mode'),
-      :name         => N_('dedicated_sharing_mode'),
+      :name         => 'dedicated_sharing_mode',
       :value        => vm.attributes['dedicated_sharing_mode'].to_s,
       :read_only    => true
     )
@@ -108,7 +108,7 @@ class ManageIQ::Providers::IbmPowerVc::Inventory::Parser::CloudManager < ManageI
     persister.vms_and_templates_advanced_settings.build(
       :resource     => server,
       :display_name => N_('Shared weight'),
-      :name         => N_('shared_weight'),
+      :name         => 'shared_weight',
       :value        => vm.attributes['shared_weight'].to_s,
       :read_only    => true
     )
@@ -116,7 +116,7 @@ class ManageIQ::Providers::IbmPowerVc::Inventory::Parser::CloudManager < ManageI
     persister.vms_and_templates_advanced_settings.build(
       :resource     => server,
       :display_name => N_('Shared processor pool'),
-      :name         => N_('shared_proc_pool_name'),
+      :name         => 'shared_proc_pool_name',
       :value        => vm.attributes['shared_proc_pool_name'].to_s,
       :read_only    => true
     )
@@ -124,7 +124,7 @@ class ManageIQ::Providers::IbmPowerVc::Inventory::Parser::CloudManager < ManageI
     persister.vms_and_templates_advanced_settings.build(
       :resource     => server,
       :display_name => N_('Processor compatibility mode'),
-      :name         => N_('current_compatibility_mode'),
+      :name         => 'current_compatibility_mode',
       :value        => vm.attributes['current_compatibility_mode'].to_s,
       :read_only    => true
     )
@@ -132,7 +132,7 @@ class ManageIQ::Providers::IbmPowerVc::Inventory::Parser::CloudManager < ManageI
     persister.vms_and_templates_advanced_settings.build(
       :resource     => server,
       :display_name => N_('Desired compatibility mode'),
-      :name         => N_('desired_compatibility_mode'),
+      :name         => 'desired_compatibility_mode',
       :value        => vm.attributes['desired_compatibility_mode'].to_s,
       :read_only    => true
     )
@@ -140,7 +140,7 @@ class ManageIQ::Providers::IbmPowerVc::Inventory::Parser::CloudManager < ManageI
     persister.vms_and_templates_advanced_settings.build(
       :resource     => server,
       :display_name => N_('Physical Page Table ratio'),
-      :name         => N_('ppt_ratio'),
+      :name         => 'ppt_ratio',
       :value        => vm.attributes['ppt_ratio'].to_s,
       :read_only    => true
     )
@@ -148,7 +148,7 @@ class ManageIQ::Providers::IbmPowerVc::Inventory::Parser::CloudManager < ManageI
     persister.vms_and_templates_advanced_settings.build(
       :resource     => server,
       :display_name => N_('Endianness'),
-      :name         => N_('endianness'),
+      :name         => 'endianness',
       :value        => vm.attributes['endianness'].to_s,
       :read_only    => true
     )
@@ -156,7 +156,7 @@ class ManageIQ::Providers::IbmPowerVc::Inventory::Parser::CloudManager < ManageI
     persister.vms_and_templates_advanced_settings.build(
       :resource     => server,
       :display_name => N_('AME Expansion Factor'),
-      :name         => N_('ame_expansion_factor'),
+      :name         => 'ame_expansion_factor',
       :value        => get_ame_factor(vm.attributes["ame_expansion_factor"].to_s),
       :read_only    => true
     )
@@ -164,7 +164,7 @@ class ManageIQ::Providers::IbmPowerVc::Inventory::Parser::CloudManager < ManageI
     persister.vms_and_templates_advanced_settings.build(
       :resource     => server,
       :display_name => N_('Enforce Affinity Check'),
-      :name         => N_('enforce_affinity_check'),
+      :name         => 'enforce_affinity_check',
       :value        => get_affinity_check(vm),
       :read_only    => true
     )
@@ -172,7 +172,7 @@ class ManageIQ::Providers::IbmPowerVc::Inventory::Parser::CloudManager < ManageI
     persister.vms_and_templates_advanced_settings.build(
       :resource     => server,
       :display_name => N_('Simplified Remote Restart Capability'),
-      :name         => N_('srr_capability'),
+      :name         => 'srr_capability',
       :value        => vm.attributes['srr_capability'].to_s,
       :read_only    => true
     )
@@ -180,7 +180,7 @@ class ManageIQ::Providers::IbmPowerVc::Inventory::Parser::CloudManager < ManageI
     persister.vms_and_templates_advanced_settings.build(
       :resource     => server,
       :display_name => N_('Simplified Remote Restart State'),
-      :name         => N_('srr_state'),
+      :name         => 'srr_state',
       :value        => vm.attributes['srr_state'].to_s,
       :read_only    => true
     )
