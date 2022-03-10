@@ -19,6 +19,19 @@ class ManageIQ::Providers::IbmPowerVc::CloudManager < ManageIQ::Providers::Opens
   supports :create
   supports :metrics
 
+  has_one :network_manager,
+          :foreign_key => :parent_ems_id,
+          :class_name  => "ManageIQ::Providers::IbmPowerVc::NetworkManager",
+          :autosave    => true,
+          :dependent   => :destroy
+
+  has_one :cinder_manager,
+          :foreign_key => :parent_ems_id,
+          :class_name  => "ManageIQ::Providers::IbmPowerVc::StorageManager::CinderManager",
+          :dependent   => :destroy,
+          :inverse_of  => :parent_manager,
+          :autosave    => true
+
   def self.vm_vendor
     "ibm_power_vc"
   end
@@ -449,17 +462,6 @@ class ManageIQ::Providers::IbmPowerVc::CloudManager < ManageIQ::Providers::Opens
   def connect(options = {})
     super(options)
     # TODO: here allow getting saved creds
-  end
-
-  def ensure_network_manager
-    build_network_manager(:type => 'ManageIQ::Providers::IbmPowerVc::NetworkManager') unless network_manager
-  end
-
-  def ensure_cinder_manager
-    return false if cinder_manager
-
-    build_cinder_manager(:type => 'ManageIQ::Providers::IbmPowerVc::StorageManager::CinderManager')
-    true
   end
 
   def ensure_swift_manager
