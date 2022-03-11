@@ -26,7 +26,6 @@ col_order:
 - hardware.cpu_total_cores
 - hardware.disks.device_type
 - processor_pin_policy
-- placement_group
 - hardware.num_disks
 - hardware.disks.size
 - ipaddresses
@@ -58,7 +57,6 @@ cols:
 - entitled_processors
 - processor_share_type
 - processor_pin_policy
-- placement_group
 - ipaddresses
 - mac_addresses
 template_type: report
@@ -73,7 +71,6 @@ headers:
 - vCPUs
 - Disk Tier
 - Pin Policy
-- Placement Group
 - "# of Disks"
 - Disk Size
 - IP Addresses
