@@ -18,6 +18,7 @@ class ManageIQ::Providers::IbmPowerVc::CloudManager < ManageIQ::Providers::Opens
 
   supports :create
   supports :metrics
+  supports :native_console
 
   has_one :network_manager,
           :foreign_key => :parent_ems_id,
@@ -34,6 +35,10 @@ class ManageIQ::Providers::IbmPowerVc::CloudManager < ManageIQ::Providers::Opens
 
   def self.vm_vendor
     "ibm_power_vc"
+  end
+
+  def console_url
+    "https://#{endpoint.hostname}"
   end
 
   def image_name
