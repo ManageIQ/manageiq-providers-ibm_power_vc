@@ -490,7 +490,7 @@ class ManageIQ::Providers::IbmPowerVc::CloudManager < ManageIQ::Providers::Opens
   end
 
   def authentication_status_ok?(type = nil)
-    return true if [:ssh_keypair, :node].include(type)
+    return true if [:ssh_keypair, :node].include?(type)
     super
   end
 
