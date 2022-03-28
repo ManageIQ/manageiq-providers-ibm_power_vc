@@ -1,4 +1,4 @@
-ManageIQ::Providers::Openstack::NetworkManager::FloatingIP.include(ActsAsStiLeafClass)
+ManageIQ::Providers::Openstack::NetworkManager::FloatingIp.include(ActsAsStiLeafClass)
 
-class ManageIQ::Providers::IbmPowerVc::NetworkManager::FloatingIP < ManageIQ::Providers::Openstack::NetworkManager::FloatingIP
+class ManageIQ::Providers::IbmPowerVc::NetworkManager::FloatingIp < ManageIQ::Providers::Openstack::NetworkManager::FloatingIp
 end

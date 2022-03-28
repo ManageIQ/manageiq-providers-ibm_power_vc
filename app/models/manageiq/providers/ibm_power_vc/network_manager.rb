@@ -4,7 +4,7 @@ class ManageIQ::Providers::IbmPowerVc::NetworkManager < ManageIQ::Providers::Ope
   require_nested :CloudNetwork
   require_nested :CloudSubnet
   require_nested :EventCatcher
-  require_nested :FloatingIP
+  require_nested :FloatingIp
   require_nested :NetworkPort
   require_nested :NetworkRouter
   require_nested :SecurityGroup
