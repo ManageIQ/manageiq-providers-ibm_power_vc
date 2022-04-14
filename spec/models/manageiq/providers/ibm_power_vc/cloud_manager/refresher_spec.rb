@@ -30,6 +30,8 @@ describe ManageIQ::Providers::IbmPowerVc::CloudManager::Refresher do
           assert_specific_cloud_tenant
           assert_specific_flavor
           assert_specific_vm
+          assert_cinder_manager
+          assert_network_manager
         end
       end
     end
@@ -42,6 +44,8 @@ describe ManageIQ::Providers::IbmPowerVc::CloudManager::Refresher do
       expect(ems.availability_zones.count).to be > 2
       expect(ems.flavors.count).to be > 2
       expect(ems.vms.count).to be > 1
+
+      expect(ems.type).to eq("ManageIQ::Providers::IbmPowerVc::CloudManager")
     end
 
     def assert_specific_availability_zone
@@ -100,6 +104,16 @@ describe ManageIQ::Providers::IbmPowerVc::CloudManager::Refresher do
         :raw_power_state  => "ACTIVE",
         :power_state      => "on"
       )
+    end
+
+    def assert_cinder_manager
+      cinder_manager = ManageIQ::Providers::StorageManager.find_by(:parent_ems_id => ems.id)
+      expect(cinder_manager.type).to eq("ManageIQ::Providers::IbmPowerVc::StorageManager::CinderManager")
+    end
+
+    def assert_network_manager
+      network_manager = ManageIQ::Providers::NetworkManager.find_by(:parent_ems_id => ems.id)
+      expect(network_manager.type).to eq("ManageIQ::Providers::IbmPowerVc::NetworkManager")
     end
 
     def with_vcr(suffix = nil, &block)
