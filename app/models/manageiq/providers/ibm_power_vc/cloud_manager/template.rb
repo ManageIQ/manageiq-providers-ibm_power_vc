@@ -65,13 +65,13 @@ class ManageIQ::Providers::IbmPowerVc::CloudManager::Template < ManageIQ::Provid
   end
 
   private_class_method def self.set_ssh_pkey_auth(dst_provider_id, pkey, unlock)
-    powervs = ExtManagementSystem.find(dst_provider_id)
-    powervs.create_ssh_pkey_auth(pkey, unlock)
+    powervc = ExtManagementSystem.find(dst_provider_id)
+    powervc.create_ssh_pkey_auth(pkey, unlock)
   end
 
   private_class_method def self.set_import_auth(dst_provider_id, key, iv, encr_cos_creds)
-    powervs = ExtManagementSystem.find(dst_provider_id)
-    powervs.create_import_auth(key, iv, encr_cos_creds)
+    powervc = ExtManagementSystem.find(dst_provider_id)
+    powervc.create_import_auth(key, iv, encr_cos_creds)
   end
 
   private_class_method def self.get_image_info(img_id)

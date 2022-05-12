@@ -22,7 +22,7 @@ class ManageIQ::Providers::IbmPowerVc::CloudManager::PvcImageImportWorkflow < Ma
   end
 
   def export_image_to_cos(options)
-    pvs = ExtManagementSystem.find(options[:src_provider_id])
+    pvc = ExtManagementSystem.find(options[:src_provider_id])
 
     message = nil
     signal = nil
@@ -44,8 +44,8 @@ class ManageIQ::Providers::IbmPowerVc::CloudManager::PvcImageImportWorkflow < Ma
       :secretKey  => secret_key,
     }
 
-    pvs.with_provider_connection(:service => 'PCloudImagesApi') do |api|
-      response = api.pcloud_cloudinstances_images_export_post(pvs.uid_ems, options[:img_id], body, {})
+    pvc.with_provider_connection(:service => 'PCloudImagesApi') do |api|
+      response = api.pcloud_cloudinstances_images_export_post(pvc.uid_ems, options[:img_id], body, {})
       context[:task_id] = response[:taskID]
       update!(:context => context)
 
