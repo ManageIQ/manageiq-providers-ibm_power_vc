@@ -14,7 +14,7 @@ module ManageIQ
                                                           :button         => :pvc_import_image,
                                                           :modal_title    => N_('Image Import Workflow'),
                                                           :component_name => 'PvcImportImageForm'}},
-                           :klass => ::ApplicationHelper::Button::ButtonWithoutRbacCheck
+                           :klass => ManageIQ::Providers::IbmPowerVc::CloudManager::PvcImageImportWorkflow::PvcImageImportButton
                          ),
                        ])
         end
