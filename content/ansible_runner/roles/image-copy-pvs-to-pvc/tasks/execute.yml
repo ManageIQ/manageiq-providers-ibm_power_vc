@@ -1,0 +1,32 @@
+- name: set sessions directory
+  set_fact:
+    sessions_dir: '/home/sessions'
+
+- name: execute role
+  block:
+    - fail: msg="<session_id> value is not set, will not proceed"
+      when: not session_id
+
+    - name: create session directory
+      tempfile: state=directory path="{{sessions_dir}}" prefix='miq_image_import_' suffix=".{{session_id}}"
+      register: session_dir
+
+    - name: copy the encrypted credentials file
+      template: src=templates/credentials.aes dest="{{session_dir.path}}/credentials.aes" mode=700
+
+    - name: copy the image download python script
+      copy: src=files/download_ova_from_bucket.py dest="{{session_dir.path}}/download_ova_from_bucket.py" mode=700
+
+    - name: execute OVA to COS bucket download script
+      shell: source {{sessions_dir}}/venv/bin/activate && python3 "{{session_dir.path}}/download_ova_from_bucket.py" "{{image_name}}.ova.gz" "{{session_dir.path}}/{{image_name}}.ova.gz"
+      environment:
+        CREDS_AES_KEY: "{{ lookup('env','CREDS_AES_KEY') }}"
+        CREDS_AES_IV:  "{{ lookup('env','CREDS_AES_IV')  }}"
+
+    - name: execute PVC image import from FS
+      shell: source {{powervc_rc}} && powervc-image import -p "{{session_dir.path}}/{{image_name}}.ova.gz" -t "{{disk_type}}"
+  
+  always:
+    - name: perform cleanup
+      file: state=absent path="{{session_dir.path}}"
+      when: session_dir is defined
