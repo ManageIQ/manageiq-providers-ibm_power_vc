@@ -15,7 +15,7 @@ class ManageIQ::Providers::IbmPowerVc::CloudManager::Template < ManageIQ::Provid
     session_id = SecureRandom.uuid
     wrkfl_timeout = options['timeout'].to_i.hours
 
-    cos = ExtManagementSystem.find(options['obj_storage_id'])
+    cos = ExtManagementSystem.find_by(:id => options['obj_storage_id'])
     raise MiqException::Error, _("unable to find cloud object storage by this id '#{options['obj_storage_id']}'") if cos.nil?
 
     location = ext_management_system.endpoint(:default).hostname
@@ -57,7 +57,7 @@ class ManageIQ::Providers::IbmPowerVc::CloudManager::Template < ManageIQ::Provid
       :cos_data        => cos_data,
       :import_creds_id => import_creds,
       :ssh_creds_id    => ssh_creds,
-      :playbook_path   => ManageIQ::Providers::IbmPowerVc::Engine.root.join("content/ansible_runner/run.yml"),
+      :playbook_path   => ManageIQ::Providers::IbmPowerVc::Engine.root.join("content/ansible_runner/image-copy-pvs-to-pvc.yml"),
     }
 
     _log.info("execute image import playbook")
@@ -100,7 +100,7 @@ class ManageIQ::Providers::IbmPowerVc::CloudManager::Template < ManageIQ::Provid
     [encr, key, iv]
   end
 
-  private_class_method def self.image_ems_ref(bucket_id)
-    MiqTemplate.find(bucket_id).uid_ems
+  private_class_method def self.image_ems_ref(image_id)
+    MiqTemplate.find(image_id).uid_ems
   end
 end
