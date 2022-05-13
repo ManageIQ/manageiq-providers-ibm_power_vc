@@ -1,6 +1,4 @@
-class ManageIQ::Providers::IbmPowerVc::CloudManager::PvcImageImportWorkflow < ManageIQ::Providers::AnsiblePlaybookWorkflow
-  require_nested :PvcImportDispatcher
-
+class ManageIQ::Providers::IbmPowerVc::CloudManager::PvcImageImportWorkflow < ::ImageImportJob
   def load_transitions
     super.merge(
       :pre_execute      => {'pre_execute'      => 'pre_execute_poll'},
