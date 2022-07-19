@@ -18,6 +18,15 @@
 /config/secrets.yml*
 /spec/manageiq
 
+/node_modules/
+/.pnp.*
+/.yarn/*
+!/.yarn/patches
+!/.yarn/plugins
+!/.yarn/releases
+!/.yarn/sdks
+!/.yarn/versions
+
 /lib/tasks_private/terraform/terraform.tfstate*
 /lib/tasks_private/terraform/*.log
 /lib/tasks_private/terraform/.terraform
