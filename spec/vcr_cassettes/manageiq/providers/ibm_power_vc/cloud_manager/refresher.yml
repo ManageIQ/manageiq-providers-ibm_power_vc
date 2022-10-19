@@ -29169,6 +29169,96 @@ http_interactions:
   recorded_at: Wed, 15 Dec 2021 17:48:59 GMT
 - request:
     method: get
+    uri: https://scnlpowercloud.pok.stglabs.ibm.com:8774/v2.1/0cb66eac4dbb42fba3a4455eb30e73fc/os-server-groups?limit=1000
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - fog-core/2.1.0
+      Content-Type:
+      - application/json
+      Accept:
+      - application/json
+      X-Auth-Token:
+      - gAAAAABhuinESiQ2eZoPgWRR5Odplr-9UlmhB_07F2tJ8etiAX2HE6AiWA0ljFQkpewHBZdczMoEvbIE-xF3_FqSY_qvlyQYLMXt0yj4IxABF_ivCm4-D_OXUOoQdNwXB32M2Dew-wr9bNMUFwsPAeT89h2tUQQKLv9ma_MiDBUM9VT7wC3cIa8PeT265_v-rOHyx5imcDJiWmmz8VgFd0tSDk6N0UaPurD5IIW2Gv3MtDso0C_haOE
+      X-Openstack-Nova-Api-Version:
+      - '2.15'
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Wed, 15 Dec 2021 17:49:06 GMT
+      Server:
+      - Apache
+      Content-Length:
+      - '21'
+      Content-Type:
+      - application/json
+      Openstack-Api-Version:
+      - compute 2.15
+      X-Openstack-Nova-Api-Version:
+      - '2.15'
+      Vary:
+      - OpenStack-API-Version,Accept-Encoding,User-Agent,X-OpenStack-Nova-API-Version
+      X-Openstack-Request-Id:
+      - req-acf73511-fe32-412c-b4fe-e17a29a26d64
+      X-Compute-Request-Id:
+      - req-acf73511-fe32-412c-b4fe-e17a29a26d64
+    body:
+      encoding: ASCII-8BIT
+      string: '{"server_groups": []}'
+    http_version:
+  recorded_at: Wed, 15 Dec 2021 17:48:59 GMT
+- request:
+    method: get
+    uri: https://scnlpowercloud.pok.stglabs.ibm.com:8774/v2.1/5e3ab887763e4015b5d6c68a194f971b/os-server-groups?limit=1000
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - fog-core/2.1.0
+      Content-Type:
+      - application/json
+      Accept:
+      - application/json
+      X-Auth-Token:
+      - gAAAAABhuinESiQ2eZoPgWRR5Odplr-9UlmhB_07F2tJ8etiAX2HE6AiWA0ljFQkpewHBZdczMoEvbIE-xF3_FqSY_qvlyQYLMXt0yj4IxABF_ivCm4-D_OXUOoQdNwXB32M2Dew-wr9bNMUFwsPAeT89h2tUQQKLv9ma_MiDBUM9VT7wC3cIa8PeT265_v-rOHyx5imcDJiWmmz8VgFd0tSDk6N0UaPurD5IIW2Gv3MtDso0C_haOE
+      X-Openstack-Nova-Api-Version:
+      - '2.15'
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Wed, 15 Dec 2021 17:49:06 GMT
+      Server:
+      - Apache
+      Content-Length:
+      - '21'
+      Content-Type:
+      - application/json
+      Openstack-Api-Version:
+      - compute 2.15
+      X-Openstack-Nova-Api-Version:
+      - '2.15'
+      Vary:
+      - OpenStack-API-Version,Accept-Encoding,User-Agent,X-OpenStack-Nova-API-Version
+      X-Openstack-Request-Id:
+      - req-acf73511-fe32-412c-b4fe-e17a29a26d64
+      X-Compute-Request-Id:
+      - req-acf73511-fe32-412c-b4fe-e17a29a26d64
+    body:
+      encoding: ASCII-8BIT
+      string: '{"server_groups": []}'
+    http_version:
+  recorded_at: Wed, 15 Dec 2021 17:48:59 GMT
+- request:
+    method: get
     uri: https://scnlpowercloud.pok.stglabs.ibm.com:8774/v2.1/0cb66eac4dbb42fba3a4455eb30e73fc/servers/detail?limit=1000
     body:
       encoding: US-ASCII
