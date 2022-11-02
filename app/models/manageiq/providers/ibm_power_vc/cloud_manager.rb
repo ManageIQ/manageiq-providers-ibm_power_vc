@@ -11,8 +11,10 @@ class ManageIQ::Providers::IbmPowerVc::CloudManager < ManageIQ::Providers::Opens
   require_nested :HostAggregate
   require_nested :MetricsCapture
   require_nested :MetricsCollectorWorker
+  require_nested :PlacementGroup
   require_nested :Refresher
   require_nested :RefreshWorker
+  require_nested :Snapshot
   require_nested :Template
   require_nested :Vm
 
