@@ -59,6 +59,10 @@ class ManageIQ::Providers::IbmPowerVc::CloudManager < ManageIQ::Providers::Opens
     "ibm_power_vc"
   end
 
+  def self.catalog_types
+    {"ibm_power_vc" => N_("PowerVC")}
+  end
+
   def self.params_for_create
     {
       :fields => [
