@@ -1,12 +1,12 @@
 # ManageIQ::Providers::IbmPowerVc
 
-[![CI](https://github.com/ManageIQ/manageiq-providers-ibm_power_vc/actions/workflows/ci.yaml/badge.svg)](https://github.com/ManageIQ/manageiq-providers-ibm_power_vc/actions/workflows/ci.yaml)
+[![CI](https://github.com/ManageIQ/manageiq-providers-ibm_power_vc/actions/workflows/ci.yaml/badge.svg?branch=petrosian)](https://github.com/ManageIQ/manageiq-providers-ibm_power_vc/actions/workflows/ci.yaml)
 [![Maintainability](https://api.codeclimate.com/v1/badges/ca08315939e0235081cb/maintainability)](https://codeclimate.com/github/ManageIQ/manageiq-providers-ibm_power_vc/maintainability)
 [![Test Coverage](https://api.codeclimate.com/v1/badges/ca08315939e0235081cb/test_coverage)](https://codeclimate.com/github/ManageIQ/manageiq-providers-ibm_power_vc/test_coverage)
 
 [![Chat](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/ManageIQ/manageiq-providers-ibm_power_vc?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
-[![Build history for master branch](https://buildstats.info/github/chart/ManageIQ/manageiq-providers-ibm_power_vc?branch=master&buildCount=50&includeBuildsFromPullRequest=false&showstats=false)](https://github.com/ManageIQ/manageiq-providers-ibm_power_vc/actions?query=branch%3Amaster)
+[![Build history for petrosian branch](https://buildstats.info/github/chart/ManageIQ/manageiq-providers-ibm_power_vc?branch=petrosian&buildCount=50&includeBuildsFromPullRequest=false&showstats=false)](https://github.com/ManageIQ/manageiq-providers-ibm_power_vc/actions?query=branch%3Amaster)
 
 ManageIQ plugin for the [IBM PowerVC](https://www.ibm.com/products/powervc) provider.   
 This plugin supports IBM PowerVC **v1.4.4 or higher**.
