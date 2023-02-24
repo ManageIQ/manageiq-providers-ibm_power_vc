@@ -6,6 +6,7 @@ class ManageIQ::Providers::IbmPowerVc::CloudManager < ManageIQ::Providers::Opens
   require_nested :AvailabilityZoneNull
   require_nested :CloudResourceQuota
   require_nested :CloudTenant
+  require_nested :ProvisionWorkflow
   require_nested :EventCatcher
   require_nested :Flavor
   require_nested :HostAggregate
@@ -18,6 +19,7 @@ class ManageIQ::Providers::IbmPowerVc::CloudManager < ManageIQ::Providers::Opens
   require_nested :Template
   require_nested :Vm
 
+  supports :catalog
   supports :create
   supports :metrics
   supports :native_console
@@ -57,6 +59,10 @@ class ManageIQ::Providers::IbmPowerVc::CloudManager < ManageIQ::Providers::Opens
 
   def image_name
     "ibm_power_vc"
+  end
+
+  def self.catalog_types
+    {"ibm_power_vc" => N_("IBM PowerVC")}
   end
 
   def self.params_for_create
