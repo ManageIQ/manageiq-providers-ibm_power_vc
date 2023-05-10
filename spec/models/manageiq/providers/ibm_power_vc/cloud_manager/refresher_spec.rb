@@ -2,8 +2,8 @@ describe ManageIQ::Providers::IbmPowerVc::CloudManager::Refresher do
   let(:zone) { EvmSpecHelper.create_guid_miq_server_zone.last }
   let(:ems) { FactoryBot.create(:ems_ibm_power_vc_with_vcr_authentication, :zone => zone) }
   let(:tenantid) { 'c619880eed614ec382ca0326ad62753c' }
-  let(:flavorid) { 'ef3e3fab78675f63f134dd0a9c62d56c' }
-  let(:instid) { 'b8e4ca04-abd3-4c1a-b03c-c5b80fb33c49' }
+  let(:flavorid) { 'f7afb3c0a38781004f1f2aeef49a9a9c' }
+  let(:instid) { 'c345615d-6cfa-4e5a-8844-fb0c92a8cda9' }
   let(:azone) { 'p8_pvm' }
   let(:imageid) { 'a426dcdc-0d22-40dd-945a-f46b4a77bdb0' }
   let(:networkid) { '48b48f3a-80da-4a37-a10e-4b3382f69100' }
@@ -61,15 +61,15 @@ describe ManageIQ::Providers::IbmPowerVc::CloudManager::Refresher do
     def assert_specific_flavor
       flavor = ems.flavors.find_by(:ems_ref => flavorid)
       expect(flavor).to have_attributes(
-        :name                 => "ef3e3fab78675f63f134dd0a9c62d56c",
+        :name                 => "f7afb3c0a38781004f1f2aeef49a9a9c",
         :cpu_total_cores      => 1,
         :cpu_cores_per_socket => nil,
-        :memory               => 4_294_967_296,
+        :memory               => 2_147_483_648,
         :ems_ref              => flavorid,
         :type                 => "ManageIQ::Providers::IbmPowerVc::CloudManager::Flavor",
         :ephemeral_disk_size  => 0,
         :ephemeral_disk_count => 0,
-        :root_disk_size       => 0,
+        :root_disk_size       => 21_474_836_480,
         :swap_disk_size       => 0,
         :publicly_available   => false,
         :cpu_sockets          => 1
@@ -80,7 +80,7 @@ describe ManageIQ::Providers::IbmPowerVc::CloudManager::Refresher do
       vm = ems.vms.find_by(:ems_ref => instid)
       expect(vm).to have_attributes(
         :vendor           => "ibm_power_vc",
-        :name             => "miq-testvm",
+        :name             => "PerfCollectVM",
         :description      => nil,
         :location         => "unknown",
         :uid_ems          => instid,
