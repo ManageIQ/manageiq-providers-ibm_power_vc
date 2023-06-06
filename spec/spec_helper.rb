@@ -13,12 +13,19 @@ def sanitizer(interaction)
   interaction.response.body.gsub!(/"host": "[^"]*?"/, '"host": "powervc.local"')
 end
 
+def fix_token_expires_at(interaction)
+  data = JSON.parse(interaction.response.body)
+  data["token"]["expires_at"] = "9999-12-31T23:59:59.999999Z"
+  interaction.response.body = data.to_json.force_encoding('ASCII-8BIT')
+end
+
 VCR.configure do |config|
   config.ignore_hosts 'codeclimate.com' if ENV['CI']
   config.cassette_library_dir = File.join(ManageIQ::Providers::IbmPowerVc::Engine.root, 'spec/vcr_cassettes')
 
   config.before_record do |i|
     sanitizer(i)
+    fix_token_expires_at(i) if i.request.uri.end_with?("v3/auth/tokens")
   end
 
   config.define_cassette_placeholder(Rails.application.secrets.ibm_power_vc_defaults[:hostname]) do
