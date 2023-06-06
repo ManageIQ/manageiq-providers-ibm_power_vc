@@ -5,6 +5,7 @@ end
 
 Dir[Rails.root.join("spec/shared/**/*.rb")].each { |f| require f }
 Dir[File.join(__dir__, "support/**/*.rb")].each { |f| require f }
+Dir[ManageIQ::Providers::Openstack::Engine.root.join("spec/support/**/*.rb")].sort.each { |f| require f }
 
 require "manageiq/providers/ibm_power_vc"
 
@@ -19,6 +20,7 @@ VCR.configure do |config|
 
   config.before_record do |i|
     sanitizer(i)
+    fix_token_expires_at_interaction(i)
   end
 
   config.define_cassette_placeholder(Rails.application.secrets.ibm_power_vc_defaults[:hostname]) do
