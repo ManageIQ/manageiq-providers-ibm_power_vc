@@ -220,16 +220,6 @@ class ManageIQ::Providers::IbmPowerVc::CloudManager < ManageIQ::Providers::Opens
                         :label => _('Ceilometer'),
                         :value => 'ceilometer',
                       },
-                      {
-                        :label => _('STF'),
-                        :value => 'stf',
-                        :pivot => 'endpoints.stf.hostname',
-                      },
-                      {
-                        :label => _('AMQP'),
-                        :value => 'amqp',
-                        :pivot => 'endpoints.amqp.hostname',
-                      },
                     ],
                   },
                   {
@@ -244,110 +234,6 @@ class ManageIQ::Providers::IbmPowerVc::CloudManager < ManageIQ::Providers::Opens
                       :is   => 'ceilometer',
                     },
                   },
-                  {
-                    :component              => 'validate-provider-credentials',
-                    :id                     => 'endpoints.amqp.valid',
-                    :name                   => 'endpoints.amqp.valid',
-                    :skipSubmit             => true,
-                    :isRequired             => true,
-                    :validationDependencies => %w[type event_stream_selection],
-                    :condition              => {
-                      :when => 'event_stream_selection',
-                      :is   => 'amqp',
-                    },
-                    :fields                 => [
-                      {
-                        :component  => "text-field",
-                        :id         => "endpoints.amqp.hostname",
-                        :name       => "endpoints.amqp.hostname",
-                        :label      => _("Hostname (or IPv4 or IPv6 address)"),
-                        :isRequired => true,
-                        :validate   => [{:type => "required"}],
-                      },
-                      {
-                        :component    => "text-field",
-                        :id           => "endpoints.amqp.port",
-                        :name         => "endpoints.amqp.port",
-                        :label        => _("API Port"),
-                        :type         => "number",
-                        :isRequired   => true,
-                        :initialValue => 5672,
-                        :validate     => [{:type => "required"}],
-                      },
-                      {
-                        :component  => "text-field",
-                        :id         => "authentications.amqp.userid",
-                        :name       => "authentications.amqp.userid",
-                        :label      => "Username",
-                        :isRequired => true,
-                        :validate   => [{:type => "required"}],
-                      },
-                      {
-                        :component  => "password-field",
-                        :id         => "authentications.amqp.password",
-                        :name       => "authentications.amqp.password",
-                        :label      => "Password",
-                        :type       => "password",
-                        :isRequired => true,
-                        :validate   => [{:type => "required"}],
-                      },
-                    ],
-                  },
-                  {
-                    :component              => 'validate-provider-credentials',
-                    :id                     => 'endpoints.stf.valid',
-                    :name                   => 'endpoints.stf.valid',
-                    :skipSubmit             => true,
-                    :isRequired             => true,
-                    :validationDependencies => %w[type event_stream_selection],
-                    :condition              => {
-                      :when => 'event_stream_selection',
-                      :is   => 'stf',
-                    },
-                    :fields                 => [
-                      {
-                        :component    => "select",
-                        :id           => "endpoints.stf.security_protocol",
-                        :name         => "endpoints.stf.security_protocol",
-                        :label        => _("Security Protocol"),
-                        :isRequired   => true,
-                        :initialValue => 'ssl-with-validation',
-                        :validate     => [{:type => "required"}],
-                        :options      => [
-                          {
-                            :label => _("SSL without validation"),
-                            :value => "ssl-no-validation"
-                          },
-                          {
-                            :label => _("SSL"),
-                            :value => "ssl-with-validation"
-                          },
-                          {
-                            :label => _("Non-SSL"),
-                            :value => "non-ssl"
-                          }
-                        ]
-                      },
-                      {
-                        :component  => "text-field",
-                        :id         => "endpoints.stf.hostname",
-                        :name       => "endpoints.stf.hostname",
-                        :label      => _("Hostname (or IPv4 or IPv6 address)"),
-                        :isRequired => true,
-                        :validate   => [{:type => "required"}],
-                      },
-                      {
-                        :component    => "text-field",
-                        :id           => "endpoints.stf.port",
-                        :name         => "endpoints.stf.port",
-                        :label        => _("API Port"),
-                        :type         => "number",
-                        :isRequired   => true,
-                        :initialValue => 5666,
-                        :validate     => [{:type => "required"}],
-                      },
-                    ]
-                  }
                 ],
               },
               {
