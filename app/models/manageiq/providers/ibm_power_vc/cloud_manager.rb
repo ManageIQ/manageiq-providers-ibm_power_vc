@@ -138,7 +138,7 @@ class ManageIQ::Providers::IbmPowerVc::CloudManager < ManageIQ::Providers::Opens
                     :name                   => 'authentications.default.valid',
                     :skipSubmit             => true,
                     :isRequired             => true,
-                    :validationDependencies => %w[name type api_version provider_region uid_ems],
+                    :validationDependencies => %w[name type zone_id api_version provider_region uid_ems],
                     :fields                 => [
                       {
                         :component    => "select",
