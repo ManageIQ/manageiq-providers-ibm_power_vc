@@ -1,6 +1,4 @@
 class ManageIQ::Providers::IbmPowerVc::CloudManager::MetricsCollectorWorker < ManageIQ::Providers::BaseManager::MetricsCollectorWorker
-  require_nested :Runner
-
   self.default_queue_name = "ibm_power_vc"
 
   def friendly_name
