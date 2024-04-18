@@ -19,6 +19,7 @@ describe ManageIQ::Providers::IbmPowerVc::CloudManager::Refresher do
           assert_specific_cloud_tenant
           assert_specific_flavor
           assert_specific_vm
+          assert_specific_operating_system
           assert_cinder_manager
           assert_network_manager
         end
@@ -92,6 +93,15 @@ describe ManageIQ::Providers::IbmPowerVc::CloudManager::Refresher do
         :cloud_tenant     => ems.cloud_tenants.find_by(:ems_ref => tenantid),
         :raw_power_state  => "ACTIVE",
         :power_state      => "on"
+      )
+    end
+
+    def assert_specific_operating_system
+      vm = ems.vms.find_by(:ems_ref => instid)
+      os = vm.operating_system
+      expect(os).to have_attributes(
+        :product_name => "linux_redhat",
+        :name         => "Linux/CentOS Stream 4.18.0-408.el8.ppc64le 8"
       )
     end
 

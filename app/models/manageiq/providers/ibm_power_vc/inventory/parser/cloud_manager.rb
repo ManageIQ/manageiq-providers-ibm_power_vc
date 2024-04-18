@@ -3,6 +3,9 @@ class ManageIQ::Providers::IbmPowerVc::Inventory::Parser::CloudManager < ManageI
     super
     server = persister.vms.find_or_build(vm.id.to_s)
 
+    operating_system = persister.operating_systems.find(server)
+    operating_system.name = vm.attributes['operating_system'].to_s if vm.attributes.key?('operating_system')
+
     persister.vms_and_templates_advanced_settings.build(
       :resource     => server,
       :display_name => N_('Operating system'),
