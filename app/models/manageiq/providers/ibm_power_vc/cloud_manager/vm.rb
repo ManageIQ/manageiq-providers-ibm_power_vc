@@ -2,9 +2,13 @@ ManageIQ::Providers::Openstack::CloudManager::Vm.include(ActsAsStiLeafClass)
 
 class ManageIQ::Providers::IbmPowerVc::CloudManager::Vm < ManageIQ::Providers::Openstack::CloudManager::Vm
   supports :html5_console do
-    return _("VM Console not supported because VM is not powered on") unless current_state == "on"
-    return _("VM Console not supported because VM is orphaned")       if orphaned?
-    return _("VM Console not supported because VM is archived")       if archived?
+    if current_state != "on"
+      _("VM Console not supported because VM is not powered on")
+    elsif orphaned?
+      _("VM Console not supported because VM is orphaned")
+    elsif archived?
+      _("VM Console not supported because VM is archived")
+    end
   end
   supports :launch_html5_console
 
