@@ -23,23 +23,14 @@ VCR.configure do |config|
     fix_token_expires_at_interaction(i)
   end
 
-  config.define_cassette_placeholder(Rails.application.secrets.ibm_power_vc_defaults[:hostname]) do
-    Rails.application.secrets.ibm_power_vc[:hostname]
-  end
-  config.define_cassette_placeholder(Rails.application.secrets.ibm_power_vc_defaults[:user_id]) do
-    Rails.application.secrets.ibm_power_vc[:user_id]
-  end
-  config.define_cassette_placeholder(Rails.application.secrets.ibm_power_vc_defaults[:password]) do
-    Rails.application.secrets.ibm_power_vc[:password]
-  end
-
   config.filter_sensitive_data('IBM_POWER_VC_AUTHORIZATION') do |interaction|
     interaction.request.headers['X-Auth-Token'].first if interaction.request.headers.key?('X-Auth-Token')
   end
-
   %w[X-Subject-Token X-Openstack-Request-Id X-Compute-Request-Id].each do |key|
     config.filter_sensitive_data('IBM_POWER_VC_AUTHORIZATION') do |interaction|
       interaction.response.headers[key].first if interaction.response.headers.key?(key)
     end
   end
+
+  VcrSecrets.define_all_cassette_placeholders(config, :ibm_power_vc)
 end
