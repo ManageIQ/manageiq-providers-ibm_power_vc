@@ -11,11 +11,10 @@
 .rubocop-*
 /bundler.d/*
 !/bundler.d/.keep
-/config/secrets.yml
 /config/settings.local.yml
 /config/settings/*.local.yml
 /config/environments/*.local.yml
-/config/secrets.yml*
+/spec/config/secrets.yml
 /spec/manageiq
 
 /node_modules/
