@@ -19,6 +19,13 @@ class ManageIQ::Providers::IbmPowerVc::CloudManager < ManageIQ::Providers::Opens
           :inverse_of  => :parent_manager,
           :autosave    => true
 
+  has_many :ibm_power_hmcs,
+           :foreign_key => :parent_ems_id,
+           :class_name  => "ManageIQ::Providers::IbmPowerHmc::InfraManager",
+           :dependent   => :nullify,
+           :inverse_of  => :parent_manager,
+           :autosave    => true
+
   has_many :ssh_auths,
            :foreign_key => :resource_id,
            :class_name  => "ManageIQ::Providers::IbmPowerVc::CloudManager::PvcImageImportWorkflow::SshPkeyAuth",
