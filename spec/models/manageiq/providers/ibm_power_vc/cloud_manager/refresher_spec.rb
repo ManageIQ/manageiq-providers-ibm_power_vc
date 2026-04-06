@@ -26,6 +26,17 @@ describe ManageIQ::Providers::IbmPowerVc::CloudManager::Refresher do
       end
     end
 
+    context "reconnects HMC VMs" do
+      let!(:power_hmc_vios) { FactoryBot.create(:ibm_power_hmc_vios, :uid_ems => "abcd", :ems_ref => "abcd") }
+
+      it "reconnects the HMC Vios" do
+        with_vcr { refresh(ems) }
+
+        # power_hmc_vios can't be reloaded here because the :type column changed
+        expect(ems.vms.find_by(:ems_ref => power_hmc_vios.ems_ref).id).to eq(power_hmc_vios.id)
+      end
+    end
+
     def assert_ems
       expect(ems.last_refresh_error).to be_nil
       expect(ems.last_refresh_date).not_to be_nil

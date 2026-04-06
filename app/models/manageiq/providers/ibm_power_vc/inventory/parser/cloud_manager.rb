@@ -1,4 +1,16 @@
 class ManageIQ::Providers::IbmPowerVc::Inventory::Parser::CloudManager < ManageIQ::Providers::Openstack::Inventory::Parser::CloudManager
+  def vms
+    super
+
+    persister.vms.build(
+      :name    => "HMC VM",
+      :ems_ref => "abcd",
+      :uid_ems => "abcd",
+      :location => "earth",
+      :type     => "ManageIQ::Providers::IbmPowerVc::CloudManager::Vm"
+    )
+  end
+
   def parse_vm(vm, hosts)
     super
     server = persister.vms.find_or_build(vm.id.to_s)
