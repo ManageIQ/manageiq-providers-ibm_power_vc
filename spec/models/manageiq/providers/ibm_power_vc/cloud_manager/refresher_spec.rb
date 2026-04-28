@@ -12,10 +12,7 @@ describe ManageIQ::Providers::IbmPowerVc::CloudManager::Refresher do
     context "full refresh" do
       it "Performs a full refresh" do
         2.times do
-          with_vcr do
-            reset_cache
-            refresh(ems)
-          end
+          with_vcr { refresh(ems) }
 
           assert_ems
           assert_specific_availability_zone
@@ -25,6 +22,54 @@ describe ManageIQ::Providers::IbmPowerVc::CloudManager::Refresher do
           assert_specific_operating_system
           assert_cinder_manager
           assert_network_manager
+        end
+      end
+    end
+
+    describe "reconnects PowerVC VMs" do
+      let!(:archived_vm) { FactoryBot.create(:vm_ibm_power_vc, :ems_id => nil, :uid_ems => instid, :ems_ref => instid) }
+
+      it "reconnects the VM" do
+        with_vcr { refresh(ems) }
+
+        expect(archived_vm.reload.ext_management_system).to eq(ems)
+      end
+    end
+
+    describe "reconnects HMC VMs" do
+      context "with an archived HMC" do
+        let!(:power_hmc_vios) { FactoryBot.create(:ibm_power_hmc_vios, :uid_ems => instid, :ems_ref => instid) }
+
+        it "reconnects the HMC Vios" do
+          with_vcr { refresh(ems) }
+
+          # power_hmc_vios can't be reloaded here because the :type column changed
+          expect(ems.vms.find_by(:ems_ref => power_hmc_vios.ems_ref).id).to eq(power_hmc_vios.id)
+        end
+      end
+
+      context "with an active HMC vm" do
+        let!(:power_hmc_vios) { FactoryBot.create(:ibm_power_hmc_vios, :uid_ems => instid, :ems_ref => instid, :ext_management_system => ems_hmc) }
+
+        context "that is linked with our PowerVC provider" do
+          let(:ems_hmc) { FactoryBot.create(:ems_ibm_power_hmc_infra, :zone => zone, :parent_manager => ems) }
+
+          it "reconnects the HMC Vios" do
+            with_vcr { refresh(ems) }
+
+            # power_hmc_vios can't be reloaded here because the :type column changed
+            expect(ems.vms.find_by(:ems_ref => power_hmc_vios.ems_ref).id).to eq(power_hmc_vios.id)
+          end
+        end
+
+        context "that is not linked with our PowerVC provider" do
+          let(:ems_hmc) { FactoryBot.create(:ems_ibm_power_hmc_infra, :zone => zone) }
+
+          it "doesn't reconnect the HMC Vios" do
+            with_vcr { refresh(ems) }
+
+            expect(ems.vms.find_by(:ems_ref => power_hmc_vios.ems_ref).id).not_to eq(power_hmc_vios.id)
+          end
         end
       end
     end
@@ -133,6 +178,7 @@ describe ManageIQ::Providers::IbmPowerVc::CloudManager::Refresher do
     end
 
     def refresh(targets)
+      reset_cache
       described_class.refresh(Array(targets))
     end
   end
