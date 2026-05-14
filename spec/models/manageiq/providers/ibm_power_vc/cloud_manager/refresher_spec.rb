@@ -11,8 +11,11 @@ describe ManageIQ::Providers::IbmPowerVc::CloudManager::Refresher do
   describe "#refresh" do
     context "full refresh" do
       it "Performs a full refresh" do
-        1.times do
-          with_vcr { refresh(ems) }
+        2.times do
+          with_vcr do
+            reset_cache
+            refresh(ems)
+          end
 
           assert_ems
           assert_specific_availability_zone
@@ -24,6 +27,13 @@ describe ManageIQ::Providers::IbmPowerVc::CloudManager::Refresher do
           assert_network_manager
         end
       end
+    end
+
+    def reset_cache
+      ems.reset_openstack_handle
+
+      require "fog/openstack"
+      Fog::OpenStack.instance_variable_set(:@version, nil)
     end
 
     def assert_ems
