@@ -7,10 +7,14 @@
     :parallel_thread_limit: 0
   :ibm_power_vc_network:
     :is_admin: false
+    :refresh_interval: 0
   :ibm_power_vc_infra:
     :is_admin: false
-  :cinder:
+  :ibm_power_vc_cinder:
     :is_admin: false
+    :refresh_interval: 0
+  :ibm_power_vc_swift:
+    :refresh_interval: 0
 :ems:
   :ems_ibm_power_vc:
     :min_supported_rel: '1.4.4'
