@@ -88,11 +88,6 @@ const PvcImportImageForm = ({ dispatch }) => {
 
 PvcImportImageForm.propTypes = {
     dispatch: PropTypes.func.isRequired,
-    closefunc: PropTypes.func.isRequired
-};
-
-PvcImportImageForm.defaultProps = {
-    closefunc: () => { ManageIQ.redux.store.dispatch({ type: 'FormButtons.reset' }) }
 };
 
 export default connect()(PvcImportImageForm);
