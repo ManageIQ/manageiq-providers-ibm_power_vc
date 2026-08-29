@@ -4,7 +4,7 @@ class ManageIQ::Providers::IbmPowerVc::CloudManager < ManageIQ::Providers::Opens
   supports :catalog
   supports :create
   supports :metrics
-  supports :native_console
+  supports :management_console
 
   has_one :network_manager,
           :foreign_key => :parent_ems_id,
